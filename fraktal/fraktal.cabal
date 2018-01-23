@@ -1,0 +1,66 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: e29fbdd385a0d4fcece4e2136756de1aa361df92c7fe7555df417bf733c95ae9
+
+name:           fraktal
+version:        0.1.0.0
+description:    Please see the README on Github at <https://github.com/githubuser/fraktal#readme>
+homepage:       https://github.com/githubuser/fraktal#readme
+bug-reports:    https://github.com/githubuser/fraktal/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2018 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/fraktal
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , gloss
+  exposed-modules:
+      DrawFractal
+    , GenerateString
+    , GeneratePoints
+  other-modules:
+      Paths_fraktal
+  default-language: Haskell2010
+
+executable fraktal-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , gloss
+    , fraktal
+  other-modules:
+      Paths_fraktal
+  default-language: Haskell2010
+
+test-suite fraktal-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , fraktal
+  other-modules:
+      Paths_fraktal
+  default-language: Haskell2010
