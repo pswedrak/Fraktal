@@ -3,11 +3,11 @@ module GeneratePoints
 	)
 where
 
-generatePoints :: (Double,Double) -> Double -> String -> Double -> [(Double,Double)]
-generatePoints (x, y) _ [] n = []
-generatePoints (x, y) angle (head:tail) n = case head of 
-    'F' -> [((n * cos (angle) + x), (n * sin (angle) + y))]++ generatePoints ((n * cos (angle) + x), (n * sin (angle) + y)) angle tail n
-    '+' -> generatePoints (x, y) (angle+(pi/3)) tail n
-    '-' -> generatePoints (x, y) (angle-(pi/3)) tail n
+generatePoints :: (Double,Double) -> Double -> Double -> String -> Double -> [(Double,Double)]
+generatePoints (x, y) _ _ [] n = []
+generatePoints (x, y) startAngle changeAngle (head:tail) n = case head of 
+    'F' -> [((n * cos (startAngle) + x), (n * sin (startAngle) + y))]++ generatePoints ((n * cos (startAngle) + x), (n * sin (startAngle) + y)) startAngle changeAngle tail n
+    '+' -> generatePoints (x, y) (startAngle + changeAngle) changeAngle tail n
+    '-' -> generatePoints (x, y) (startAngle - changeAngle) changeAngle tail n
    
   
