@@ -1,0 +1,549 @@
+
+==================== FINAL INTERFACE ====================
+2018-01-24 18:38:23.6552663 UTC
+
+interface fraktal-0.1.0.0-JRSUm4EgzmVIDYwbtxpsJz:Paths_fraktal 8022
+  interface hash: b423da22d3b7f554d6a58fbdf04266bb
+  ABI hash: 58fe454b55f47fb216ba9506cac74705
+  export-list hash: 9fc479eef10271615a75f0dc437961b0
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 2fbb50233c83fb0506949a6d10bd1ed1
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Paths_fraktal.getBinDir
+  Paths_fraktal.getDataDir
+  Paths_fraktal.getDataFileName
+  Paths_fraktal.getDynLibDir
+  Paths_fraktal.getLibDir
+  Paths_fraktal.getLibexecDir
+  Paths_fraktal.getSysconfDir
+  Paths_fraktal.version
+module dependencies:
+package dependencies: base-4.10.1.0* ghc-prim-0.5.1.1
+                      integer-gmp-1.0.1.0
+orphans: base-4.10.1.0:GHC.Float base-4.10.1.0:GHC.Base
+family instance modules: base-4.10.1.0:Control.Applicative
+                         base-4.10.1.0:Data.Either base-4.10.1.0:Data.Functor.Const
+                         base-4.10.1.0:Data.Functor.Identity base-4.10.1.0:Data.Monoid
+                         base-4.10.1.0:Data.Type.Equality base-4.10.1.0:Data.Version
+                         base-4.10.1.0:GHC.Generics base-4.10.1.0:GHC.IO.Exception
+                         base-4.10.1.0:GHC.TypeLits base-4.10.1.0:GHC.TypeNats
+import  -/  base-4.10.1.0:Control.Exception 10a93951a12b353c5e2f1a6633fdc96a
+import  -/  base-4.10.1.0:Data.Version fb7d0bf98d37850f376de5c61da612cf
+import  -/  base-4.10.1.0:GHC.Base 8f949d675e49677c272f02ab7a85fe18
+import  -/  base-4.10.1.0:GHC.IO ffb6b887fa949015e657b932c980d82f
+import  -/  base-4.10.1.0:GHC.IO.Exception 38ca48fbdecf2c387d8befe4fee9e9ed
+import  -/  base-4.10.1.0:Prelude a93a9400cc0c816c2ee5f39399baa7a0
+import  -/  base-4.10.1.0:System.Environment 29b8ecc18446119a33172a40409ab016
+import  -/  ghc-prim-0.5.1.1:GHC.Types b1fd0716441595db508c1a74387bf394
+addDependentFile "C:\Users\piotr\AppData\Local\Programs\stack\x86_64-windows\ghc-8.2.2\lib\include\ghcversion.h"
+addDependentFile ".stack-work\dist\5c8418a7\build\autogen\cabal_macros.h"
+2a68a54f0aeea5f2205917daa45c45e4
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   Paths_fraktal.$trModule3
+                   Paths_fraktal.$trModule1) -}
+a7da10a183849f76227d1e634641889d
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Paths_fraktal.$trModule2) -}
+1b9059d2e563477183263f1be3797ec0
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Paths_fraktal"#) -}
+6c104e8ddff135eacb51cb3c4cc8e6ed
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Paths_fraktal.$trModule4) -}
+11fd59fa70283abf3ddda58e11a4e9ee
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("fraktal-0.1.0.0-JRSUm4EgzmVIDYwbtxpsJz"#) -}
+3ddc0ef5eb3c69c52c022a924d78fee4
+  getBinDir :: GHC.Types.IO GHC.IO.FilePath
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Paths_fraktal.getBinDir1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
+e47c509dd0c86ae43cc96ff710747561
+  getBinDir1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 GHC.Prim.catch#
+                   @ GHC.Base.String
+                   @ GHC.Exception.SomeException
+                   Paths_fraktal.getBinDir5
+                   Paths_fraktal.getBinDir2
+                   eta) -}
+be9ea9afdc6a59a155db758c6e11a676
+  getBinDir2 ::
+    GHC.Exception.SomeException
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 2, Strictness: <S,1*U><S,U>,
+     Unfolding: (\ (e1 :: GHC.Exception.SomeException)[OneShot]
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case e1 of wild { GHC.Exception.SomeException e2 $dException1 e3 ->
+                 case Data.Typeable.Internal.eqTypeRep
+                        @ *
+                        @ *
+                        @ e2
+                        @ GHC.IO.Exception.IOException
+                        (GHC.Exception.$p1Exception @ e2 $dException1)
+                          `cast`
+                        (Data.Typeable.Internal.N:Typeable[0] <*>_N <e2>_N)
+                        GHC.IO.Exception.$fExceptionIOException4 of wild1 {
+                   GHC.Base.Nothing
+                   -> GHC.Prim.raiseIO#
+                        @ GHC.Exception.SomeException
+                        @ GHC.Base.String
+                        wild
+                        eta
+                   GHC.Base.Just ds1
+                   -> case ds1 of wild2 { Data.Type.Equality.HRefl cobox cobox1 ->
+                      (# eta, Paths_fraktal.getBinDir3 #) } } }) -}
+54053d8c1a2227295e0e0d75a2103b25
+  getBinDir3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Paths_fraktal.getBinDir4) -}
+619256726ee41a7ef49725b23c1a390f
+  getBinDir4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("C:\\Users\\piotr\\haskell-projekt\\fraktal\\.stack-work\\install\\ccbce92a\\bin"#) -}
+7c9211ba352a90417d0e8cf1d5bb613b
+  getBinDir5 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 1,
+     Unfolding: (System.Environment.getEnv1 Paths_fraktal.getBinDir6) -}
+0613801c4e9b8724ddc8cf3f7c28d1c6
+  getBinDir6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Paths_fraktal.getBinDir7) -}
+e4a48978a0edc066a03ca5a455c974a4
+  getBinDir7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("fraktal_bindir"#) -}
+ba426a5adaab13c10742c5c4ecea729a
+  getDataDir :: GHC.Types.IO GHC.IO.FilePath
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Paths_fraktal.getDataDir1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
+d7ef0f078f2892a33258a656b7030c11
+  getDataDir1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 GHC.Prim.catch#
+                   @ GHC.Base.String
+                   @ GHC.Exception.SomeException
+                   Paths_fraktal.getDataDir5
+                   Paths_fraktal.getDataDir2
+                   eta) -}
+f3c7bf1f362ab0f5b7f2342f4b7dcc2a
+  getDataDir2 ::
+    GHC.Exception.SomeException
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 2, Strictness: <S,1*U><S,U>,
+     Unfolding: (\ (e1 :: GHC.Exception.SomeException)[OneShot]
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case e1 of wild { GHC.Exception.SomeException e2 $dException1 e3 ->
+                 case Data.Typeable.Internal.eqTypeRep
+                        @ *
+                        @ *
+                        @ e2
+                        @ GHC.IO.Exception.IOException
+                        (GHC.Exception.$p1Exception @ e2 $dException1)
+                          `cast`
+                        (Data.Typeable.Internal.N:Typeable[0] <*>_N <e2>_N)
+                        GHC.IO.Exception.$fExceptionIOException4 of wild1 {
+                   GHC.Base.Nothing
+                   -> GHC.Prim.raiseIO#
+                        @ GHC.Exception.SomeException
+                        @ GHC.Base.String
+                        wild
+                        eta
+                   GHC.Base.Just ds1
+                   -> case ds1 of wild2 { Data.Type.Equality.HRefl cobox cobox1 ->
+                      (# eta, Paths_fraktal.getDataDir3 #) } } }) -}
+e449903a0b329db9b7422cd37549fda1
+  getDataDir3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Paths_fraktal.getDataDir4) -}
+a9c98c19f4f4158b99242221cdf9cb08
+  getDataDir4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("C:\\Users\\piotr\\haskell-projekt\\fraktal\\.stack-work\\install\\ccbce92a\\share\\x86_64-windows-ghc-8.2.2\\fraktal-0.1.0.0"#) -}
+0cd0cdb35c459d69ad5692ec5f227254
+  getDataDir5 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 1,
+     Unfolding: (System.Environment.getEnv1
+                   Paths_fraktal.getDataDir6) -}
+2b2cb9125ffc8482ad5d2f29ff3883bc
+  getDataDir6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Paths_fraktal.getDataDir7) -}
+cdb2d56bb28259fbcfc2ce79ba0609b8
+  getDataDir7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("fraktal_datadir"#) -}
+74fbe8b52f1edc1cd6388651c9e92afb
+  getDataFileName :: GHC.IO.FilePath -> GHC.Types.IO GHC.IO.FilePath
+  {- Arity: 2, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Paths_fraktal.getDataFileName1
+                  `cast`
+                (<GHC.IO.FilePath>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <GHC.IO.FilePath>_R)) -}
+a4f4bfdef6cce5932b719213ad4b7424
+  getDataFileName1 ::
+    GHC.IO.FilePath
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.IO.FilePath #)
+  {- Arity: 2, Strictness: <L,U><S,U>,
+     Unfolding: (\ (name :: GHC.IO.FilePath)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case GHC.Prim.catch#
+                        @ GHC.Base.String
+                        @ GHC.Exception.SomeException
+                        Paths_fraktal.getDataDir5
+                        Paths_fraktal.getDataDir2
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    GHC.Base.++
+                      @ GHC.Types.Char
+                      ipv1
+                      (GHC.CString.unpackAppendCString#
+                         Paths_fraktal.getDataFileName2
+                         name) #) }) -}
+841467d9c4047aabe70a41e21941b4ad
+  getDataFileName2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("\\"#) -}
+ee057eb5276257919959af1f4a76ba9f
+  getDynLibDir :: GHC.Types.IO GHC.IO.FilePath
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Paths_fraktal.getDynLibDir1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
+8413bc148a0ab16ee92ebe021787eb5d
+  getDynLibDir1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 GHC.Prim.catch#
+                   @ GHC.Base.String
+                   @ GHC.Exception.SomeException
+                   Paths_fraktal.getDynLibDir5
+                   Paths_fraktal.getDynLibDir2
+                   eta) -}
+415aeaa7cc5947c5cd4c705857613b87
+  getDynLibDir2 ::
+    GHC.Exception.SomeException
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 2, Strictness: <S,1*U><S,U>,
+     Unfolding: (\ (e1 :: GHC.Exception.SomeException)[OneShot]
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case e1 of wild { GHC.Exception.SomeException e2 $dException1 e3 ->
+                 case Data.Typeable.Internal.eqTypeRep
+                        @ *
+                        @ *
+                        @ e2
+                        @ GHC.IO.Exception.IOException
+                        (GHC.Exception.$p1Exception @ e2 $dException1)
+                          `cast`
+                        (Data.Typeable.Internal.N:Typeable[0] <*>_N <e2>_N)
+                        GHC.IO.Exception.$fExceptionIOException4 of wild1 {
+                   GHC.Base.Nothing
+                   -> GHC.Prim.raiseIO#
+                        @ GHC.Exception.SomeException
+                        @ GHC.Base.String
+                        wild
+                        eta
+                   GHC.Base.Just ds1
+                   -> case ds1 of wild2 { Data.Type.Equality.HRefl cobox cobox1 ->
+                      (# eta, Paths_fraktal.getDynLibDir3 #) } } }) -}
+671f53acf46a05c1ca29ef901b0d832a
+  getDynLibDir3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Paths_fraktal.getDynLibDir4) -}
+c61289c912ad69ccb63220be9b4830a5
+  getDynLibDir4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("C:\\Users\\piotr\\haskell-projekt\\fraktal\\.stack-work\\install\\ccbce92a\\lib\\x86_64-windows-ghc-8.2.2"#) -}
+d882281a220de08ef679a9c491246a3b
+  getDynLibDir5 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 1,
+     Unfolding: (System.Environment.getEnv1
+                   Paths_fraktal.getDynLibDir6) -}
+7aa8f3caede4717376a4a082d5ae2213
+  getDynLibDir6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Paths_fraktal.getDynLibDir7) -}
+7eb29161c3b04856af9d0e0b68411688
+  getDynLibDir7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("fraktal_dynlibdir"#) -}
+8dcb34507ae3789271d8a5234268e1e9
+  getLibDir :: GHC.Types.IO GHC.IO.FilePath
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Paths_fraktal.getLibDir1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
+dc7b8bfd354f4449d1dc56d5f48bda3e
+  getLibDir1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 GHC.Prim.catch#
+                   @ GHC.Base.String
+                   @ GHC.Exception.SomeException
+                   Paths_fraktal.getLibDir5
+                   Paths_fraktal.getLibDir2
+                   eta) -}
+432097428766fca872388d6772816025
+  getLibDir2 ::
+    GHC.Exception.SomeException
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 2, Strictness: <S,1*U><S,U>,
+     Unfolding: (\ (e1 :: GHC.Exception.SomeException)[OneShot]
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case e1 of wild { GHC.Exception.SomeException e2 $dException1 e3 ->
+                 case Data.Typeable.Internal.eqTypeRep
+                        @ *
+                        @ *
+                        @ e2
+                        @ GHC.IO.Exception.IOException
+                        (GHC.Exception.$p1Exception @ e2 $dException1)
+                          `cast`
+                        (Data.Typeable.Internal.N:Typeable[0] <*>_N <e2>_N)
+                        GHC.IO.Exception.$fExceptionIOException4 of wild1 {
+                   GHC.Base.Nothing
+                   -> GHC.Prim.raiseIO#
+                        @ GHC.Exception.SomeException
+                        @ GHC.Base.String
+                        wild
+                        eta
+                   GHC.Base.Just ds1
+                   -> case ds1 of wild2 { Data.Type.Equality.HRefl cobox cobox1 ->
+                      (# eta, Paths_fraktal.getLibDir3 #) } } }) -}
+9804045e774ed0a84a1a2554a9d85379
+  getLibDir3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Paths_fraktal.getLibDir4) -}
+febcc44621f37dac4518024395094029
+  getLibDir4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("C:\\Users\\piotr\\haskell-projekt\\fraktal\\.stack-work\\install\\ccbce92a\\lib\\x86_64-windows-ghc-8.2.2\\fraktal-0.1.0.0-JRSUm4EgzmVIDYwbtxpsJz"#) -}
+55309a07364e6998e9bc8a4b1c53b656
+  getLibDir5 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 1,
+     Unfolding: (System.Environment.getEnv1 Paths_fraktal.getLibDir6) -}
+0436855cabeb8966dce56532b8ec48a4
+  getLibDir6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Paths_fraktal.getLibDir7) -}
+6a16061f53f8c93b610581bc5f06bcc5
+  getLibDir7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("fraktal_libdir"#) -}
+3433663b92ac7c41f436f09a50a65763
+  getLibexecDir :: GHC.Types.IO GHC.IO.FilePath
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Paths_fraktal.getLibexecDir1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
+58c31f13f60ff9d8db309ed6cda79d0d
+  getLibexecDir1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 GHC.Prim.catch#
+                   @ GHC.Base.String
+                   @ GHC.Exception.SomeException
+                   Paths_fraktal.getLibexecDir5
+                   Paths_fraktal.getLibexecDir2
+                   eta) -}
+1796f8e6536d49d2fdbb0511bf04fa83
+  getLibexecDir2 ::
+    GHC.Exception.SomeException
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 2, Strictness: <S,1*U><S,U>,
+     Unfolding: (\ (e1 :: GHC.Exception.SomeException)[OneShot]
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case e1 of wild { GHC.Exception.SomeException e2 $dException1 e3 ->
+                 case Data.Typeable.Internal.eqTypeRep
+                        @ *
+                        @ *
+                        @ e2
+                        @ GHC.IO.Exception.IOException
+                        (GHC.Exception.$p1Exception @ e2 $dException1)
+                          `cast`
+                        (Data.Typeable.Internal.N:Typeable[0] <*>_N <e2>_N)
+                        GHC.IO.Exception.$fExceptionIOException4 of wild1 {
+                   GHC.Base.Nothing
+                   -> GHC.Prim.raiseIO#
+                        @ GHC.Exception.SomeException
+                        @ GHC.Base.String
+                        wild
+                        eta
+                   GHC.Base.Just ds1
+                   -> case ds1 of wild2 { Data.Type.Equality.HRefl cobox cobox1 ->
+                      (# eta, Paths_fraktal.getLibexecDir3 #) } } }) -}
+b87fa6e5b1af82e46287a8e77154f1fc
+  getLibexecDir3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Paths_fraktal.getLibexecDir4) -}
+43ba175af7ef322ba64d491152deccab
+  getLibexecDir4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("C:\\Users\\piotr\\haskell-projekt\\fraktal\\.stack-work\\install\\ccbce92a\\libexec\\x86_64-windows-ghc-8.2.2\\fraktal-0.1.0.0"#) -}
+9a8700e0670c101e5110cdbc911d5559
+  getLibexecDir5 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 1,
+     Unfolding: (System.Environment.getEnv1
+                   Paths_fraktal.getLibexecDir6) -}
+5afa32418d97e5effde9b83963bd5b30
+  getLibexecDir6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Paths_fraktal.getLibexecDir7) -}
+6cceaf30e301ff8b18f8c44a44ec3745
+  getLibexecDir7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("fraktal_libexecdir"#) -}
+e6ff22b19d8784952021d01cab8a3176
+  getSysconfDir :: GHC.Types.IO GHC.IO.FilePath
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Paths_fraktal.getSysconfDir1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
+aa4329687ad498fb4dc1d5909e28dde0
+  getSysconfDir1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 GHC.Prim.catch#
+                   @ GHC.Base.String
+                   @ GHC.Exception.SomeException
+                   Paths_fraktal.getSysconfDir5
+                   Paths_fraktal.getSysconfDir2
+                   eta) -}
+3a56f6f3551dfad6fb4345357e7c1883
+  getSysconfDir2 ::
+    GHC.Exception.SomeException
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 2, Strictness: <S,1*U><S,U>,
+     Unfolding: (\ (e1 :: GHC.Exception.SomeException)[OneShot]
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case e1 of wild { GHC.Exception.SomeException e2 $dException1 e3 ->
+                 case Data.Typeable.Internal.eqTypeRep
+                        @ *
+                        @ *
+                        @ e2
+                        @ GHC.IO.Exception.IOException
+                        (GHC.Exception.$p1Exception @ e2 $dException1)
+                          `cast`
+                        (Data.Typeable.Internal.N:Typeable[0] <*>_N <e2>_N)
+                        GHC.IO.Exception.$fExceptionIOException4 of wild1 {
+                   GHC.Base.Nothing
+                   -> GHC.Prim.raiseIO#
+                        @ GHC.Exception.SomeException
+                        @ GHC.Base.String
+                        wild
+                        eta
+                   GHC.Base.Just ds1
+                   -> case ds1 of wild2 { Data.Type.Equality.HRefl cobox cobox1 ->
+                      (# eta, Paths_fraktal.getSysconfDir3 #) } } }) -}
+3576186e4e1f3e350c5e709c0e7c70a5
+  getSysconfDir3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Paths_fraktal.getSysconfDir4) -}
+2f02cc314efc6409ff6a2a20fe1847aa
+  getSysconfDir4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("C:\\Users\\piotr\\haskell-projekt\\fraktal\\.stack-work\\install\\ccbce92a\\etc"#) -}
+b190d217530c3e68e62bb9ee5ca40dab
+  getSysconfDir5 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 1,
+     Unfolding: (System.Environment.getEnv1
+                   Paths_fraktal.getSysconfDir6) -}
+393dfcf0bc569e30c5275ec7fc30996b
+  getSysconfDir6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Paths_fraktal.getSysconfDir7) -}
+36150de16760013d0532b952acfe4889
+  getSysconfDir7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("fraktal_sysconfdir"#) -}
+8a78e4b4081e94d04a2d0bd75d2f587b
+  version :: Data.Version.Version
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (Data.Version.Version
+                   Paths_fraktal.version1
+                   (GHC.Types.[] @ GHC.Base.String)) -}
+8c4393745f97a7bcd5ac474e8e99774c
+  version1 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Paths_fraktal.version5
+                   Paths_fraktal.version2) -}
+998c52a1f6695441ebd564fa0cecb0b7
+  version2 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Paths_fraktal.version6
+                   Paths_fraktal.version3) -}
+a21bd7cdb5d239e695a1320b907754e7
+  version3 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Paths_fraktal.version5
+                   Paths_fraktal.version4) -}
+357a81d6aefde377ba934d5ba32cb16a
+  version4 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Paths_fraktal.version5
+                   (GHC.Types.[] @ GHC.Types.Int)) -}
+6fb68c3e664bf140d47c902d4dd99305
+  version5 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+519837fcc4264e321d2afa76a109677e
+  version6 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1#) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

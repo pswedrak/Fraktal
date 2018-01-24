@@ -12,7 +12,7 @@ main = do
   first <- getLine
   putStrLn "Second string: "
   second <- getLine
-  putStrLn "Iterations: "
+  putStrLn "Iterations : "
   n <- getLine
   let iterations = (read n :: Integer)
   putStrLn "Length: "
@@ -21,6 +21,7 @@ main = do
   let string = generateFull first iterations second --string opisujący obliczanie liczby punktow
   let points = generatePoints (0,0) 0 string length
   drawFractal points
+ 
   
   
   
