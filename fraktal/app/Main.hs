@@ -5,15 +5,17 @@ import GenerateString
 import GeneratePoints
 import DrawFractal
 
+-- | Function 'main' puts on the screen instructions for the user and takes values:
+-- two Strings describing a fractal, number of iterations, length of the line, and change angle.
+-- It calls functions from other modules and finally 'drawFractal' function which displays generated fractal.
 main :: IO ()
-
 main = do
   putStrLn "Input two strings describing a fractal using 'F', '+', '-' "
   putStrLn "First string: "
   first <- getLine
   putStrLn "Second string: "
   second <- getLine
-  putStrLn "Iterations: "
+  putStrLn "Number of iterations: "
   n <- getLine
   let iterations = (read n :: Integer)
   putStrLn "Length: "
