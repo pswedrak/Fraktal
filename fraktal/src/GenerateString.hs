@@ -1,7 +1,7 @@
 module GenerateString
-	( generateSingle,
-	  generateFull,
-	)
+    ( generateSingle,
+      generateFull,
+    )
 where
 
 generateSingle :: String -> String -> String
@@ -14,6 +14,5 @@ generateSingle (head:tail) secondString = case head of
    
       
 generateFull :: String -> Integer -> String -> String
-generateFull desc 0 _ = desc
-generateFull desc n secondString = generateFull (generateSingle desc secondString) (n-1) secondString
-
+generateFull firstString 0 _ = firstString
+generateFull firstString n secondString = generateFull (generateSingle firstString secondString) (n-1) secondString

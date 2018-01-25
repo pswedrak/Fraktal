@@ -3,7 +3,7 @@ module GeneratePoints
      )
 where
 
--- | @generatePoints@ generates..
+-- | @generatePoints@ generates
 generatePoints :: (Double,Double) -> Double -> Double -> String -> Double -> [(Double,Double)]
 generatePoints (x, y) _ _ [] n = []
 generatePoints (x, y) startAngle changeAngle (head:tail) n = case head of 
