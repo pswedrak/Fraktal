@@ -1,0 +1,17 @@
+The reviewed program implements a ‘Tic-tac-toe’ game. While playing the game we did not notice any errors and the program worked properly 
+but the code has not been tested thoroughly - developers provided only few tests. 
+
+When it comes to the code we had to read very long functions consisting of many nested ‘if’ instructions and ‘where’ clauses,
+we think that developers should have tried to simplify it. 
+
+One function has a mistake in 'else if' statements - the same conditions are checked two times and give two different results, see 
+(else if(seeGameStatus board3 == CrossWon && f1==Circle)).
+
+Provided comments are insufficient, some parts of code are not commented at all, which makes a code a little unclear.
+
+Giving information to the user is not consistent, because sometimes English is used, sometimes Polish. (The output “Klopsik” in a module TicTacToeGame)
+
+If this project is still being developed, it would be a nice idea to add a possibility of playing with another person.
+
+The great advantage of the code is that developers used possibilities that functional languages like Haskell give
+- for example Maybe type applied to Maybe Board. It seems that they put a lot of effort in making this program.
