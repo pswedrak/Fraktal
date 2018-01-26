@@ -15,7 +15,7 @@ main = do
   first <- getLine
   putStrLn "Second string: "
   second <- getLine
-  putStrLn "Number of iterations: "
+  putStrLn "Number of iterations:  "
   n <- getLine
   let iterations = (read n :: Integer)
   putStrLn "Length: "

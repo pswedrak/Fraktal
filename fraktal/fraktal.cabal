@@ -70,4 +70,5 @@ test-suite fraktal-test
       Paths_fraktal
     , GeneratePointsSpec
     , GenerateStringSpec 
+    , QuickchecksSpec
   default-language: Haskell2010
