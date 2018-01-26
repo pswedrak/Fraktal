@@ -14,4 +14,4 @@ Giving information to the user is not consistent, because sometimes English is u
 If this project is still being developed, it would be a nice idea to add a possibility of playing with another person.
 
 The great advantage of the code is that developers used possibilities that functional languages like Haskell give
-- for example Maybe type applied to Maybe Board. It seems that they put a lot of effort in making this program.
+- for example Maybe used while describing boards. It seems that they put a lot of effort in making this program.
