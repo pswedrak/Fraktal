@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-2"></a><span class="hs-comment">-- |</span><span>
+</span><a name="line-3"></a><span class="hs-comment">-- Module      :  Graphics.Rendering.OpenGL.GL.LineSegments</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- Copyright   :  (c) Sven Panne 2002-2016</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- License     :  BSD3</span><span>
+</span><a name="line-6"></a><span class="hs-comment">-- </span><span>
+</span><a name="line-7"></a><span class="hs-comment">-- Maintainer  :  Sven Panne &lt;svenpanne@gmail.com&gt;</span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- Stability   :  stable</span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- Portability :  portable</span><span>
+</span><a name="line-10"></a><span class="hs-comment">--</span><span>
+</span><a name="line-11"></a><span class="hs-comment">-- This module corresponds to section 3.4 (Line Segments) of the OpenGL 2.1</span><span>
+</span><a name="line-12"></a><span class="hs-comment">-- specs.</span><span>
+</span><a name="line-13"></a><span class="hs-comment">--</span><span>
+</span><a name="line-14"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-15"></a><span>
+</span><a name="line-16"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">LineSegments</span><span> </span><span class="hs-special">(</span><span>
+</span><a name="line-17"></a><span>   </span><span class="hs-comment">-- * Line Rasterization</span><span>
+</span><a name="line-18"></a><span>   </span><a href="Graphics.Rendering.OpenGL.GL.LineSegments.html#lineWidth"><span class="hs-identifier hs-var">lineWidth</span></a><span class="hs-special">,</span><span>
+</span><a name="line-19"></a><span>
+</span><a name="line-20"></a><span>   </span><span class="hs-comment">-- * Line Stipple</span><span>
+</span><a name="line-21"></a><span>   </span><a href="Graphics.Rendering.OpenGL.GL.LineSegments.html#lineStipple"><span class="hs-identifier hs-var">lineStipple</span></a><span class="hs-special">,</span><span>
+</span><a name="line-22"></a><span>
+</span><a name="line-23"></a><span>   </span><span class="hs-comment">-- * Line Antialiasing</span><span>
+</span><a name="line-24"></a><span>  </span><a href="Graphics.Rendering.OpenGL.GL.LineSegments.html#lineSmooth"><span class="hs-identifier hs-var">lineSmooth</span></a><span class="hs-special">,</span><span>
+</span><a name="line-25"></a><span>
+</span><a name="line-26"></a><span>   </span><span class="hs-comment">-- * Implementation-Dependent Limits</span><span>
+</span><a name="line-27"></a><span>   </span><a href="Graphics.Rendering.OpenGL.GL.LineSegments.html#aliasedLineWidthRange"><span class="hs-identifier hs-var">aliasedLineWidthRange</span></a><span class="hs-special">,</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.LineSegments.html#smoothLineWidthRange"><span class="hs-identifier hs-var">smoothLineWidthRange</span></a><span class="hs-special">,</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.LineSegments.html#smoothLineWidthGranularity"><span class="hs-identifier hs-var">smoothLineWidthGranularity</span></a><span>
+</span><a name="line-28"></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-29"></a><span>
+</span><a name="line-30"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Control</span><span class="hs-operator">.</span><span class="hs-identifier">Monad</span><span>
+</span><a name="line-31"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">StateVar</span><span>
+</span><a name="line-32"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.Capability.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">Capability</span></a><span>
+</span><a name="line-33"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">QueryUtils</span></a><span>
+</span><a name="line-34"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span>
+</span><a name="line-35"></a><span>
+</span><a name="line-36"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-37"></a><span>
+</span><a name="line-38"></a><span class="hs-comment">-- | 'lineWidth' contains the rasterized width of both aliased and antialiased</span><span>
+</span><a name="line-39"></a><span class="hs-comment">-- lines. The initial value is 1. Using a line width other than 1 has different</span><span>
+</span><a name="line-40"></a><span class="hs-comment">-- effects, depending on whether line antialiasing is enabled (see</span><span>
+</span><a name="line-41"></a><span class="hs-comment">-- 'lineSmooth'). Line antialiasing is initially disabled.</span><span>
+</span><a name="line-42"></a><span class="hs-comment">--</span><span>
+</span><a name="line-43"></a><span class="hs-comment">-- If line antialiasing is disabled, the actual width is determined by rounding</span><span>
+</span><a name="line-44"></a><span class="hs-comment">-- the supplied width to the nearest integer. (If the rounding results in the</span><span>
+</span><a name="line-45"></a><span class="hs-comment">-- value 0, it is as if the line width were 1.) If /delta x/ &gt;= /delta y/, /i/</span><span>
+</span><a name="line-46"></a><span class="hs-comment">-- pixels are filled in each column that is rasterized, where /i/ is the</span><span>
+</span><a name="line-47"></a><span class="hs-comment">-- rounded value of 'lineWidth'. Otherwise, /i/ pixels are filled in each row</span><span>
+</span><a name="line-48"></a><span class="hs-comment">-- that is rasterized.</span><span>
+</span><a name="line-49"></a><span class="hs-comment">--</span><span>
+</span><a name="line-50"></a><span class="hs-comment">-- If antialiasing is enabled, line rasterization produces a fragment for each</span><span>
+</span><a name="line-51"></a><span class="hs-comment">-- pixel square that intersects the region lying within the rectangle having</span><span>
+</span><a name="line-52"></a><span class="hs-comment">-- width equal to the current line width, length equal to the actual length of</span><span>
+</span><a name="line-53"></a><span class="hs-comment">-- the line, and centered on the mathematical line segment. The coverage value</span><span>
+</span><a name="line-54"></a><span class="hs-comment">-- for each fragment is the window coordinate area of the intersection of the</span><span>
+</span><a name="line-55"></a><span class="hs-comment">-- rectangular region with the corresponding pixel square. This value is saved</span><span>
+</span><a name="line-56"></a><span class="hs-comment">-- and used in the final rasterization step.</span><span>
+</span><a name="line-57"></a><span class="hs-comment">--</span><span>
+</span><a name="line-58"></a><span class="hs-comment">-- Not all widths can be supported when line antialiasing is enabled. If an</span><span>
+</span><a name="line-59"></a><span class="hs-comment">-- unsupported width is requested, the nearest supported width is used. Only</span><span>
+</span><a name="line-60"></a><span class="hs-comment">-- width 1 is guaranteed to be supported; others depend on the implementation.</span><span>
+</span><a name="line-61"></a><span class="hs-comment">--  Likewise, there is a range for aliased line widths as well. To query the</span><span>
+</span><a name="line-62"></a><span class="hs-comment">-- range of supported widths of antialiased lines and the size difference</span><span>
+</span><a name="line-63"></a><span class="hs-comment">-- between supported widths within the range, query 'smoothLineWidthRange' and</span><span>
+</span><a name="line-64"></a><span class="hs-comment">-- 'smoothLineWidthGranularity', respectively. For aliased lines, query the</span><span>
+</span><a name="line-65"></a><span class="hs-comment">-- supported range with 'aliasedLineWidthRange'.</span><span>
+</span><a name="line-66"></a><span class="hs-comment">--</span><span>
+</span><a name="line-67"></a><span class="hs-comment">-- The line width specified when 'lineWidth' is set is always returned when it</span><span>
+</span><a name="line-68"></a><span class="hs-comment">-- is queried. Clamping and rounding for aliased and antialiased lines have no</span><span>
+</span><a name="line-69"></a><span class="hs-comment">-- effect on the specified value.</span><span>
+</span><a name="line-70"></a><span class="hs-comment">--</span><span>
+</span><a name="line-71"></a><span class="hs-comment">-- A non-antialiased line width may be clamped to an implementation-dependent</span><span>
+</span><a name="line-72"></a><span class="hs-comment">-- maximum.  Query 'aliasedLineWidthRange' to determine the maximum width.</span><span>
+</span><a name="line-73"></a><span class="hs-comment">--</span><span>
+</span><a name="line-74"></a><span class="hs-comment">-- An 'Graphics.Rendering.OpenGL.GLU.Errors.InvalidValue' is generated if</span><span>
+</span><a name="line-75"></a><span class="hs-comment">-- 'lineWidth' is set to a value less than or equal to zero.</span><span>
+</span><a name="line-76"></a><span class="hs-comment">--</span><span>
+</span><a name="line-77"></a><span class="hs-comment">-- An 'Graphics.Rendering.OpenGL.GLU.Errors.InvalidOperation' is generated if</span><span>
+</span><a name="line-78"></a><span class="hs-comment">-- 'lineWidth' is set during</span><span>
+</span><a name="line-79"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.BeginEnd.renderPrimitive'.</span><span>
+</span><a name="line-80"></a><span>
+</span><a name="line-81"></a><span class="hs-identifier">lineWidth</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">StateVar</span><span> </span><span class="hs-identifier hs-type">GLfloat</span><span>
+</span><a name="line-82"></a><a name="lineWidth"><a href="Graphics.Rendering.OpenGL.GL.LineSegments.html#lineWidth"><span class="hs-identifier">lineWidth</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">makeStateVar</span><span> </span><span class="hs-special">(</span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.PName.html#getFloat1"><span class="hs-identifier hs-var">getFloat1</span></a><span> </span><span class="hs-identifier hs-var">id</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.PName.html#GetLineWidth"><span class="hs-identifier hs-var">GetLineWidth</span></a><span class="hs-special">)</span><span> </span><span class="hs-identifier hs-var">glLineWidth</span><span>
+</span><a name="line-83"></a><span>
+</span><a name="line-84"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-85"></a><span>
+</span><a name="line-86"></a><span class="hs-comment">-- | Line stippling masks out certain fragments produced by rasterization; those</span><span>
+</span><a name="line-87"></a><span class="hs-comment">-- fragments will not be drawn. The masking is achieved by using three</span><span>
+</span><a name="line-88"></a><span class="hs-comment">-- parameters: the repeat count (1st element of the 'lineStipple' pair, clamped</span><span>
+</span><a name="line-89"></a><span class="hs-comment">-- to the range [ 1 .. 256 ]), the 16-bit line stipple pattern (2nd element),</span><span>
+</span><a name="line-90"></a><span class="hs-comment">-- and an integer stipple counter /s/.</span><span>
+</span><a name="line-91"></a><span class="hs-comment">--</span><span>
+</span><a name="line-92"></a><span class="hs-comment">-- The counter /s/ is reset to 0 at before the first action during</span><span>
+</span><a name="line-93"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.BeginEnd.renderPrimitive' is called and before</span><span>
+</span><a name="line-94"></a><span class="hs-comment">-- each line segment during</span><span>
+</span><a name="line-95"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.BeginEnd.renderPrimitive' is generated. It is</span><span>
+</span><a name="line-96"></a><span class="hs-comment">-- incremented after each fragment of a unit width aliased line segment is</span><span>
+</span><a name="line-97"></a><span class="hs-comment">-- generated or after each /i/ fragments of an /i/ width line segment are</span><span>
+</span><a name="line-98"></a><span class="hs-comment">-- generated. The /i/ fragments associated with count /s/ are masked out if</span><span>
+</span><a name="line-99"></a><span class="hs-comment">-- @'Data.Bits.testBit' /pattern/ (( /s/ \/ /factor/ ) /mod/ 16)@ is 'False',</span><span>
+</span><a name="line-100"></a><span class="hs-comment">-- otherwise these fragments are sent to the frame buffer. Bit zero of the</span><span>
+</span><a name="line-101"></a><span class="hs-comment">-- pattern is the least significant bit, i.e. it is used first.</span><span>
+</span><a name="line-102"></a><span class="hs-comment">--</span><span>
+</span><a name="line-103"></a><span class="hs-comment">-- Antialiased lines are treated as a sequence of rectangles of height 1 for</span><span>
+</span><a name="line-104"></a><span class="hs-comment">-- purposes of stippling. Whether rectangle /s/ is rasterized or not depends on</span><span>
+</span><a name="line-105"></a><span class="hs-comment">-- the fragment rule described for aliased lines, counting rectangles rather</span><span>
+</span><a name="line-106"></a><span class="hs-comment">-- than groups of fragments.</span><span>
+</span><a name="line-107"></a><span class="hs-comment">--</span><span>
+</span><a name="line-108"></a><span class="hs-comment">-- The initial value of 'lineStipple' is 'Nothing', i.e. line stippling is</span><span>
+</span><a name="line-109"></a><span class="hs-comment">-- disabled.</span><span>
+</span><a name="line-110"></a><span class="hs-comment">--</span><span>
+</span><a name="line-111"></a><span class="hs-comment">-- An 'Graphics.Rendering.OpenGL.GLU.Errors.InvalidOperation' is generated if</span><span>
+</span><a name="line-112"></a><span class="hs-comment">-- 'lineStipple' is set during</span><span>
+</span><a name="line-113"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.BeginEnd.renderPrimitive'.</span><span>
+</span><a name="line-114"></a><span>
+</span><a name="line-115"></a><span class="hs-identifier">lineStipple</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">StateVar</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Maybe</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">GLint</span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">GLushort</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a name="line-116"></a><a name="lineStipple"><a href="Graphics.Rendering.OpenGL.GL.LineSegments.html#lineStipple"><span class="hs-identifier">lineStipple</span></a></a><span> </span><span class="hs-glyph">=</span><span>
+</span><a name="line-117"></a><span>   </span><a href="Graphics.Rendering.OpenGL.GL.Capability.html#makeStateVarMaybe"><span class="hs-identifier hs-var">makeStateVarMaybe</span></a><span>
+</span><a name="line-118"></a><span>      </span><span class="hs-special">(</span><span class="hs-identifier hs-var">return</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.Capability.html#CapLineStipple"><span class="hs-identifier hs-var">CapLineStipple</span></a><span class="hs-special">)</span><span>
+</span><a name="line-119"></a><span>      </span><span class="hs-special">(</span><span class="hs-identifier hs-var">liftM2</span><span> </span><span class="hs-special">(</span><span class="hs-special">,</span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.PName.html#getInteger1"><span class="hs-identifier hs-var">getInteger1</span></a><span> </span><span class="hs-identifier hs-var">id</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.PName.html#GetLineStippleRepeat"><span class="hs-identifier hs-var">GetLineStippleRepeat</span></a><span class="hs-special">)</span><span>
+</span><a name="line-120"></a><span>                  </span><span class="hs-special">(</span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.PName.html#getInteger1"><span class="hs-identifier hs-var">getInteger1</span></a><span> </span><span class="hs-identifier hs-var">fromIntegral</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.PName.html#GetLineStipplePattern"><span class="hs-identifier hs-var">GetLineStipplePattern</span></a><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a name="line-121"></a><span>      </span><span class="hs-special">(</span><span class="hs-identifier hs-var">uncurry</span><span> </span><span class="hs-identifier hs-var">glLineStipple</span><span class="hs-special">)</span><span>
+</span><a name="line-122"></a><span>
+</span><a name="line-123"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-124"></a><span>
+</span><a name="line-125"></a><span class="hs-comment">-- | Controls whether line antialiasing is enabled. The initial state is</span><span>
+</span><a name="line-126"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Capability.Disabled'.</span><span>
+</span><a name="line-127"></a><span>
+</span><a name="line-128"></a><span class="hs-identifier">lineSmooth</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">StateVar</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.Capability.html#Capability"><span class="hs-identifier hs-type">Capability</span></a><span>
+</span><a name="line-129"></a><a name="lineSmooth"><a href="Graphics.Rendering.OpenGL.GL.LineSegments.html#lineSmooth"><span class="hs-identifier">lineSmooth</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.Capability.html#makeCapability"><span class="hs-identifier hs-var">makeCapability</span></a><span> </span><a href="Graphics.Rendering.OpenGL.GL.Capability.html#CapLineSmooth"><span class="hs-identifier hs-var">CapLineSmooth</span></a><span>
+</span><a name="line-130"></a><span>
+</span><a name="line-131"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-132"></a><span>
+</span><a name="line-133"></a><span class="hs-comment">-- | The smallest and largest supported width of aliased lines.</span><span>
+</span><a name="line-134"></a><span>
+</span><a name="line-135"></a><span class="hs-identifier">aliasedLineWidthRange</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GettableStateVar</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">GLfloat</span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">GLfloat</span><span class="hs-special">)</span><span>
+</span><a name="line-136"></a><a name="aliasedLineWidthRange"><a href="Graphics.Rendering.OpenGL.GL.LineSegments.html#aliasedLineWidthRange"><span class="hs-identifier">aliasedLineWidthRange</span></a></a><span> </span><span class="hs-glyph">=</span><span>
+</span><a name="line-137"></a><span>   </span><span class="hs-identifier hs-var">makeGettableStateVar</span><span> </span><span class="hs-operator hs-var">$</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.PName.html#getFloat2"><span class="hs-identifier hs-var">getFloat2</span></a><span> </span><span class="hs-special">(</span><span class="hs-special">,</span><span class="hs-special">)</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.PName.html#GetAliasedLineWidthRange"><span class="hs-identifier hs-var">GetAliasedLineWidthRange</span></a><span>
+</span><a name="line-138"></a><span>
+</span><a name="line-139"></a><span class="hs-comment">-- | The smallest and largest supported width of antialiased lines.</span><span>
+</span><a name="line-140"></a><span>
+</span><a name="line-141"></a><span class="hs-identifier">smoothLineWidthRange</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GettableStateVar</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">GLfloat</span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">GLfloat</span><span class="hs-special">)</span><span>
+</span><a name="line-142"></a><a name="smoothLineWidthRange"><a href="Graphics.Rendering.OpenGL.GL.LineSegments.html#smoothLineWidthRange"><span class="hs-identifier">smoothLineWidthRange</span></a></a><span> </span><span class="hs-glyph">=</span><span>
+</span><a name="line-143"></a><span>   </span><span class="hs-identifier hs-var">makeGettableStateVar</span><span> </span><span class="hs-operator hs-var">$</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.PName.html#getFloat2"><span class="hs-identifier hs-var">getFloat2</span></a><span> </span><span class="hs-special">(</span><span class="hs-special">,</span><span class="hs-special">)</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.PName.html#GetSmoothLineWidthRange"><span class="hs-identifier hs-var">GetSmoothLineWidthRange</span></a><span>
+</span><a name="line-144"></a><span>
+</span><a name="line-145"></a><span class="hs-comment">-- | The antialiased line width granularity, i.e. the size difference between</span><span>
+</span><a name="line-146"></a><span class="hs-comment">-- supported widths.</span><span>
+</span><a name="line-147"></a><span>
+</span><a name="line-148"></a><span class="hs-identifier">smoothLineWidthGranularity</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GettableStateVar</span><span> </span><span class="hs-identifier hs-type">GLfloat</span><span>
+</span><a name="line-149"></a><a name="smoothLineWidthGranularity"><a href="Graphics.Rendering.OpenGL.GL.LineSegments.html#smoothLineWidthGranularity"><span class="hs-identifier">smoothLineWidthGranularity</span></a></a><span> </span><span class="hs-glyph">=</span><span>
+</span><a name="line-150"></a><span>   </span><span class="hs-identifier hs-var">makeGettableStateVar</span><span> </span><span class="hs-operator hs-var">$</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.PName.html#getFloat1"><span class="hs-identifier hs-var">getFloat1</span></a><span> </span><span class="hs-identifier hs-var">id</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.PName.html#GetSmoothLineWidthGranularity"><span class="hs-identifier hs-var">GetSmoothLineWidthGranularity</span></a><span>
+</span><a name="line-151"></a></pre></body></html>

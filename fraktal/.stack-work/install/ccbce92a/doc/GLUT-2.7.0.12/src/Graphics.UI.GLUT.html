@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">-----------------------------------------------------------------------------</span><span>
+</span><a name="line-2"></a><span class="hs-comment">-- |</span><span>
+</span><a name="line-3"></a><span class="hs-comment">-- Module      :  Graphics.UI.GLUT</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- Copyright   :  (c) Sven Panne 2002-2013</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- License     :  BSD3</span><span>
+</span><a name="line-6"></a><span class="hs-comment">--</span><span>
+</span><a name="line-7"></a><span class="hs-comment">-- Maintainer  :  Sven Panne &lt;svenpanne@gmail.com&gt;</span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- Stability   :  stable</span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- Portability :  portable</span><span>
+</span><a name="line-10"></a><span class="hs-comment">--</span><span>
+</span><a name="line-11"></a><span class="hs-comment">-- A Haskell binding for GLUT, the OpenGL Utility Toolkit, a window system</span><span>
+</span><a name="line-12"></a><span class="hs-comment">-- independent toolkit for writing OpenGL programs. It includes support for</span><span>
+</span><a name="line-13"></a><span class="hs-comment">-- the extended functionality available in freeglut (see</span><span>
+</span><a name="line-14"></a><span class="hs-comment">-- &lt;http://freeglut.sourceforge.net/&gt;) and OpenGLUT (see</span><span>
+</span><a name="line-15"></a><span class="hs-comment">-- &lt;http://openglut.sourceforge.net/&gt;), too.</span><span>
+</span><a name="line-16"></a><span class="hs-comment">--</span><span>
+</span><a name="line-17"></a><span class="hs-comment">-----------------------------------------------------------------------------</span><span>
+</span><a name="line-18"></a><span>
+</span><a name="line-19"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span> </span><span class="hs-special">(</span><span>
+</span><a name="line-20"></a><span>   </span><span class="hs-comment">-- * Legal stuff</span><span>
+</span><a name="line-21"></a><span>
+</span><a name="line-22"></a><span>   </span><span class="hs-comment">-- $LegalStuff</span><span>
+</span><a name="line-23"></a><span>
+</span><a name="line-24"></a><span>   </span><span class="hs-comment">-- * Introduction</span><span>
+</span><a name="line-25"></a><span>
+</span><a name="line-26"></a><span>   </span><span class="hs-comment">-- $Introduction</span><span>
+</span><a name="line-27"></a><span>
+</span><a name="line-28"></a><span>   </span><span class="hs-comment">-- ** Background</span><span>
+</span><a name="line-29"></a><span>
+</span><a name="line-30"></a><span>   </span><span class="hs-comment">-- $Background</span><span>
+</span><a name="line-31"></a><span>
+</span><a name="line-32"></a><span>   </span><span class="hs-comment">-- ** Design Philosophy</span><span>
+</span><a name="line-33"></a><span>
+</span><a name="line-34"></a><span>   </span><span class="hs-comment">-- $DesignPhilosophy</span><span>
+</span><a name="line-35"></a><span>
+</span><a name="line-36"></a><span>   </span><span class="hs-comment">-- ** API Versions</span><span>
+</span><a name="line-37"></a><span>
+</span><a name="line-38"></a><span>   </span><span class="hs-comment">-- $APIVersions</span><span>
+</span><a name="line-39"></a><span>
+</span><a name="line-40"></a><span>   </span><span class="hs-comment">-- ** Conventions</span><span>
+</span><a name="line-41"></a><span>
+</span><a name="line-42"></a><span>   </span><span class="hs-comment">-- $Conventions</span><span>
+</span><a name="line-43"></a><span>
+</span><a name="line-44"></a><span>   </span><span class="hs-comment">-- ** Terminology</span><span>
+</span><a name="line-45"></a><span>
+</span><a name="line-46"></a><span>   </span><span class="hs-comment">-- $Terminology</span><span>
+</span><a name="line-47"></a><span>
+</span><a name="line-48"></a><span>   </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-special">,</span><span>
+</span><a name="line-49"></a><span>
+</span><a name="line-50"></a><span>   </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Initialization</span><span class="hs-special">,</span><span>
+</span><a name="line-51"></a><span>   </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Begin</span><span class="hs-special">,</span><span>
+</span><a name="line-52"></a><span>   </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Window</span><span class="hs-special">,</span><span>
+</span><a name="line-53"></a><span>   </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Overlay</span><span class="hs-special">,</span><span>
+</span><a name="line-54"></a><span>   </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Menu</span><span class="hs-special">,</span><span>
+</span><a name="line-55"></a><span>   </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Callbacks</span><span class="hs-special">,</span><span>
+</span><a name="line-56"></a><span>   </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Colormap</span><span class="hs-special">,</span><span>
+</span><a name="line-57"></a><span>   </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">State</span><span class="hs-special">,</span><span>
+</span><a name="line-58"></a><span>   </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Fonts</span><span class="hs-special">,</span><span>
+</span><a name="line-59"></a><span>   </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Objects</span><span class="hs-special">,</span><span>
+</span><a name="line-60"></a><span>   </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Debugging</span><span class="hs-special">,</span><span>
+</span><a name="line-61"></a><span>   </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">DeviceControl</span><span class="hs-special">,</span><span>
+</span><a name="line-62"></a><span>   </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">GameMode</span><span>
+</span><a name="line-63"></a><span class="hs-special">)</span><span>  </span><span class="hs-keyword">where</span><span>
+</span><a name="line-64"></a><span>
+</span><a name="line-65"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span>
+</span><a name="line-66"></a><span>
+</span><a name="line-67"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.GLUT.Initialization.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Initialization</span></a><span>
+</span><a name="line-68"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.GLUT.Begin.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Begin</span></a><span>
+</span><a name="line-69"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.GLUT.Window.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Window</span></a><span>
+</span><a name="line-70"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.GLUT.Overlay.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Overlay</span></a><span>
+</span><a name="line-71"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.GLUT.Menu.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Menu</span></a><span>
+</span><a name="line-72"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.GLUT.Callbacks.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Callbacks</span></a><span>
+</span><a name="line-73"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.GLUT.Colormap.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Colormap</span></a><span>
+</span><a name="line-74"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.GLUT.State.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">State</span></a><span>
+</span><a name="line-75"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.GLUT.Fonts.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Fonts</span></a><span>
+</span><a name="line-76"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.GLUT.Objects.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Objects</span></a><span>
+</span><a name="line-77"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.GLUT.Debugging.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Debugging</span></a><span>
+</span><a name="line-78"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.GLUT.DeviceControl.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">DeviceControl</span></a><span>
+</span><a name="line-79"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.GLUT.GameMode.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">GameMode</span></a><span>
+</span><a name="line-80"></a><span>
+</span><a name="line-81"></a><span class="hs-comment">-----------------------------------------------------------------------------</span><span>
+</span><a name="line-82"></a><span class="hs-comment">-- $LegalStuff</span><span>
+</span><a name="line-83"></a><span class="hs-comment">-- This documentation is heavily based on the man pages of Mark J. Kilgard\'s</span><span>
+</span><a name="line-84"></a><span class="hs-comment">-- GLUT library.</span><span>
+</span><a name="line-85"></a><span class="hs-comment">--</span><span>
+</span><a name="line-86"></a><span class="hs-comment">-- OpenGL is a trademark of Silicon Graphics, Inc.</span><span>
+</span><a name="line-87"></a><span class="hs-comment">-- X Window System is a trademark of X Consortium, Inc.</span><span>
+</span><a name="line-88"></a><span class="hs-comment">-- Spaceball is a registered trademark of Spatial Systems, Inc.</span><span>
+</span><a name="line-89"></a><span class="hs-comment">--</span><span>
+</span><a name="line-90"></a><span class="hs-comment">-- The author has taken care in preparation of this documentation but makes</span><span>
+</span><a name="line-91"></a><span class="hs-comment">-- no expressed or implied warranty of any kind and assumes no responsibility</span><span>
+</span><a name="line-92"></a><span class="hs-comment">-- for errors or omissions. No liability is assumed for incidental or</span><span>
+</span><a name="line-93"></a><span class="hs-comment">-- consequential damages in connection with or arising from the use of</span><span>
+</span><a name="line-94"></a><span class="hs-comment">-- information or programs contained herein.</span><span>
+</span><a name="line-95"></a><span>
+</span><a name="line-96"></a><span class="hs-comment">-----------------------------------------------------------------------------</span><span>
+</span><a name="line-97"></a><span class="hs-comment">-- $Introduction</span><span>
+</span><a name="line-98"></a><span class="hs-comment">-- The OpenGL Utility Toolkit (GLUT) is a programming interface for writing</span><span>
+</span><a name="line-99"></a><span class="hs-comment">-- window system independent OpenGL programs. Currently there are</span><span>
+</span><a name="line-100"></a><span class="hs-comment">-- implementations for the X Window System, the Windows family, OS\/2, and Mac.</span><span>
+</span><a name="line-101"></a><span class="hs-comment">-- The toolkit supports the following functionality:</span><span>
+</span><a name="line-102"></a><span class="hs-comment">--</span><span>
+</span><a name="line-103"></a><span class="hs-comment">-- * Multiple windows for OpenGL rendering.</span><span>
+</span><a name="line-104"></a><span class="hs-comment">--</span><span>
+</span><a name="line-105"></a><span class="hs-comment">-- * Callback driven event processing.</span><span>
+</span><a name="line-106"></a><span class="hs-comment">--</span><span>
+</span><a name="line-107"></a><span class="hs-comment">-- * Sophisticated input devices.</span><span>
+</span><a name="line-108"></a><span class="hs-comment">--</span><span>
+</span><a name="line-109"></a><span class="hs-comment">-- * An /idle/ routine and timers.</span><span>
+</span><a name="line-110"></a><span class="hs-comment">--</span><span>
+</span><a name="line-111"></a><span class="hs-comment">-- * A simple, cascading pop-up menu facility.</span><span>
+</span><a name="line-112"></a><span class="hs-comment">--</span><span>
+</span><a name="line-113"></a><span class="hs-comment">-- * Utility routines to generate various solid and wire frame objects.</span><span>
+</span><a name="line-114"></a><span class="hs-comment">--</span><span>
+</span><a name="line-115"></a><span class="hs-comment">-- * Support for bitmap and stroke fonts.</span><span>
+</span><a name="line-116"></a><span class="hs-comment">--</span><span>
+</span><a name="line-117"></a><span class="hs-comment">-- * Miscellaneous window management functions, including managing overlays.</span><span>
+</span><a name="line-118"></a><span class="hs-comment">--</span><span>
+</span><a name="line-119"></a><span class="hs-comment">-- This documentation serves as both a specification and a programming guide.</span><span>
+</span><a name="line-120"></a><span class="hs-comment">-- If you are interested in a brief introduction to programming with GLUT,</span><span>
+</span><a name="line-121"></a><span class="hs-comment">-- have a look at the relevant parts of &lt;http://www.opengl.org/&gt; and the vast</span><span>
+</span><a name="line-122"></a><span class="hs-comment">-- amount of books on OpenGL, most of them use GLUT.</span><span>
+</span><a name="line-123"></a><span class="hs-comment">--</span><span>
+</span><a name="line-124"></a><span class="hs-comment">-- The remainder of this section describes GLUT\'s design philosophy and</span><span>
+</span><a name="line-125"></a><span class="hs-comment">-- usage model. The following sections specify the GLUT routines, grouped by</span><span>
+</span><a name="line-126"></a><span class="hs-comment">-- functionality. The final sections discuss usage advice and the logical</span><span>
+</span><a name="line-127"></a><span class="hs-comment">-- programmer visible state maintained by GLUT.</span><span>
+</span><a name="line-128"></a><span>
+</span><a name="line-129"></a><span class="hs-comment">-----------------------------------------------------------------------------</span><span>
+</span><a name="line-130"></a><span class="hs-comment">-- $Background</span><span>
+</span><a name="line-131"></a><span class="hs-comment">-- One of the major accomplishments in the specification of OpenGL was</span><span>
+</span><a name="line-132"></a><span class="hs-comment">-- the isolation of window system dependencies from OpenGL\'s rendering</span><span>
+</span><a name="line-133"></a><span class="hs-comment">-- model. The result is that OpenGL is window system independent.</span><span>
+</span><a name="line-134"></a><span class="hs-comment">--</span><span>
+</span><a name="line-135"></a><span class="hs-comment">-- Window system operations such as the creation of a rendering window and the</span><span>
+</span><a name="line-136"></a><span class="hs-comment">-- handling of window system events are left to the native window system to</span><span>
+</span><a name="line-137"></a><span class="hs-comment">-- define. Necessary interactions between OpenGL and the window system such as</span><span>
+</span><a name="line-138"></a><span class="hs-comment">-- creating and binding an OpenGL context to a window are described separately</span><span>
+</span><a name="line-139"></a><span class="hs-comment">-- from the OpenGL specification in a window system dependent specification. For</span><span>
+</span><a name="line-140"></a><span class="hs-comment">-- example, the GLX specification describes the standard by which OpenGL</span><span>
+</span><a name="line-141"></a><span class="hs-comment">-- interacts with the X Window System.</span><span>
+</span><a name="line-142"></a><span class="hs-comment">--</span><span>
+</span><a name="line-143"></a><span class="hs-comment">-- The predecessor to OpenGL is IRIS GL. Unlike OpenGL, IRIS GL /does/</span><span>
+</span><a name="line-144"></a><span class="hs-comment">-- specify how rendering windows are created and manipulated. IRIS GL\'s</span><span>
+</span><a name="line-145"></a><span class="hs-comment">-- windowing interface is reasonably popular largely because it is simple to</span><span>
+</span><a name="line-146"></a><span class="hs-comment">-- use. IRIS GL programmers can worry about graphics programming without needing</span><span>
+</span><a name="line-147"></a><span class="hs-comment">-- to be an expert in programming the native window system. Experience also</span><span>
+</span><a name="line-148"></a><span class="hs-comment">-- demonstrated that IRIS GL\'s windowing interface was high-level enough that</span><span>
+</span><a name="line-149"></a><span class="hs-comment">-- it could be retargeted to different window systems. Silicon Graphics migrated</span><span>
+</span><a name="line-150"></a><span class="hs-comment">-- from NeWS to the X Window System without any major changes to IRIS GL\'s</span><span>
+</span><a name="line-151"></a><span class="hs-comment">-- basic windowing interface.</span><span>
+</span><a name="line-152"></a><span class="hs-comment">--</span><span>
+</span><a name="line-153"></a><span class="hs-comment">-- Removing window system operations from OpenGL is a sound decision because it</span><span>
+</span><a name="line-154"></a><span class="hs-comment">-- allows the OpenGL graphics system to be retargeted to various systems</span><span>
+</span><a name="line-155"></a><span class="hs-comment">-- including powerful but expensive graphics workstations as well as</span><span>
+</span><a name="line-156"></a><span class="hs-comment">-- mass-production graphics systems like video games, set-top boxes for</span><span>
+</span><a name="line-157"></a><span class="hs-comment">-- interactive television, and PCs.</span><span>
+</span><a name="line-158"></a><span class="hs-comment">--</span><span>
+</span><a name="line-159"></a><span class="hs-comment">-- Unfortunately, the lack of a window system interface for OpenGL is a gap in</span><span>
+</span><a name="line-160"></a><span class="hs-comment">-- OpenGL\'s utility. Learning native window system APIs such as the X Window</span><span>
+</span><a name="line-161"></a><span class="hs-comment">-- System\'s Xlib or Motif can be daunting. Even those familiar with</span><span>
+</span><a name="line-162"></a><span class="hs-comment">-- native window system APIs need to understand the interface that binds OpenGL</span><span>
+</span><a name="line-163"></a><span class="hs-comment">-- to the native window system. And when an OpenGL program is written using the</span><span>
+</span><a name="line-164"></a><span class="hs-comment">-- native window system interface, despite the portability of the program\'s</span><span>
+</span><a name="line-165"></a><span class="hs-comment">-- OpenGL rendering code, the program itself will be window system dependent.</span><span>
+</span><a name="line-166"></a><span class="hs-comment">--</span><span>
+</span><a name="line-167"></a><span class="hs-comment">-- Testing and documenting OpenGL\'s functionality lead to the development of</span><span>
+</span><a name="line-168"></a><span class="hs-comment">-- the @tk@ and @aux@ toolkits. The @aux@ toolkit is used in the examples found</span><span>
+</span><a name="line-169"></a><span class="hs-comment">-- in the /OpenGL Programming Guide/. Unfortunately, @aux@ has numerous</span><span>
+</span><a name="line-170"></a><span class="hs-comment">-- limitations and its utility is largely limited to toy programs. The @tk@</span><span>
+</span><a name="line-171"></a><span class="hs-comment">-- library has more functionality than @aux@ but was developed in an /ad hoc/</span><span>
+</span><a name="line-172"></a><span class="hs-comment">-- fashion and still lacks much important functionality that IRIS GL programmers</span><span>
+</span><a name="line-173"></a><span class="hs-comment">-- expect, like pop-up menus and overlays.</span><span>
+</span><a name="line-174"></a><span class="hs-comment">--</span><span>
+</span><a name="line-175"></a><span class="hs-comment">-- GLUT is designed to fill the need for a window system independent programming</span><span>
+</span><a name="line-176"></a><span class="hs-comment">-- interface for OpenGL programs. The interface is designed to be simple yet</span><span>
+</span><a name="line-177"></a><span class="hs-comment">-- still meet the needs of useful OpenGL programs. Features from the IRIS GL,</span><span>
+</span><a name="line-178"></a><span class="hs-comment">-- @aux@, and @tk@ interfaces are included to make it easy for programmers used</span><span>
+</span><a name="line-179"></a><span class="hs-comment">-- to these interfaces to develop programs for GLUT.</span><span>
+</span><a name="line-180"></a><span>
+</span><a name="line-181"></a><span class="hs-comment">-----------------------------------------------------------------------------</span><span>
+</span><a name="line-182"></a><span class="hs-comment">-- $DesignPhilosophy</span><span>
+</span><a name="line-183"></a><span class="hs-comment">-- GLUT simplifies the implementation of programs using OpenGL rendering. The</span><span>
+</span><a name="line-184"></a><span class="hs-comment">-- GLUT application programming interface (API) requires very few routines to</span><span>
+</span><a name="line-185"></a><span class="hs-comment">-- display a graphics scene rendered using OpenGL. The GLUT API (like the OpenGL</span><span>
+</span><a name="line-186"></a><span class="hs-comment">-- API) is stateful. Most initial GLUT state is defined and the initial state is</span><span>
+</span><a name="line-187"></a><span class="hs-comment">-- reasonable for simple programs. The GLUT routines also take relatively few</span><span>
+</span><a name="line-188"></a><span class="hs-comment">-- parameters.</span><span>
+</span><a name="line-189"></a><span class="hs-comment">--</span><span>
+</span><a name="line-190"></a><span class="hs-comment">-- The GLUT API is (as much as reasonable) window system independent. For this</span><span>
+</span><a name="line-191"></a><span class="hs-comment">-- reason, GLUT does not return /any/ native window system handles, pointers, or</span><span>
+</span><a name="line-192"></a><span class="hs-comment">-- other data structures. More subtle window system dependencies such as</span><span>
+</span><a name="line-193"></a><span class="hs-comment">-- reliance on window system dependent fonts are avoided by GLUT; instead, GLUT</span><span>
+</span><a name="line-194"></a><span class="hs-comment">-- supplies its own (limited) set of fonts.</span><span>
+</span><a name="line-195"></a><span class="hs-comment">--</span><span>
+</span><a name="line-196"></a><span class="hs-comment">-- For programming ease, GLUT provides a simple menu sub-API. While the menuing</span><span>
+</span><a name="line-197"></a><span class="hs-comment">-- support is designed to be implemented as pop-up menus, GLUT gives window</span><span>
+</span><a name="line-198"></a><span class="hs-comment">-- system leeway to support the menu functionality in another manner (pull-down</span><span>
+</span><a name="line-199"></a><span class="hs-comment">-- menus for example).</span><span>
+</span><a name="line-200"></a><span class="hs-comment">--</span><span>
+</span><a name="line-201"></a><span class="hs-comment">-- Two of the most important pieces of GLUT state are the /current window/ and</span><span>
+</span><a name="line-202"></a><span class="hs-comment">-- /current menu/. Most window and menu routines affect the /current window/ or</span><span>
+</span><a name="line-203"></a><span class="hs-comment">-- /menu/ respectively. Most callbacks implicitly set the /current window/ and</span><span>
+</span><a name="line-204"></a><span class="hs-comment">-- /menu/ to the appropriate window or menu responsible for the callback. GLUT</span><span>
+</span><a name="line-205"></a><span class="hs-comment">-- is designed so that a program with only a single window and\/or menu will not</span><span>
+</span><a name="line-206"></a><span class="hs-comment">-- need to keep track of any window or menu identifiers. This greatly simplifies</span><span>
+</span><a name="line-207"></a><span class="hs-comment">-- very simple GLUT programs.</span><span>
+</span><a name="line-208"></a><span class="hs-comment">--</span><span>
+</span><a name="line-209"></a><span class="hs-comment">-- GLUT is designed for simple to moderately complex programs focused on OpenGL</span><span>
+</span><a name="line-210"></a><span class="hs-comment">-- rendering. GLUT implements its own event loop. For this reason, mixing GLUT</span><span>
+</span><a name="line-211"></a><span class="hs-comment">-- with other APIs that demand their own event handling structure may be</span><span>
+</span><a name="line-212"></a><span class="hs-comment">-- difficult. The advantage of a builtin event dispatch loop is simplicity.</span><span>
+</span><a name="line-213"></a><span class="hs-comment">--</span><span>
+</span><a name="line-214"></a><span class="hs-comment">-- GLUT contains routines for rendering fonts and geometric objects, however</span><span>
+</span><a name="line-215"></a><span class="hs-comment">-- GLUT makes no claims on the OpenGL display list name space. For this reason,</span><span>
+</span><a name="line-216"></a><span class="hs-comment">-- none of the GLUT rendering routines use OpenGL display lists. It is up to the</span><span>
+</span><a name="line-217"></a><span class="hs-comment">-- GLUT programmer to compile the output from GLUT rendering routines into</span><span>
+</span><a name="line-218"></a><span class="hs-comment">-- display lists if this is desired.</span><span>
+</span><a name="line-219"></a><span class="hs-comment">--</span><span>
+</span><a name="line-220"></a><span class="hs-comment">-- GLUT routines are logically organized into several sub-APIs according to</span><span>
+</span><a name="line-221"></a><span class="hs-comment">-- their functionality. The sub-APIs are:</span><span>
+</span><a name="line-222"></a><span class="hs-comment">--</span><span>
+</span><a name="line-223"></a><span class="hs-comment">-- * /Initialization:/ Command line processing, window system initialization,</span><span>
+</span><a name="line-224"></a><span class="hs-comment">--   and initial window creation state are controlled by these routines.</span><span>
+</span><a name="line-225"></a><span class="hs-comment">--</span><span>
+</span><a name="line-226"></a><span class="hs-comment">-- * /Beginning Event Processing:/ This routine enters GLUT\'s event processing</span><span>
+</span><a name="line-227"></a><span class="hs-comment">--   loop. This routine never returns, and it continuously calls GLUT callbacks</span><span>
+</span><a name="line-228"></a><span class="hs-comment">--   as necessary.</span><span>
+</span><a name="line-229"></a><span class="hs-comment">--</span><span>
+</span><a name="line-230"></a><span class="hs-comment">-- * /Window Management:/ These routines create and control windows.</span><span>
+</span><a name="line-231"></a><span class="hs-comment">--</span><span>
+</span><a name="line-232"></a><span class="hs-comment">-- * /Overlay Management:/ These routines establish and manage overlays for</span><span>
+</span><a name="line-233"></a><span class="hs-comment">--   windows.</span><span>
+</span><a name="line-234"></a><span class="hs-comment">--</span><span>
+</span><a name="line-235"></a><span class="hs-comment">-- * /Menu Management:/ These routines create and control pop-up menus.</span><span>
+</span><a name="line-236"></a><span class="hs-comment">--</span><span>
+</span><a name="line-237"></a><span class="hs-comment">-- * /Callback Registration:/ These routines register callbacks to be called by</span><span>
+</span><a name="line-238"></a><span class="hs-comment">--   the GLUT event processing loop.</span><span>
+</span><a name="line-239"></a><span class="hs-comment">--</span><span>
+</span><a name="line-240"></a><span class="hs-comment">-- * /Color Index Colormap Management:/ These routines allow the manipulation</span><span>
+</span><a name="line-241"></a><span class="hs-comment">--   of color index colormaps for windows.</span><span>
+</span><a name="line-242"></a><span class="hs-comment">--</span><span>
+</span><a name="line-243"></a><span class="hs-comment">-- * /State Retrieval:/ These routines allows programs to retrieve state from</span><span>
+</span><a name="line-244"></a><span class="hs-comment">--   GLUT.</span><span>
+</span><a name="line-245"></a><span class="hs-comment">--</span><span>
+</span><a name="line-246"></a><span class="hs-comment">-- * /Font Rendering:/ These routines allow rendering of stroke and bitmap</span><span>
+</span><a name="line-247"></a><span class="hs-comment">--   fonts.</span><span>
+</span><a name="line-248"></a><span class="hs-comment">--</span><span>
+</span><a name="line-249"></a><span class="hs-comment">-- * /Geometric Shape Rendering:/ These routines allow the rendering of 3D</span><span>
+</span><a name="line-250"></a><span class="hs-comment">--   geometric objects including spheres, cones, icosahedrons, and teapots.</span><span>
+</span><a name="line-251"></a><span class="hs-comment">--</span><span>
+</span><a name="line-252"></a><span class="hs-comment">-- * /Debugging:/ This routine reports any pending GL errors.</span><span>
+</span><a name="line-253"></a><span class="hs-comment">--</span><span>
+</span><a name="line-254"></a><span class="hs-comment">-- * /Device Control:/ These routines allow setting the key repeat and polling</span><span>
+</span><a name="line-255"></a><span class="hs-comment">--   the joystick.</span><span>
+</span><a name="line-256"></a><span class="hs-comment">--</span><span>
+</span><a name="line-257"></a><span class="hs-comment">-- * /Game Mode:/ These routines allow programs to enter\/leave a full-screen</span><span>
+</span><a name="line-258"></a><span class="hs-comment">--   mode with specified properties.</span><span>
+</span><a name="line-259"></a><span>
+</span><a name="line-260"></a><span class="hs-comment">-- Note that the following item has been left out intentionally, its</span><span>
+</span><a name="line-261"></a><span class="hs-comment">-- implementation is too SGI-specific:</span><span>
+</span><a name="line-262"></a><span class="hs-comment">-- * /Video Resizing:/ These routines provide a means for doing swap or frame</span><span>
+</span><a name="line-263"></a><span class="hs-comment">--   synchronous resizing\/panning of the area that is to be magnified (or</span><span>
+</span><a name="line-264"></a><span class="hs-comment">--   passed through) to the output video resolution.</span><span>
+</span><a name="line-265"></a><span>
+</span><a name="line-266"></a><span class="hs-comment">-----------------------------------------------------------------------------</span><span>
+</span><a name="line-267"></a><span class="hs-comment">-- $APIVersions</span><span>
+</span><a name="line-268"></a><span class="hs-comment">-- The GLUT API has undergone several revisions with increasing functionality.</span><span>
+</span><a name="line-269"></a><span class="hs-comment">-- This Haskell binding provides access to everything in API version 4,</span><span>
+</span><a name="line-270"></a><span class="hs-comment">-- although it is not yet officially finalized. Nevertheless, it provides very</span><span>
+</span><a name="line-271"></a><span class="hs-comment">-- useful things like handling full-screen modes and special keys.</span><span>
+</span><a name="line-272"></a><span>
+</span><a name="line-273"></a><span class="hs-comment">-----------------------------------------------------------------------------</span><span>
+</span><a name="line-274"></a><span class="hs-comment">-- $Conventions</span><span>
+</span><a name="line-275"></a><span class="hs-comment">-- GLUT window and screen coordinates are expressed in pixels. The upper</span><span>
+</span><a name="line-276"></a><span class="hs-comment">-- left hand corner of the screen or a window is (0,0). X coordinates</span><span>
+</span><a name="line-277"></a><span class="hs-comment">-- increase in a rightward direction; Y coordinates increase in a</span><span>
+</span><a name="line-278"></a><span class="hs-comment">-- downward direction. Note: This is inconsistent with OpenGL\'s</span><span>
+</span><a name="line-279"></a><span class="hs-comment">-- coordinate scheme that generally considers the lower left hand</span><span>
+</span><a name="line-280"></a><span class="hs-comment">-- coordinate of a window to be at (0,0) but is consistent with most</span><span>
+</span><a name="line-281"></a><span class="hs-comment">-- popular window systems.</span><span>
+</span><a name="line-282"></a><span>
+</span><a name="line-283"></a><span class="hs-comment">-----------------------------------------------------------------------------</span><span>
+</span><a name="line-284"></a><span class="hs-comment">-- $Terminology</span><span>
+</span><a name="line-285"></a><span class="hs-comment">-- A number of terms are used in a GLUT-specific manner throughout this</span><span>
+</span><a name="line-286"></a><span class="hs-comment">-- document. The GLUT meaning of these terms is independent of the window</span><span>
+</span><a name="line-287"></a><span class="hs-comment">-- system GLUT is used with. Here are GLUT-specific meanings for the</span><span>
+</span><a name="line-288"></a><span class="hs-comment">-- following GLUT-specific terms:</span><span>
+</span><a name="line-289"></a><span class="hs-comment">--</span><span>
+</span><a name="line-290"></a><span class="hs-comment">-- * /Callback:/ A programmer specified routine that can be registered with</span><span>
+</span><a name="line-291"></a><span class="hs-comment">--   GLUT to be called in response to a specific type of event. Also used to</span><span>
+</span><a name="line-292"></a><span class="hs-comment">-- refer to a specific callback routine being called.</span><span>
+</span><a name="line-293"></a><span class="hs-comment">--</span><span>
+</span><a name="line-294"></a><span class="hs-comment">-- * /Colormap:/ A mapping of pixel values to RGB color values. Used by color</span><span>
+</span><a name="line-295"></a><span class="hs-comment">--   index windows.</span><span>
+</span><a name="line-296"></a><span class="hs-comment">--</span><span>
+</span><a name="line-297"></a><span class="hs-comment">-- * /Dials and button box:/ A sophisticated input device consisting of a pad</span><span>
+</span><a name="line-298"></a><span class="hs-comment">--   of buttons and an array of rotating dials, often used by computer-aided</span><span>
+</span><a name="line-299"></a><span class="hs-comment">--   design programs.</span><span>
+</span><a name="line-300"></a><span class="hs-comment">--</span><span>
+</span><a name="line-301"></a><span class="hs-comment">-- * /Display mode:/ A set of OpenGL frame buffer capabilities that can be</span><span>
+</span><a name="line-302"></a><span class="hs-comment">--   attributed to a window.</span><span>
+</span><a name="line-303"></a><span class="hs-comment">--</span><span>
+</span><a name="line-304"></a><span class="hs-comment">-- * /Idle:/ A state when no window system events are received for processing</span><span>
+</span><a name="line-305"></a><span class="hs-comment">--   as callbacks and the idle callback, if one is registered, is called.</span><span>
+</span><a name="line-306"></a><span class="hs-comment">--</span><span>
+</span><a name="line-307"></a><span class="hs-comment">-- * /Layer in use:/ Either the normal plane or overlay. This per-window state</span><span>
+</span><a name="line-308"></a><span class="hs-comment">--   determines what frame buffer layer OpenGL commands affect.</span><span>
+</span><a name="line-309"></a><span class="hs-comment">--</span><span>
+</span><a name="line-310"></a><span class="hs-comment">-- * /Menu entry:/ A menu item that the user can select to trigger the menu</span><span>
+</span><a name="line-311"></a><span class="hs-comment">--   callback for the menu entry\'s value.</span><span>
+</span><a name="line-312"></a><span class="hs-comment">--</span><span>
+</span><a name="line-313"></a><span class="hs-comment">-- * /Menu item:/ Either a menu entry or a sub-menu trigger.</span><span>
+</span><a name="line-314"></a><span class="hs-comment">--</span><span>
+</span><a name="line-315"></a><span class="hs-comment">-- * /Modifiers:/ The Shift, Ctrl, and Alt keys that can be held down</span><span>
+</span><a name="line-316"></a><span class="hs-comment">--   simultaneously with a key or mouse button being pressed or released.</span><span>
+</span><a name="line-317"></a><span class="hs-comment">--</span><span>
+</span><a name="line-318"></a><span class="hs-comment">-- * /Multisampling:/ A technique for hardware antialiasing generally available</span><span>
+</span><a name="line-319"></a><span class="hs-comment">--   only on expensive 3D graphics hardware. Each pixel is composed of a number</span><span>
+</span><a name="line-320"></a><span class="hs-comment">--   of samples (each containing color and depth information). The samples are</span><span>
+</span><a name="line-321"></a><span class="hs-comment">--   averaged to determine the displayed pixel color value. Multisampling is</span><span>
+</span><a name="line-322"></a><span class="hs-comment">--   supported as an extension to OpenGL.</span><span>
+</span><a name="line-323"></a><span class="hs-comment">--</span><span>
+</span><a name="line-324"></a><span class="hs-comment">-- * /Normal plane:/ The default frame buffer layer where GLUT window state</span><span>
+</span><a name="line-325"></a><span class="hs-comment">--   resides; as opposed to the /overlay/.</span><span>
+</span><a name="line-326"></a><span class="hs-comment">--</span><span>
+</span><a name="line-327"></a><span class="hs-comment">-- * /Overlay:/ A frame buffer layer that can be displayed preferentially to</span><span>
+</span><a name="line-328"></a><span class="hs-comment">--   the /normal plane/ and supports transparency to display through to the</span><span>
+</span><a name="line-329"></a><span class="hs-comment">--   /normal plane/. Overlays are useful for rubber-banding effects, text</span><span>
+</span><a name="line-330"></a><span class="hs-comment">--   annotation, and other operations, to avoid damaging the normal plane frame</span><span>
+</span><a name="line-331"></a><span class="hs-comment">--   buffer state. Overlays require hardware support not present on all systems.</span><span>
+</span><a name="line-332"></a><span class="hs-comment">--</span><span>
+</span><a name="line-333"></a><span class="hs-comment">-- * /Pop:/ The act of forcing a window to the top of the stacking order for</span><span>
+</span><a name="line-334"></a><span class="hs-comment">--   sibling windows.</span><span>
+</span><a name="line-335"></a><span class="hs-comment">--</span><span>
+</span><a name="line-336"></a><span class="hs-comment">-- * /Pop-up menu:/ A menu that can be set to appear when a specified mouse</span><span>
+</span><a name="line-337"></a><span class="hs-comment">--   button is pressed in a window. A pop-menu consists of multiple menu items.</span><span>
+</span><a name="line-338"></a><span class="hs-comment">--</span><span>
+</span><a name="line-339"></a><span class="hs-comment">-- * /Push:/ The act of forcing a window to the bottom of the stacking order</span><span>
+</span><a name="line-340"></a><span class="hs-comment">--   for sibling windows.</span><span>
+</span><a name="line-341"></a><span class="hs-comment">--</span><span>
+</span><a name="line-342"></a><span class="hs-comment">-- * /Reshape:/ The act of changing the size or shape of the window.</span><span>
+</span><a name="line-343"></a><span class="hs-comment">--</span><span>
+</span><a name="line-344"></a><span class="hs-comment">-- * /Spaceball:/ A sophisticated 3D input device that provides six degrees of</span><span>
+</span><a name="line-345"></a><span class="hs-comment">--   freedom, three axes of rotation and three axes of translation. It also</span><span>
+</span><a name="line-346"></a><span class="hs-comment">--   supports a number of buttons. The device is a hand-sized ball attached to</span><span>
+</span><a name="line-347"></a><span class="hs-comment">--   a base. By cupping the ball with one\'s hand and applying torsional or</span><span>
+</span><a name="line-348"></a><span class="hs-comment">--   directional force on the ball, rotations and translationsare generated.</span><span>
+</span><a name="line-349"></a><span class="hs-comment">--</span><span>
+</span><a name="line-350"></a><span class="hs-comment">-- * /Stereo:/ A frame buffer capability providing left and right color buffers</span><span>
+</span><a name="line-351"></a><span class="hs-comment">--   for creating stereoscopic renderings. Typically, the user wears LCD</span><span>
+</span><a name="line-352"></a><span class="hs-comment">--   shuttered goggles synchronized with the alternating display on the screen</span><span>
+</span><a name="line-353"></a><span class="hs-comment">--   of the left and right color buffers.</span><span>
+</span><a name="line-354"></a><span class="hs-comment">--</span><span>
+</span><a name="line-355"></a><span class="hs-comment">-- * /Sub-menu:/ A menu cascaded from some sub-menu trigger.</span><span>
+</span><a name="line-356"></a><span class="hs-comment">--</span><span>
+</span><a name="line-357"></a><span class="hs-comment">-- * /Sub-menu trigger:/ A menu item that the user can enter to cascade another</span><span>
+</span><a name="line-358"></a><span class="hs-comment">--   pop-up menu.</span><span>
+</span><a name="line-359"></a><span class="hs-comment">--</span><span>
+</span><a name="line-360"></a><span class="hs-comment">-- * /Subwindow:/ A type of window that is the child window of a top-level</span><span>
+</span><a name="line-361"></a><span class="hs-comment">--   window or other subwindow. The drawing and visible region of a subwindow</span><span>
+</span><a name="line-362"></a><span class="hs-comment">--   is limited by its parent window.</span><span>
+</span><a name="line-363"></a><span class="hs-comment">--</span><span>
+</span><a name="line-364"></a><span class="hs-comment">-- * /Tablet:/ A precise 2D input device. Like a mouse, 2D coordinates are</span><span>
+</span><a name="line-365"></a><span class="hs-comment">--   returned. The absolute position of the tablet \&quot;puck\&quot; on the tablet is</span><span>
+</span><a name="line-366"></a><span class="hs-comment">--   returned. Tablets also support a number of buttons.</span><span>
+</span><a name="line-367"></a><span class="hs-comment">--</span><span>
+</span><a name="line-368"></a><span class="hs-comment">-- * /Timer:/ A callback that can be scheduled to be called in a specified</span><span>
+</span><a name="line-369"></a><span class="hs-comment">--   interval of time.</span><span>
+</span><a name="line-370"></a><span class="hs-comment">--</span><span>
+</span><a name="line-371"></a><span class="hs-comment">-- * /Top-level window:/ A window that can be placed, moved, resized, etc.</span><span>
+</span><a name="line-372"></a><span class="hs-comment">--   independently from other top-level windows by the user. Subwindows may</span><span>
+</span><a name="line-373"></a><span class="hs-comment">--   reside within a top-level window.</span><span>
+</span><a name="line-374"></a><span class="hs-comment">--</span><span>
+</span><a name="line-375"></a><span class="hs-comment">-- * /Window:/ A rectangular area for OpenGL rendering.</span><span>
+</span><a name="line-376"></a><span class="hs-comment">--</span><span>
+</span><a name="line-377"></a><span class="hs-comment">-- * /Window display state:/ One of shown, hidden, or iconified. A shown window</span><span>
+</span><a name="line-378"></a><span class="hs-comment">--   is potentially visible on the screen (it may be obscured by other windows</span><span>
+</span><a name="line-379"></a><span class="hs-comment">--   and not actually visible). A hidden window will never be visible. An</span><span>
+</span><a name="line-380"></a><span class="hs-comment">--   iconified window is not visible but could be made visible in response to</span><span>
+</span><a name="line-381"></a><span class="hs-comment">--   some user action like clicking on the window\'s corresponding icon.</span><span>
+</span><a name="line-382"></a><span class="hs-comment">--</span><span>
+</span><a name="line-383"></a><span class="hs-comment">-- * /Window system:/ A broad notion that refers to both the mechanism and</span><span>
+</span><a name="line-384"></a><span class="hs-comment">--   policy of the window system. For example, in the X Window System both the</span><span>
+</span><a name="line-385"></a><span class="hs-comment">--   window manager and the X server are integral to what GLUT considers the</span><span>
+</span><a name="line-386"></a><span class="hs-comment">--   window system.</span><span>
+</span><a name="line-387"></a></pre></body></html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span>
+</span><a name="line-2"></a><span class="hs-comment">-- | Display mode is for drawing a static picture.</span><span>
+</span><a name="line-3"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Gloss</span><span class="hs-operator">.</span><span class="hs-identifier">Interface</span><span class="hs-operator">.</span><span class="hs-identifier">IO</span><span class="hs-operator">.</span><span class="hs-identifier">Display</span><span>
+</span><a name="line-4"></a><span>        </span><span class="hs-special">(</span><span> </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Gloss</span><span class="hs-operator">.</span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Display</span><span>
+</span><a name="line-5"></a><span>        </span><span class="hs-special">,</span><span> </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Gloss</span><span class="hs-operator">.</span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Picture</span><span>
+</span><a name="line-6"></a><span>        </span><span class="hs-special">,</span><span> </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Gloss</span><span class="hs-operator">.</span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Color</span><span>
+</span><a name="line-7"></a><span>        </span><span class="hs-special">,</span><span> </span><a href="Graphics.Gloss.Interface.IO.Display.html#displayIO"><span class="hs-identifier hs-var">displayIO</span></a><span>
+</span><a name="line-8"></a><span>        </span><span class="hs-special">,</span><span> </span><a href="Graphics.Gloss.Data.Controller.html#Controller"><span class="hs-identifier hs-type">Controller</span></a><span>    </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a name="line-9"></a><span class="hs-keyword">where</span><span>
+</span><a name="line-10"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Gloss.Data.Display.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Gloss</span><span class="hs-operator">.</span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Display</span></a><span>
+</span><a name="line-11"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Gloss.Data.Controller.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Gloss</span><span class="hs-operator">.</span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Controller</span></a><span>
+</span><a name="line-12"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Gloss.Data.Picture.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Gloss</span><span class="hs-operator">.</span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Picture</span></a><span>
+</span><a name="line-13"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Gloss.Data.Color.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Gloss</span><span class="hs-operator">.</span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Color</span></a><span>
+</span><a name="line-14"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Gloss.Internals.Interface.Display.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Gloss</span><span class="hs-operator">.</span><span class="hs-identifier">Internals</span><span class="hs-operator">.</span><span class="hs-identifier">Interface</span><span class="hs-operator">.</span><span class="hs-identifier">Display</span></a><span>
+</span><a name="line-15"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Gloss.Internals.Interface.Backend.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Gloss</span><span class="hs-operator">.</span><span class="hs-identifier">Internals</span><span class="hs-operator">.</span><span class="hs-identifier">Interface</span><span class="hs-operator">.</span><span class="hs-identifier">Backend</span></a><span>
+</span><a name="line-16"></a><span>
+</span><a name="line-17"></a><span>
+</span><a name="line-18"></a><span class="hs-comment">-- | Open a new window and display an infrequently updated picture.</span><span>
+</span><a name="line-19"></a><span class="hs-comment">--</span><span>
+</span><a name="line-20"></a><span class="hs-comment">--   Once the window is open you can use the same commands as with @display@.</span><span>
+</span><a name="line-21"></a><span class="hs-comment">--</span><span>
+</span><a name="line-22"></a><span class="hs-comment">--   * This wrapper is intended for mostly static pictures that do not</span><span>
+</span><a name="line-23"></a><span class="hs-comment">--     need to be updated more than once per second. For example, the picture</span><span>
+</span><a name="line-24"></a><span class="hs-comment">--     could show network activity over the last minute, a daily stock price,</span><span>
+</span><a name="line-25"></a><span class="hs-comment">--     or a weather forecast. If you want to show a real-time animation where</span><span>
+</span><a name="line-26"></a><span class="hs-comment">--     the frames are redrawn more frequently then use the `animate` wrapper</span><span>
+</span><a name="line-27"></a><span class="hs-comment">--     instead.</span><span>
+</span><a name="line-28"></a><span class="hs-comment">--</span><span>
+</span><a name="line-29"></a><span class="hs-comment">--   * The provided picture generating action will be invoked, and the</span><span>
+</span><a name="line-30"></a><span class="hs-comment">--     display redrawn in two situation:</span><span>
+</span><a name="line-31"></a><span class="hs-comment">--     1) We receive a display event, like someone clicks on the window.</span><span>
+</span><a name="line-32"></a><span class="hs-comment">--     2) When `controllerSetRedraw` has been set, some indeterminate time</span><span>
+</span><a name="line-33"></a><span class="hs-comment">--     between the last redraw, and one second from that.</span><span>
+</span><a name="line-34"></a><span class="hs-comment">--</span><span>
+</span><a name="line-35"></a><span class="hs-comment">--   * Note that calling `controllerSetRedraw` indicates that the picture should</span><span>
+</span><a name="line-36"></a><span class="hs-comment">--     be redrawn, but does not cause this to happen immediately, due to </span><span>
+</span><a name="line-37"></a><span class="hs-comment">--     limitations in the GLUT and GLFW window managers. The display runs on</span><span>
+</span><a name="line-38"></a><span class="hs-comment">--     a one second timer interrupt, and if there have been no display events</span><span>
+</span><a name="line-39"></a><span class="hs-comment">--     we need to wait for the next timer interrupt before redrawing.</span><span>
+</span><a name="line-40"></a><span class="hs-comment">--     Having the timer interrupt period at 1 second keeps the CPU usage</span><span>
+</span><a name="line-41"></a><span class="hs-comment">--     due to the context switches at under 1%.</span><span>
+</span><a name="line-42"></a><span class="hs-comment">--</span><span>
+</span><a name="line-43"></a><span class="hs-comment">--   * Also note that the picture generating action is called for every display</span><span>
+</span><a name="line-44"></a><span class="hs-comment">--     event, so if the user pans the display then it will be invoked at 10hz </span><span>
+</span><a name="line-45"></a><span class="hs-comment">--     or more during the pan. If you are generating the picture by reading some</span><span>
+</span><a name="line-46"></a><span class="hs-comment">--     on-disk files then you should track when the files were last updated</span><span>
+</span><a name="line-47"></a><span class="hs-comment">--     and cache the picture between updates. Caching the picture avoids</span><span>
+</span><a name="line-48"></a><span class="hs-comment">--     repeatedly reading and re-parsing your files during a pan. Consider</span><span>
+</span><a name="line-49"></a><span class="hs-comment">--     storing your current picture in an IORef, passing an action that just</span><span>
+</span><a name="line-50"></a><span class="hs-comment">--     reads this IORef, and forking a new thread that watches your files for updates.</span><span>
+</span><a name="line-51"></a><span class="hs-comment">--</span><span>
+</span><a name="line-52"></a><span class="hs-identifier">displayIO</span><span>
+</span><a name="line-53"></a><span>        </span><span class="hs-glyph">::</span><span> </span><a href="Graphics.Gloss.Data.Display.html#Display"><span class="hs-identifier hs-type">Display</span></a><span>                </span><span class="hs-comment">-- ^ Display mode.</span><span>
+</span><a name="line-54"></a><span>        </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">Color</span><span>                  </span><span class="hs-comment">-- ^ Background color.</span><span>
+</span><a name="line-55"></a><span>        </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-identifier hs-type">Picture</span><span>             </span><span class="hs-comment">-- ^ Action to produce the current picture.</span><span>
+</span><a name="line-56"></a><span>        </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><a href="Graphics.Gloss.Data.Controller.html#Controller"><span class="hs-identifier hs-type">Controller</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span class="hs-special">)</span><span>  </span><span class="hs-comment">-- ^ Callback to take the display controller.</span><span>
+</span><a name="line-57"></a><span>        </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span>
+</span><a name="line-58"></a><span>
+</span><a name="line-59"></a><a name="displayIO"><a href="Graphics.Gloss.Interface.IO.Display.html#displayIO"><span class="hs-identifier">displayIO</span></a></a><span> </span><a name="local-6989586621679076820"><a href="#local-6989586621679076820"><span class="hs-identifier">dis</span></a></a><span> </span><a name="local-6989586621679076821"><a href="#local-6989586621679076821"><span class="hs-identifier">backColor</span></a></a><span> </span><a name="local-6989586621679076822"><a href="#local-6989586621679076822"><span class="hs-identifier">makePicture</span></a></a><span> </span><a name="local-6989586621679076823"><a href="#local-6989586621679076823"><span class="hs-identifier">eatController</span></a></a><span>
+</span><a name="line-60"></a><span> </span><span class="hs-glyph">=</span><span>      </span><a href="Graphics.Gloss.Internals.Interface.Display.html#displayWithBackend"><span class="hs-identifier hs-var">displayWithBackend</span></a><span>
+</span><a name="line-61"></a><span>                </span><a href="Graphics.Gloss.Internals.Interface.Backend.html#defaultBackendState"><span class="hs-identifier hs-var">defaultBackendState</span></a><span>
+</span><a name="line-62"></a><span>                </span><a href="#local-6989586621679076820"><span class="hs-identifier hs-var">dis</span></a><span>
+</span><a name="line-63"></a><span>                </span><a href="#local-6989586621679076821"><span class="hs-identifier hs-var">backColor</span></a><span>
+</span><a name="line-64"></a><span>                </span><a href="#local-6989586621679076822"><span class="hs-identifier hs-var">makePicture</span></a><span>
+</span><a name="line-65"></a><span>                </span><a href="#local-6989586621679076823"><span class="hs-identifier hs-var">eatController</span></a><span>
+</span><a name="line-66"></a><span>
+</span><a name="line-67"></a><span>
+</span><a name="line-68"></a></pre></body></html>

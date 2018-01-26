@@ -1,0 +1,38 @@
+Configuring HUnit-1.6.0.0...
+Preprocessing library for HUnit-1.6.0.0..
+Building library for HUnit-1.6.0.0..
+[1 of 6] Compiling Paths_HUnit      ( .stack-work\dist\5c8418a7\build\autogen\Paths_HUnit.hs, .stack-work\dist\5c8418a7\build\Paths_HUnit.o )
+[2 of 6] Compiling Test.HUnit.Lang  ( src\Test\HUnit\Lang.hs, .stack-work\dist\5c8418a7\build\Test\HUnit\Lang.o )
+[3 of 6] Compiling Test.HUnit.Base  ( src\Test\HUnit\Base.hs, .stack-work\dist\5c8418a7\build\Test\HUnit\Base.o )
+[4 of 6] Compiling Test.HUnit.Terminal ( src\Test\HUnit\Terminal.hs, .stack-work\dist\5c8418a7\build\Test\HUnit\Terminal.o )
+[5 of 6] Compiling Test.HUnit.Text  ( src\Test\HUnit\Text.hs, .stack-work\dist\5c8418a7\build\Test\HUnit\Text.o )
+[6 of 6] Compiling Test.HUnit       ( src\Test\HUnit.hs, .stack-work\dist\5c8418a7\build\Test\HUnit.o )
+Preprocessing library for HUnit-1.6.0.0..
+Running Haddock on library for HUnit-1.6.0.0..
+Haddock coverage:
+   0% (  0 /  9) in 'Paths_HUnit'
+  Missing documentation for:
+    Module header
+    version (.stack-work\dist\5c8418a7\build\autogen\Paths_HUnit.hs:28)
+    getBinDir (.stack-work\dist\5c8418a7\build\autogen\Paths_HUnit.hs:39)
+    getLibDir (.stack-work\dist\5c8418a7\build\autogen\Paths_HUnit.hs:39)
+    getDynLibDir (.stack-work\dist\5c8418a7\build\autogen\Paths_HUnit.hs:39)
+    getDataDir (.stack-work\dist\5c8418a7\build\autogen\Paths_HUnit.hs:39)
+    getLibexecDir (.stack-work\dist\5c8418a7\build\autogen\Paths_HUnit.hs:39)
+    getDataFileName (.stack-work\dist\5c8418a7\build\autogen\Paths_HUnit.hs:47)
+    getSysconfDir (.stack-work\dist\5c8418a7\build\autogen\Paths_HUnit.hs:39)
+  55% (  6 / 11) in 'Test.HUnit.Lang'
+  Missing documentation for:
+    Module header
+    Result (src\Test\HUnit\Lang.hs:86)
+    HUnitFailure (src\Test\HUnit\Lang.hs:34)
+    FailureReason (src\Test\HUnit\Lang.hs:39)
+    formatFailureReason (src\Test\HUnit\Lang.hs:82)
+ 100% ( 33 / 33) in 'Test.HUnit.Base'
+ 100% (  2 /  2) in 'Test.HUnit.Terminal'
+ 100% (  8 /  8) in 'Test.HUnit.Text'
+ 100% (  3 /  3) in 'Test.HUnit'
+Documentation created: .stack-work\dist\5c8418a7\doc\html\HUnit\index.html,
+.stack-work\dist\5c8418a7\doc\html\HUnit\HUnit.txt
+Installing library in C:\sr\snapshots\13cecb13\lib\x86_64-windows-ghc-8.2.2\HUnit-1.6.0.0-Co0VFs8PjIYJtvd3iwPPg
+Registering library for HUnit-1.6.0.0..

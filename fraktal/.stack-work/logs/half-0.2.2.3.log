@@ -1,0 +1,161 @@
+Configuring half-0.2.2.3...
+Preprocessing library for half-0.2.2.3..
+Building library for half-0.2.2.3..
+
+[;1mon the commandline: [;1m[35mwarning:[0m[0m[;1m[0m[0m[;1m
+    unrecognised warning flag: -fno-warn-missing-pat-syn-sigs[0m[0m
+[0m[0m[0m[1 of 1] Compiling Numeric.Half     ( src\Numeric\Half.hs, .stack-work\dist\5c8418a7\build\Numeric\Half.o )
+
+[;1msrc\Numeric\Half.hs:151:1: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wmissing-signatures[0m[0m[;1m][0m[0m[;1m
+    Pattern synonym with no type signature: pattern POS_INF :: Half[0m[0m
+[;1m[34m    |[0m[0m
+[;1m[34m151 |[0m[0m [;1m[35mpattern POS_INF = Half 0x7c00[0m[0m
+[;1m[34m    |[0m[0m[;1m[35m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1msrc\Numeric\Half.hs:154:1: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wmissing-signatures[0m[0m[;1m][0m[0m[;1m
+    Pattern synonym with no type signature: pattern NEG_INF :: Half[0m[0m
+[;1m[34m    |[0m[0m
+[;1m[34m154 |[0m[0m [;1m[35mpattern NEG_INF = Half 0xfc00[0m[0m
+[;1m[34m    |[0m[0m[;1m[35m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1msrc\Numeric\Half.hs:157:1: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wmissing-signatures[0m[0m[;1m][0m[0m[;1m
+    Pattern synonym with no type signature: pattern QNaN :: Half[0m[0m
+[;1m[34m    |[0m[0m
+[;1m[34m157 |[0m[0m [;1m[35mpattern QNaN    = Half 0x7fff[0m[0m
+[;1m[34m    |[0m[0m[;1m[35m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1msrc\Numeric\Half.hs:160:1: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wmissing-signatures[0m[0m[;1m][0m[0m[;1m
+    Pattern synonym with no type signature: pattern SNaN :: Half[0m[0m
+[;1m[34m    |[0m[0m
+[;1m[34m160 |[0m[0m [;1m[35mpattern SNaN    = Half 0x7dff[0m[0m
+[;1m[34m    |[0m[0m[;1m[35m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1msrc\Numeric\Half.hs:163:1: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wmissing-signatures[0m[0m[;1m][0m[0m[;1m
+    Pattern synonym with no type signature: pattern HALF_MIN :: Half[0m[0m
+[;1m[34m    |[0m[0m
+[;1m[34m163 |[0m[0m [;1m[35mpattern HALF_MIN = Half 0x0001[0m[0m  -- 5.96046448e-08
+[;1m[34m    |[0m[0m[;1m[35m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1msrc\Numeric\Half.hs:166:1: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wmissing-signatures[0m[0m[;1m][0m[0m[;1m
+    Pattern synonym with no type signature:
+      pattern HALF_NRM_MIN :: Half[0m[0m
+[;1m[34m    |[0m[0m
+[;1m[34m166 |[0m[0m [;1m[35mpattern HALF_NRM_MIN = Half 0x0400[0m[0m  -- 6.10351562e-05
+[;1m[34m    |[0m[0m[;1m[35m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1msrc\Numeric\Half.hs:169:1: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wmissing-signatures[0m[0m[;1m][0m[0m[;1m
+    Pattern synonym with no type signature: pattern HALF_MAX :: Half[0m[0m
+[;1m[34m    |[0m[0m
+[;1m[34m169 |[0m[0m [;1m[35mpattern HALF_MAX = Half 0x7bff[0m[0m  -- 65504.0
+[;1m[34m    |[0m[0m[;1m[35m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1msrc\Numeric\Half.hs:172:1: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wmissing-signatures[0m[0m[;1m][0m[0m[;1m
+    Pattern synonym with no type signature:
+      pattern HALF_EPSILON :: Half[0m[0m
+[;1m[34m    |[0m[0m
+[;1m[34m172 |[0m[0m [;1m[35mpattern HALF_EPSILON = Half 0x1400[0m[0m  -- 0.00097656
+[;1m[34m    |[0m[0m[;1m[35m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1msrc\Numeric\Half.hs:175:1: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wmissing-signatures[0m[0m[;1m][0m[0m[;1m
+    Pattern synonym with no type signature:
+      pattern HALF_DIG :: forall a. (Num a, Eq a) => a[0m[0m
+[;1m[34m    |[0m[0m
+[;1m[34m175 |[0m[0m [;1m[35mpattern HALF_DIG = 2[0m[0m
+[;1m[34m    |[0m[0m[;1m[35m ^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1msrc\Numeric\Half.hs:178:1: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wmissing-signatures[0m[0m[;1m][0m[0m[;1m
+    Pattern synonym with no type signature:
+      pattern HALF_MIN_10_EXP :: forall a. (Num a, Eq a) => a[0m[0m
+[;1m[34m    |[0m[0m
+[;1m[34m178 |[0m[0m [;1m[35mpattern HALF_MIN_10_EXP = -4[0m[0m
+[;1m[34m    |[0m[0m[;1m[35m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1msrc\Numeric\Half.hs:181:1: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wmissing-signatures[0m[0m[;1m][0m[0m[;1m
+    Pattern synonym with no type signature:
+      pattern HALF_MAX_10_EXP :: forall a. (Num a, Eq a) => a[0m[0m
+[;1m[34m    |[0m[0m
+[;1m[34m181 |[0m[0m [;1m[35mpattern HALF_MAX_10_EXP = 4[0m[0m
+[;1m[34m    |[0m[0m[;1m[35m ^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0mPreprocessing library for half-0.2.2.3..
+Running Haddock on library for half-0.2.2.3..
+
+src\Numeric\Half.hs:151:1: warning: [-Wmissing-signatures]
+    Pattern synonym with no type signature: pattern POS_INF :: Half
+    |
+151 | pattern POS_INF = Half 0x7c00
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\Numeric\Half.hs:154:1: warning: [-Wmissing-signatures]
+    Pattern synonym with no type signature: pattern NEG_INF :: Half
+    |
+154 | pattern NEG_INF = Half 0xfc00
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\Numeric\Half.hs:157:1: warning: [-Wmissing-signatures]
+    Pattern synonym with no type signature: pattern QNaN :: Half
+    |
+157 | pattern QNaN    = Half 0x7fff
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\Numeric\Half.hs:160:1: warning: [-Wmissing-signatures]
+    Pattern synonym with no type signature: pattern SNaN :: Half
+    |
+160 | pattern SNaN    = Half 0x7dff
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\Numeric\Half.hs:163:1: warning: [-Wmissing-signatures]
+    Pattern synonym with no type signature: pattern HALF_MIN :: Half
+    |
+163 | pattern HALF_MIN = Half 0x0001  -- 5.96046448e-08
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\Numeric\Half.hs:166:1: warning: [-Wmissing-signatures]
+    Pattern synonym with no type signature:
+      pattern HALF_NRM_MIN :: Half
+    |
+166 | pattern HALF_NRM_MIN = Half 0x0400  -- 6.10351562e-05
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\Numeric\Half.hs:169:1: warning: [-Wmissing-signatures]
+    Pattern synonym with no type signature: pattern HALF_MAX :: Half
+    |
+169 | pattern HALF_MAX = Half 0x7bff  -- 65504.0
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\Numeric\Half.hs:172:1: warning: [-Wmissing-signatures]
+    Pattern synonym with no type signature:
+      pattern HALF_EPSILON :: Half
+    |
+172 | pattern HALF_EPSILON = Half 0x1400  -- 0.00097656
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\Numeric\Half.hs:175:1: warning: [-Wmissing-signatures]
+    Pattern synonym with no type signature:
+      pattern HALF_DIG :: forall a. (Num a, Eq a) => a
+    |
+175 | pattern HALF_DIG = 2
+    | ^^^^^^^^^^^^^^^^^^^^
+
+src\Numeric\Half.hs:178:1: warning: [-Wmissing-signatures]
+    Pattern synonym with no type signature:
+      pattern HALF_MIN_10_EXP :: forall a. (Num a, Eq a) => a
+    |
+178 | pattern HALF_MIN_10_EXP = -4
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src\Numeric\Half.hs:181:1: warning: [-Wmissing-signatures]
+    Pattern synonym with no type signature:
+      pattern HALF_MAX_10_EXP :: forall a. (Num a, Eq a) => a
+    |
+181 | pattern HALF_MAX_10_EXP = 4
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Haddock coverage:
+  81% ( 13 / 16) in 'Numeric.Half'
+  Missing documentation for:
+    Half (src\Numeric\Half.hs:61)
+    HALF_MIN_10_EXP (src\Numeric\Half.hs:178)
+    HALF_MAX_10_EXP (src\Numeric\Half.hs:181)
+Documentation created: .stack-work\dist\5c8418a7\doc\html\half\index.html,
+.stack-work\dist\5c8418a7\doc\html\half\half.txt
+Installing library in C:\sr\snapshots\13cecb13\lib\x86_64-windows-ghc-8.2.2\half-0.2.2.3-FeIaArHiP9EJwfaw5Ae43D
+Registering library for half-0.2.2.3..

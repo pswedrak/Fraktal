@@ -1,0 +1,216 @@
+Configuring base-compat-0.9.3...
+Preprocessing library for base-compat-0.9.3..
+Building library for base-compat-0.9.3..
+[ 1 of 40] Compiling Control.Concurrent.Compat ( src\Control\Concurrent\Compat.hs, .stack-work\dist\5c8418a7\build\Control\Concurrent\Compat.o )
+[ 2 of 40] Compiling Control.Concurrent.MVar.Compat ( src\Control\Concurrent\MVar\Compat.hs, .stack-work\dist\5c8418a7\build\Control\Concurrent\MVar\Compat.o )
+[ 3 of 40] Compiling Control.Monad.Compat ( src\Control\Monad\Compat.hs, .stack-work\dist\5c8418a7\build\Control\Monad\Compat.o )
+[ 4 of 40] Compiling Control.Monad.ST.Lazy.Unsafe.Compat ( src\Control\Monad\ST\Lazy\Unsafe\Compat.hs, .stack-work\dist\5c8418a7\build\Control\Monad\ST\Lazy\Unsafe\Compat.o )
+[ 5 of 40] Compiling Control.Monad.ST.Unsafe.Compat ( src\Control\Monad\ST\Unsafe\Compat.hs, .stack-work\dist\5c8418a7\build\Control\Monad\ST\Unsafe\Compat.o )
+[ 6 of 40] Compiling Data.Bits.Compat ( src\Data\Bits\Compat.hs, .stack-work\dist\5c8418a7\build\Data\Bits\Compat.o )
+[ 7 of 40] Compiling Data.Bool.Compat ( src\Data\Bool\Compat.hs, .stack-work\dist\5c8418a7\build\Data\Bool\Compat.o )
+[ 8 of 40] Compiling Data.Complex.Compat ( src\Data\Complex\Compat.hs, .stack-work\dist\5c8418a7\build\Data\Complex\Compat.o )
+[ 9 of 40] Compiling Data.Either.Compat ( src\Data\Either\Compat.hs, .stack-work\dist\5c8418a7\build\Data\Either\Compat.o )
+[10 of 40] Compiling Data.Foldable.Compat ( src\Data\Foldable\Compat.hs, .stack-work\dist\5c8418a7\build\Data\Foldable\Compat.o )
+[11 of 40] Compiling Data.Function.Compat ( src\Data\Function\Compat.hs, .stack-work\dist\5c8418a7\build\Data\Function\Compat.o )
+[12 of 40] Compiling Data.Functor.Compat ( src\Data\Functor\Compat.hs, .stack-work\dist\5c8418a7\build\Data\Functor\Compat.o )
+[13 of 40] Compiling Data.Functor.Const.Compat ( src\Data\Functor\Const\Compat.hs, .stack-work\dist\5c8418a7\build\Data\Functor\Const\Compat.o )
+[14 of 40] Compiling Data.IORef.Compat ( src\Data\IORef\Compat.hs, .stack-work\dist\5c8418a7\build\Data\IORef\Compat.o )
+[15 of 40] Compiling Data.List.Compat ( src\Data\List\Compat.hs, .stack-work\dist\5c8418a7\build\Data\List\Compat.o )
+[16 of 40] Compiling Data.Monoid.Compat ( src\Data\Monoid\Compat.hs, .stack-work\dist\5c8418a7\build\Data\Monoid\Compat.o )
+[17 of 40] Compiling Data.Proxy.Compat ( src\Data\Proxy\Compat.hs, .stack-work\dist\5c8418a7\build\Data\Proxy\Compat.o )
+[18 of 40] Compiling Data.Ratio.Compat ( src\Data\Ratio\Compat.hs, .stack-work\dist\5c8418a7\build\Data\Ratio\Compat.o )
+[19 of 40] Compiling Data.STRef.Compat ( src\Data\STRef\Compat.hs, .stack-work\dist\5c8418a7\build\Data\STRef\Compat.o )
+[20 of 40] Compiling Data.String.Compat ( src\Data\String\Compat.hs, .stack-work\dist\5c8418a7\build\Data\String\Compat.o )
+[21 of 40] Compiling Data.Type.Coercion.Compat ( src\Data\Type\Coercion\Compat.hs, .stack-work\dist\5c8418a7\build\Data\Type\Coercion\Compat.o )
+[22 of 40] Compiling Data.Version.Compat ( src\Data\Version\Compat.hs, .stack-work\dist\5c8418a7\build\Data\Version\Compat.o )
+[23 of 40] Compiling Data.Word.Compat ( src\Data\Word\Compat.hs, .stack-work\dist\5c8418a7\build\Data\Word\Compat.o )
+[24 of 40] Compiling Debug.Trace.Compat ( src\Debug\Trace\Compat.hs, .stack-work\dist\5c8418a7\build\Debug\Trace\Compat.o )
+[25 of 40] Compiling Foreign.ForeignPtr.Compat ( src\Foreign\ForeignPtr\Compat.hs, .stack-work\dist\5c8418a7\build\Foreign\ForeignPtr\Compat.o )
+[26 of 40] Compiling Foreign.ForeignPtr.Safe.Compat ( src\Foreign\ForeignPtr\Safe\Compat.hs, .stack-work\dist\5c8418a7\build\Foreign\ForeignPtr\Safe\Compat.o )
+[27 of 40] Compiling Foreign.ForeignPtr.Unsafe.Compat ( src\Foreign\ForeignPtr\Unsafe\Compat.hs, .stack-work\dist\5c8418a7\build\Foreign\ForeignPtr\Unsafe\Compat.o )
+[28 of 40] Compiling Foreign.Marshal.Alloc.Compat ( src\Foreign\Marshal\Alloc\Compat.hs, .stack-work\dist\5c8418a7\build\Foreign\Marshal\Alloc\Compat.o )
+[29 of 40] Compiling Foreign.Marshal.Array.Compat ( src\Foreign\Marshal\Array\Compat.hs, .stack-work\dist\5c8418a7\build\Foreign\Marshal\Array\Compat.o )
+[30 of 40] Compiling Foreign.Marshal.Safe.Compat ( src\Foreign\Marshal\Safe\Compat.hs, .stack-work\dist\5c8418a7\build\Foreign\Marshal\Safe\Compat.o )
+[31 of 40] Compiling Foreign.Marshal.Unsafe.Compat ( src\Foreign\Marshal\Unsafe\Compat.hs, .stack-work\dist\5c8418a7\build\Foreign\Marshal\Unsafe\Compat.o )
+[32 of 40] Compiling Foreign.Marshal.Utils.Compat ( src\Foreign\Marshal\Utils\Compat.hs, .stack-work\dist\5c8418a7\build\Foreign\Marshal\Utils\Compat.o )
+[33 of 40] Compiling Foreign.Marshal.Compat ( src\Foreign\Marshal\Compat.hs, .stack-work\dist\5c8418a7\build\Foreign\Marshal\Compat.o )
+[34 of 40] Compiling Foreign.Compat   ( src\Foreign\Compat.hs, .stack-work\dist\5c8418a7\build\Foreign\Compat.o )
+[35 of 40] Compiling Numeric.Compat   ( src\Numeric\Compat.hs, .stack-work\dist\5c8418a7\build\Numeric\Compat.o )
+[36 of 40] Compiling Prelude.Compat   ( src\Prelude\Compat.hs, .stack-work\dist\5c8418a7\build\Prelude\Compat.o )
+[37 of 40] Compiling System.Environment.Compat ( src\System\Environment\Compat.hs, .stack-work\dist\5c8418a7\build\System\Environment\Compat.o )
+[38 of 40] Compiling System.Exit.Compat ( src\System\Exit\Compat.hs, .stack-work\dist\5c8418a7\build\System\Exit\Compat.o )
+[39 of 40] Compiling System.IO.Unsafe.Compat ( src\System\IO\Unsafe\Compat.hs, .stack-work\dist\5c8418a7\build\System\IO\Unsafe\Compat.o )
+[40 of 40] Compiling Text.Read.Compat ( src\Text\Read\Compat.hs, .stack-work\dist\5c8418a7\build\Text\Read\Compat.o )
+Preprocessing library for base-compat-0.9.3..
+Running Haddock on library for base-compat-0.9.3..
+Haddock coverage:
+Warning: Control.Concurrent.Compat: Could not find documentation for exported module: Base
+  67% (  2 /  3) in 'Control.Concurrent.Compat'
+  Missing documentation for:
+    Module header
+Warning: Control.Concurrent.MVar.Compat: Could not find documentation for exported module: Base
+  50% (  1 /  2) in 'Control.Concurrent.MVar.Compat'
+  Missing documentation for:
+    Module header
+Warning: Control.Monad.Compat: Could not find documentation for exported module: Base
+  67% (  2 /  3) in 'Control.Monad.Compat'
+  Missing documentation for:
+    Module header
+  25% (  1 /  4) in 'Control.Monad.ST.Lazy.Unsafe.Compat'
+  Missing documentation for:
+    Module header
+    unsafeInterleaveST
+    unsafeIOToST
+  80% (  4 /  5) in 'Control.Monad.ST.Unsafe.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.Bits.Compat: Could not find documentation for exported module: Base
+  80% (  4 /  5) in 'Data.Bits.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.Bool.Compat: Could not find documentation for exported module: Base
+  50% (  1 /  2) in 'Data.Bool.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.Complex.Compat: Could not find documentation for exported module: Base
+   0% (  0 /  1) in 'Data.Complex.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.Either.Compat: Could not find documentation for exported module: Base
+  80% (  4 /  5) in 'Data.Either.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.Foldable.Compat: Could not find documentation for exported module: Base
+   0% (  0 /  1) in 'Data.Foldable.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.Function.Compat: Could not find documentation for exported module: Base
+  50% (  1 /  2) in 'Data.Function.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.Functor.Compat: Could not find documentation for exported module: Base
+  75% (  3 /  4) in 'Data.Functor.Compat'
+  Missing documentation for:
+    Module header
+  50% (  1 /  2) in 'Data.Functor.Const.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.IORef.Compat: Could not find documentation for exported module: Base
+  75% (  3 /  4) in 'Data.IORef.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.List.Compat: Could not find documentation for exported module: Base
+   0% (  0 /  1) in 'Data.List.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.Monoid.Compat: Could not find documentation for exported module: Base
+  50% (  1 /  2) in 'Data.Monoid.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.Proxy.Compat: Could not find documentation for exported module: Base
+  50% (  1 /  2) in 'Data.Proxy.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.Ratio.Compat: Could not find documentation for exported module: Base
+   0% (  0 /  1) in 'Data.Ratio.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.STRef.Compat: Could not find documentation for exported module: Base
+  50% (  1 /  2) in 'Data.STRef.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.String.Compat: Could not find documentation for exported module: Base
+  83% (  5 /  6) in 'Data.String.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.Type.Coercion.Compat: Could not find documentation for exported module: Base
+  50% (  1 /  2) in 'Data.Type.Coercion.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.Version.Compat: Could not find documentation for exported module: Base
+  50% (  1 /  2) in 'Data.Version.Compat'
+  Missing documentation for:
+    Module header
+Warning: Data.Word.Compat: Could not find documentation for exported module: Base
+  75% (  3 /  4) in 'Data.Word.Compat'
+  Missing documentation for:
+    Module header
+Warning: Debug.Trace.Compat: Could not find documentation for exported module: Base
+  80% (  4 /  5) in 'Debug.Trace.Compat'
+  Missing documentation for:
+    Module header
+Warning: Foreign.ForeignPtr.Compat: Could not find documentation for exported module: Base
+  50% (  1 /  2) in 'Foreign.ForeignPtr.Compat'
+  Missing documentation for:
+    Module header
+  90% ( 19 / 21) in 'Foreign.ForeignPtr.Safe.Compat'
+  Missing documentation for:
+    Module header
+    FinalizerEnvPtr
+  67% (  2 /  3) in 'Foreign.ForeignPtr.Unsafe.Compat'
+  Missing documentation for:
+    Module header
+Warning: Foreign.Marshal.Alloc.Compat: Could not find documentation for exported module: Base
+  67% (  2 /  3) in 'Foreign.Marshal.Alloc.Compat'
+  Missing documentation for:
+    Module header
+Warning: Foreign.Marshal.Array.Compat: Could not find documentation for exported module: Base
+  67% (  2 /  3) in 'Foreign.Marshal.Array.Compat'
+  Missing documentation for:
+    Module header
+  86% (  6 /  7) in 'Foreign.Marshal.Safe.Compat'
+  Missing documentation for:
+    Module header
+  67% (  2 /  3) in 'Foreign.Marshal.Unsafe.Compat'
+  Missing documentation for:
+    Module header
+Warning: Foreign.Marshal.Utils.Compat: Could not find documentation for exported module: Base
+  50% (  1 /  2) in 'Foreign.Marshal.Utils.Compat'
+  Missing documentation for:
+    Module header
+Warning: Foreign.Marshal.Compat: Could not find documentation for exported module: Base
+Warning: Foreign.Marshal.Compat: Could not find documentation for exported module: Alloc
+Warning: Foreign.Marshal.Compat: Could not find documentation for exported module: Array
+Warning: Foreign.Marshal.Compat: Could not find documentation for exported module: Utils
+   0% (  0 /  1) in 'Foreign.Marshal.Compat'
+  Missing documentation for:
+    Module header
+Warning: Foreign.Compat: Could not find documentation for exported module: Base
+Warning: Foreign.Compat: Could not find documentation for exported module: Marshal
+   0% (  0 /  1) in 'Foreign.Compat'
+  Missing documentation for:
+    Module header
+Warning: Numeric.Compat: Could not find documentation for exported module: Base
+  67% (  2 /  3) in 'Numeric.Compat'
+  Missing documentation for:
+    Module header
+Warning: Prelude.Compat: Could not find documentation for exported module: Base
+   0% (  0 /  1) in 'Prelude.Compat'
+  Missing documentation for:
+    Module header
+ 100% ( 10 / 10) in 'System.Environment.Compat'
+Warning: System.Exit.Compat: Could not find documentation for exported module: Base
+  50% (  1 /  2) in 'System.Exit.Compat'
+  Missing documentation for:
+    Module header
+Warning: System.IO.Unsafe.Compat: Could not find documentation for exported module: Base
+  67% (  2 /  3) in 'System.IO.Unsafe.Compat'
+  Missing documentation for:
+    Module header
+  89% ( 16 / 18) in 'Text.Read.Compat'
+  Missing documentation for:
+    Module header
+    Lexeme
+Warning: Control.Monad.Compat: could not find link destinations for:
+    P
+Warning: Data.Functor.Compat: could not find link destinations for:
+    P
+Warning: Data.Functor.Const.Compat: could not find link destinations for:
+    unsafeIndex unsafeRangeSize
+Warning: Text.Read.Compat: could not find link destinations for:
+    Array
+Documentation created:
+.stack-work\dist\5c8418a7\doc\html\base-compat\index.html,
+.stack-work\dist\5c8418a7\doc\html\base-compat\base-compat.txt
+Installing library in C:\sr\snapshots\13cecb13\lib\x86_64-windows-ghc-8.2.2\base-compat-0.9.3-61QXrLshUW48h5q15T0fg0
+Registering library for base-compat-0.9.3..

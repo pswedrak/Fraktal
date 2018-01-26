@@ -1,0 +1,644 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_HADDOCK hide #-}</span><span>
+</span><a name="line-2"></a><span class="hs-comment">-----------------------------------------------------------------------------</span><span>
+</span><a name="line-3"></a><span class="hs-comment">-- |</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- Module      :  Graphics.UI.GLUT.Raw.Tokens</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- Copyright   :  (c) Sven Panne 2013</span><span>
+</span><a name="line-6"></a><span class="hs-comment">-- License     :  BSD3</span><span>
+</span><a name="line-7"></a><span class="hs-comment">--</span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- Maintainer  :  Sven Panne &lt;svenpanne@gmail.com&gt;</span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- Stability   :  stable</span><span>
+</span><a name="line-10"></a><span class="hs-comment">-- Portability :  portable</span><span>
+</span><a name="line-11"></a><span class="hs-comment">--</span><span>
+</span><a name="line-12"></a><span class="hs-comment">-- All tokens from GLUT and freeglut.</span><span>
+</span><a name="line-13"></a><span class="hs-comment">--</span><span>
+</span><a name="line-14"></a><span class="hs-comment">-----------------------------------------------------------------------------</span><span>
+</span><a name="line-15"></a><span>
+</span><a name="line-16"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">GLUT</span><span class="hs-operator">.</span><span class="hs-identifier">Raw</span><span class="hs-operator">.</span><span class="hs-identifier">Tokens</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-17"></a><span>
+</span><a name="line-18"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Foreign</span><span class="hs-operator">.</span><span class="hs-identifier">C</span><span class="hs-operator">.</span><span class="hs-identifier">Types</span><span> </span><span class="hs-special">(</span><span> </span><span class="hs-identifier hs-type">CInt</span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span> </span><span class="hs-special">)</span><span>
+</span><a name="line-19"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span> </span><span class="hs-special">(</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span> </span><span class="hs-special">)</span><span>
+</span><a name="line-20"></a><span>
+</span><a name="line-21"></a><span class="hs-identifier">glut_ACCUM</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-22"></a><a name="glut_ACCUM"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_ACCUM"><span class="hs-identifier">glut_ACCUM</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0004</span><span>
+</span><a name="line-23"></a><span>
+</span><a name="line-24"></a><span class="hs-identifier">glut_ACTION_CONTINUE_EXECUTION</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-25"></a><a name="glut_ACTION_CONTINUE_EXECUTION"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_ACTION_CONTINUE_EXECUTION"><span class="hs-identifier">glut_ACTION_CONTINUE_EXECUTION</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">2</span><span>
+</span><a name="line-26"></a><span>
+</span><a name="line-27"></a><span class="hs-identifier">glut_ACTION_EXIT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-28"></a><a name="glut_ACTION_EXIT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_ACTION_EXIT"><span class="hs-identifier">glut_ACTION_EXIT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0</span><span>
+</span><a name="line-29"></a><span>
+</span><a name="line-30"></a><span class="hs-identifier">glut_ACTION_GLUTMAINLOOP_RETURNS</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-31"></a><a name="glut_ACTION_GLUTMAINLOOP_RETURNS"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_ACTION_GLUTMAINLOOP_RETURNS"><span class="hs-identifier">glut_ACTION_GLUTMAINLOOP_RETURNS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">1</span><span>
+</span><a name="line-32"></a><span>
+</span><a name="line-33"></a><span class="hs-identifier">glut_ACTION_ON_WINDOW_CLOSE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-34"></a><a name="glut_ACTION_ON_WINDOW_CLOSE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_ACTION_ON_WINDOW_CLOSE"><span class="hs-identifier">glut_ACTION_ON_WINDOW_CLOSE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x01F9</span><span>
+</span><a name="line-35"></a><span>
+</span><a name="line-36"></a><span class="hs-identifier">glut_ACTIVE_ALT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-37"></a><a name="glut_ACTIVE_ALT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_ACTIVE_ALT"><span class="hs-identifier">glut_ACTIVE_ALT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0004</span><span>
+</span><a name="line-38"></a><span>
+</span><a name="line-39"></a><span class="hs-identifier">glut_ACTIVE_CTRL</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-40"></a><a name="glut_ACTIVE_CTRL"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_ACTIVE_CTRL"><span class="hs-identifier">glut_ACTIVE_CTRL</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0002</span><span>
+</span><a name="line-41"></a><span>
+</span><a name="line-42"></a><span class="hs-identifier">glut_ACTIVE_SHIFT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-43"></a><a name="glut_ACTIVE_SHIFT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_ACTIVE_SHIFT"><span class="hs-identifier">glut_ACTIVE_SHIFT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-44"></a><span>
+</span><a name="line-45"></a><span class="hs-identifier">glut_ALLOW_DIRECT_CONTEXT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-46"></a><a name="glut_ALLOW_DIRECT_CONTEXT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_ALLOW_DIRECT_CONTEXT"><span class="hs-identifier">glut_ALLOW_DIRECT_CONTEXT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">1</span><span>
+</span><a name="line-47"></a><span>
+</span><a name="line-48"></a><span class="hs-identifier">glut_ALPHA</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-49"></a><a name="glut_ALPHA"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_ALPHA"><span class="hs-identifier">glut_ALPHA</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0008</span><span>
+</span><a name="line-50"></a><span>
+</span><a name="line-51"></a><span class="hs-identifier">glut_APPSTATUS_PAUSE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-52"></a><a name="glut_APPSTATUS_PAUSE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_APPSTATUS_PAUSE"><span class="hs-identifier">glut_APPSTATUS_PAUSE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-53"></a><span>
+</span><a name="line-54"></a><span class="hs-identifier">glut_APPSTATUS_RESUME</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-55"></a><a name="glut_APPSTATUS_RESUME"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_APPSTATUS_RESUME"><span class="hs-identifier">glut_APPSTATUS_RESUME</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0002</span><span>
+</span><a name="line-56"></a><span>
+</span><a name="line-57"></a><span class="hs-identifier">glut_AUX</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-58"></a><a name="glut_AUX"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_AUX"><span class="hs-identifier">glut_AUX</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x1000</span><span>
+</span><a name="line-59"></a><span>
+</span><a name="line-60"></a><span class="hs-identifier">glut_AUX1</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-61"></a><a name="glut_AUX1"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_AUX1"><span class="hs-identifier">glut_AUX1</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x1000</span><span>
+</span><a name="line-62"></a><span>
+</span><a name="line-63"></a><span class="hs-identifier">glut_AUX2</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-64"></a><a name="glut_AUX2"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_AUX2"><span class="hs-identifier">glut_AUX2</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x2000</span><span>
+</span><a name="line-65"></a><span>
+</span><a name="line-66"></a><span class="hs-identifier">glut_AUX3</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-67"></a><a name="glut_AUX3"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_AUX3"><span class="hs-identifier">glut_AUX3</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x4000</span><span>
+</span><a name="line-68"></a><span>
+</span><a name="line-69"></a><span class="hs-identifier">glut_AUX4</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-70"></a><a name="glut_AUX4"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_AUX4"><span class="hs-identifier">glut_AUX4</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x8000</span><span>
+</span><a name="line-71"></a><span>
+</span><a name="line-72"></a><span class="hs-identifier">glut_BLUE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-73"></a><a name="glut_BLUE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_BLUE"><span class="hs-identifier">glut_BLUE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0002</span><span>
+</span><a name="line-74"></a><span>
+</span><a name="line-75"></a><span class="hs-identifier">glut_BORDERLESS</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-76"></a><a name="glut_BORDERLESS"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_BORDERLESS"><span class="hs-identifier">glut_BORDERLESS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0800</span><span>
+</span><a name="line-77"></a><span>
+</span><a name="line-78"></a><span class="hs-identifier">glut_CAPTIONLESS</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-79"></a><a name="glut_CAPTIONLESS"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CAPTIONLESS"><span class="hs-identifier">glut_CAPTIONLESS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0400</span><span>
+</span><a name="line-80"></a><span>
+</span><a name="line-81"></a><span class="hs-identifier">glut_CORE_PROFILE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-82"></a><a name="glut_CORE_PROFILE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CORE_PROFILE"><span class="hs-identifier">glut_CORE_PROFILE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-83"></a><span>
+</span><a name="line-84"></a><span class="hs-identifier">glut_COMPATIBILITY_PROFILE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-85"></a><a name="glut_COMPATIBILITY_PROFILE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_COMPATIBILITY_PROFILE"><span class="hs-identifier">glut_COMPATIBILITY_PROFILE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0002</span><span>
+</span><a name="line-86"></a><span>
+</span><a name="line-87"></a><span class="hs-identifier">glut_CREATE_NEW_CONTEXT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-88"></a><a name="glut_CREATE_NEW_CONTEXT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CREATE_NEW_CONTEXT"><span class="hs-identifier">glut_CREATE_NEW_CONTEXT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0</span><span>
+</span><a name="line-89"></a><span>
+</span><a name="line-90"></a><span class="hs-identifier">glut_CURSOR_BOTTOM_LEFT_CORNER</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-91"></a><a name="glut_CURSOR_BOTTOM_LEFT_CORNER"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_BOTTOM_LEFT_CORNER"><span class="hs-identifier">glut_CURSOR_BOTTOM_LEFT_CORNER</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0013</span><span>
+</span><a name="line-92"></a><span>
+</span><a name="line-93"></a><span class="hs-identifier">glut_CURSOR_BOTTOM_RIGHT_CORNER</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-94"></a><a name="glut_CURSOR_BOTTOM_RIGHT_CORNER"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_BOTTOM_RIGHT_CORNER"><span class="hs-identifier">glut_CURSOR_BOTTOM_RIGHT_CORNER</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0012</span><span>
+</span><a name="line-95"></a><span>
+</span><a name="line-96"></a><span class="hs-identifier">glut_CURSOR_BOTTOM_SIDE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-97"></a><a name="glut_CURSOR_BOTTOM_SIDE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_BOTTOM_SIDE"><span class="hs-identifier">glut_CURSOR_BOTTOM_SIDE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x000D</span><span>
+</span><a name="line-98"></a><span>
+</span><a name="line-99"></a><span class="hs-identifier">glut_CURSOR_CROSSHAIR</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-100"></a><a name="glut_CURSOR_CROSSHAIR"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_CROSSHAIR"><span class="hs-identifier">glut_CURSOR_CROSSHAIR</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0009</span><span>
+</span><a name="line-101"></a><span>
+</span><a name="line-102"></a><span class="hs-identifier">glut_CURSOR_CYCLE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-103"></a><a name="glut_CURSOR_CYCLE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_CYCLE"><span class="hs-identifier">glut_CURSOR_CYCLE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0005</span><span>
+</span><a name="line-104"></a><span>
+</span><a name="line-105"></a><span class="hs-identifier">glut_CURSOR_DESTROY</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-106"></a><a name="glut_CURSOR_DESTROY"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_DESTROY"><span class="hs-identifier">glut_CURSOR_DESTROY</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0003</span><span>
+</span><a name="line-107"></a><span>
+</span><a name="line-108"></a><span class="hs-identifier">glut_CURSOR_FULL_CROSSHAIR</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-109"></a><a name="glut_CURSOR_FULL_CROSSHAIR"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_FULL_CROSSHAIR"><span class="hs-identifier">glut_CURSOR_FULL_CROSSHAIR</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0066</span><span>
+</span><a name="line-110"></a><span>
+</span><a name="line-111"></a><span class="hs-identifier">glut_CURSOR_HELP</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-112"></a><a name="glut_CURSOR_HELP"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_HELP"><span class="hs-identifier">glut_CURSOR_HELP</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0004</span><span>
+</span><a name="line-113"></a><span>
+</span><a name="line-114"></a><span class="hs-identifier">glut_CURSOR_INFO</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-115"></a><a name="glut_CURSOR_INFO"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_INFO"><span class="hs-identifier">glut_CURSOR_INFO</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0002</span><span>
+</span><a name="line-116"></a><span>
+</span><a name="line-117"></a><span class="hs-identifier">glut_CURSOR_INHERIT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-118"></a><a name="glut_CURSOR_INHERIT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_INHERIT"><span class="hs-identifier">glut_CURSOR_INHERIT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0064</span><span>
+</span><a name="line-119"></a><span>
+</span><a name="line-120"></a><span class="hs-identifier">glut_CURSOR_LEFT_ARROW</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-121"></a><a name="glut_CURSOR_LEFT_ARROW"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_LEFT_ARROW"><span class="hs-identifier">glut_CURSOR_LEFT_ARROW</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-122"></a><span>
+</span><a name="line-123"></a><span class="hs-identifier">glut_CURSOR_LEFT_RIGHT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-124"></a><a name="glut_CURSOR_LEFT_RIGHT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_LEFT_RIGHT"><span class="hs-identifier">glut_CURSOR_LEFT_RIGHT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x000B</span><span>
+</span><a name="line-125"></a><span>
+</span><a name="line-126"></a><span class="hs-identifier">glut_CURSOR_LEFT_SIDE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-127"></a><a name="glut_CURSOR_LEFT_SIDE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_LEFT_SIDE"><span class="hs-identifier">glut_CURSOR_LEFT_SIDE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x000E</span><span>
+</span><a name="line-128"></a><span>
+</span><a name="line-129"></a><span class="hs-identifier">glut_CURSOR_NONE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-130"></a><a name="glut_CURSOR_NONE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_NONE"><span class="hs-identifier">glut_CURSOR_NONE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0065</span><span>
+</span><a name="line-131"></a><span>
+</span><a name="line-132"></a><span class="hs-identifier">glut_CURSOR_RIGHT_ARROW</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-133"></a><a name="glut_CURSOR_RIGHT_ARROW"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_RIGHT_ARROW"><span class="hs-identifier">glut_CURSOR_RIGHT_ARROW</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0000</span><span>
+</span><a name="line-134"></a><span>
+</span><a name="line-135"></a><span class="hs-identifier">glut_CURSOR_RIGHT_SIDE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-136"></a><a name="glut_CURSOR_RIGHT_SIDE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_RIGHT_SIDE"><span class="hs-identifier">glut_CURSOR_RIGHT_SIDE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x000F</span><span>
+</span><a name="line-137"></a><span>
+</span><a name="line-138"></a><span class="hs-identifier">glut_CURSOR_SPRAY</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-139"></a><a name="glut_CURSOR_SPRAY"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_SPRAY"><span class="hs-identifier">glut_CURSOR_SPRAY</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0006</span><span>
+</span><a name="line-140"></a><span>
+</span><a name="line-141"></a><span class="hs-identifier">glut_CURSOR_TEXT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-142"></a><a name="glut_CURSOR_TEXT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_TEXT"><span class="hs-identifier">glut_CURSOR_TEXT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0008</span><span>
+</span><a name="line-143"></a><span>
+</span><a name="line-144"></a><span class="hs-identifier">glut_CURSOR_TOP_LEFT_CORNER</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-145"></a><a name="glut_CURSOR_TOP_LEFT_CORNER"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_TOP_LEFT_CORNER"><span class="hs-identifier">glut_CURSOR_TOP_LEFT_CORNER</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0010</span><span>
+</span><a name="line-146"></a><span>
+</span><a name="line-147"></a><span class="hs-identifier">glut_CURSOR_TOP_RIGHT_CORNER</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-148"></a><a name="glut_CURSOR_TOP_RIGHT_CORNER"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_TOP_RIGHT_CORNER"><span class="hs-identifier">glut_CURSOR_TOP_RIGHT_CORNER</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0011</span><span>
+</span><a name="line-149"></a><span>
+</span><a name="line-150"></a><span class="hs-identifier">glut_CURSOR_TOP_SIDE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-151"></a><a name="glut_CURSOR_TOP_SIDE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_TOP_SIDE"><span class="hs-identifier">glut_CURSOR_TOP_SIDE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x000C</span><span>
+</span><a name="line-152"></a><span>
+</span><a name="line-153"></a><span class="hs-identifier">glut_CURSOR_UP_DOWN</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-154"></a><a name="glut_CURSOR_UP_DOWN"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_UP_DOWN"><span class="hs-identifier">glut_CURSOR_UP_DOWN</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x000A</span><span>
+</span><a name="line-155"></a><span>
+</span><a name="line-156"></a><span class="hs-identifier">glut_CURSOR_WAIT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-157"></a><a name="glut_CURSOR_WAIT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_CURSOR_WAIT"><span class="hs-identifier">glut_CURSOR_WAIT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0007</span><span>
+</span><a name="line-158"></a><span>
+</span><a name="line-159"></a><span class="hs-identifier">glut_DEBUG</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-160"></a><a name="glut_DEBUG"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_DEBUG"><span class="hs-identifier">glut_DEBUG</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-161"></a><span>
+</span><a name="line-162"></a><span class="hs-identifier">glut_DEPTH</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-163"></a><a name="glut_DEPTH"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_DEPTH"><span class="hs-identifier">glut_DEPTH</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0010</span><span>
+</span><a name="line-164"></a><span>
+</span><a name="line-165"></a><span class="hs-identifier">glut_DEVICE_IGNORE_KEY_REPEAT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-166"></a><a name="glut_DEVICE_IGNORE_KEY_REPEAT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_DEVICE_IGNORE_KEY_REPEAT"><span class="hs-identifier">glut_DEVICE_IGNORE_KEY_REPEAT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0262</span><span>
+</span><a name="line-167"></a><span>
+</span><a name="line-168"></a><span class="hs-identifier">glut_DEVICE_KEY_REPEAT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-169"></a><a name="glut_DEVICE_KEY_REPEAT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_DEVICE_KEY_REPEAT"><span class="hs-identifier">glut_DEVICE_KEY_REPEAT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0263</span><span>
+</span><a name="line-170"></a><span>
+</span><a name="line-171"></a><span class="hs-identifier">glut_DIRECT_RENDERING</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-172"></a><a name="glut_DIRECT_RENDERING"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_DIRECT_RENDERING"><span class="hs-identifier">glut_DIRECT_RENDERING</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x01FE</span><span>
+</span><a name="line-173"></a><span>
+</span><a name="line-174"></a><span class="hs-identifier">glut_DISPLAY_MODE_POSSIBLE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-175"></a><a name="glut_DISPLAY_MODE_POSSIBLE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_DISPLAY_MODE_POSSIBLE"><span class="hs-identifier">glut_DISPLAY_MODE_POSSIBLE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0190</span><span>
+</span><a name="line-176"></a><span>
+</span><a name="line-177"></a><span class="hs-identifier">glut_DOUBLE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-178"></a><a name="glut_DOUBLE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_DOUBLE"><span class="hs-identifier">glut_DOUBLE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0002</span><span>
+</span><a name="line-179"></a><span>
+</span><a name="line-180"></a><span class="hs-identifier">glut_DOWN</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-181"></a><a name="glut_DOWN"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_DOWN"><span class="hs-identifier">glut_DOWN</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0000</span><span>
+</span><a name="line-182"></a><span>
+</span><a name="line-183"></a><span class="hs-identifier">glut_ELAPSED_TIME</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-184"></a><a name="glut_ELAPSED_TIME"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_ELAPSED_TIME"><span class="hs-identifier">glut_ELAPSED_TIME</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x02BC</span><span>
+</span><a name="line-185"></a><span>
+</span><a name="line-186"></a><span class="hs-identifier">glut_ENTERED</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-187"></a><a name="glut_ENTERED"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_ENTERED"><span class="hs-identifier">glut_ENTERED</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-188"></a><span>
+</span><a name="line-189"></a><span class="hs-identifier">glut_FORCE_DIRECT_CONTEXT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-190"></a><a name="glut_FORCE_DIRECT_CONTEXT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_FORCE_DIRECT_CONTEXT"><span class="hs-identifier">glut_FORCE_DIRECT_CONTEXT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">3</span><span>
+</span><a name="line-191"></a><span>
+</span><a name="line-192"></a><span class="hs-identifier">glut_FORCE_INDIRECT_CONTEXT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-193"></a><a name="glut_FORCE_INDIRECT_CONTEXT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_FORCE_INDIRECT_CONTEXT"><span class="hs-identifier">glut_FORCE_INDIRECT_CONTEXT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0</span><span>
+</span><a name="line-194"></a><span>
+</span><a name="line-195"></a><span class="hs-identifier">glut_FORWARD_COMPATIBLE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-196"></a><a name="glut_FORWARD_COMPATIBLE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_FORWARD_COMPATIBLE"><span class="hs-identifier">glut_FORWARD_COMPATIBLE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0002</span><span>
+</span><a name="line-197"></a><span>
+</span><a name="line-198"></a><span class="hs-identifier">glut_FULLY_COVERED</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-199"></a><a name="glut_FULLY_COVERED"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_FULLY_COVERED"><span class="hs-identifier">glut_FULLY_COVERED</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0003</span><span>
+</span><a name="line-200"></a><span>
+</span><a name="line-201"></a><span class="hs-identifier">glut_FULLY_RETAINED</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-202"></a><a name="glut_FULLY_RETAINED"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_FULLY_RETAINED"><span class="hs-identifier">glut_FULLY_RETAINED</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-203"></a><span>
+</span><a name="line-204"></a><span class="hs-identifier">glut_FULL_SCREEN</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-205"></a><a name="glut_FULL_SCREEN"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_FULL_SCREEN"><span class="hs-identifier">glut_FULL_SCREEN</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x01FF</span><span>
+</span><a name="line-206"></a><span>
+</span><a name="line-207"></a><span class="hs-identifier">glut_GAME_MODE_ACTIVE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-208"></a><a name="glut_GAME_MODE_ACTIVE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_GAME_MODE_ACTIVE"><span class="hs-identifier">glut_GAME_MODE_ACTIVE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0000</span><span>
+</span><a name="line-209"></a><span>
+</span><a name="line-210"></a><span class="hs-identifier">glut_GAME_MODE_DISPLAY_CHANGED</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-211"></a><a name="glut_GAME_MODE_DISPLAY_CHANGED"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_GAME_MODE_DISPLAY_CHANGED"><span class="hs-identifier">glut_GAME_MODE_DISPLAY_CHANGED</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0006</span><span>
+</span><a name="line-212"></a><span>
+</span><a name="line-213"></a><span class="hs-identifier">glut_GAME_MODE_HEIGHT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-214"></a><a name="glut_GAME_MODE_HEIGHT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_GAME_MODE_HEIGHT"><span class="hs-identifier">glut_GAME_MODE_HEIGHT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0003</span><span>
+</span><a name="line-215"></a><span>
+</span><a name="line-216"></a><span class="hs-identifier">glut_GAME_MODE_PIXEL_DEPTH</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-217"></a><a name="glut_GAME_MODE_PIXEL_DEPTH"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_GAME_MODE_PIXEL_DEPTH"><span class="hs-identifier">glut_GAME_MODE_PIXEL_DEPTH</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0004</span><span>
+</span><a name="line-218"></a><span>
+</span><a name="line-219"></a><span class="hs-identifier">glut_GAME_MODE_POSSIBLE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-220"></a><a name="glut_GAME_MODE_POSSIBLE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_GAME_MODE_POSSIBLE"><span class="hs-identifier">glut_GAME_MODE_POSSIBLE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-221"></a><span>
+</span><a name="line-222"></a><span class="hs-identifier">glut_GAME_MODE_REFRESH_RATE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-223"></a><a name="glut_GAME_MODE_REFRESH_RATE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_GAME_MODE_REFRESH_RATE"><span class="hs-identifier">glut_GAME_MODE_REFRESH_RATE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0005</span><span>
+</span><a name="line-224"></a><span>
+</span><a name="line-225"></a><span class="hs-identifier">glut_GAME_MODE_WIDTH</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-226"></a><a name="glut_GAME_MODE_WIDTH"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_GAME_MODE_WIDTH"><span class="hs-identifier">glut_GAME_MODE_WIDTH</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0002</span><span>
+</span><a name="line-227"></a><span>
+</span><a name="line-228"></a><span class="hs-identifier">glut_GEOMETRY_VISUALIZE_NORMALS</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-229"></a><a name="glut_GEOMETRY_VISUALIZE_NORMALS"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_GEOMETRY_VISUALIZE_NORMALS"><span class="hs-identifier">glut_GEOMETRY_VISUALIZE_NORMALS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0205</span><span>
+</span><a name="line-230"></a><span>
+</span><a name="line-231"></a><span class="hs-identifier">glut_GREEN</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-232"></a><a name="glut_GREEN"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_GREEN"><span class="hs-identifier">glut_GREEN</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-233"></a><span>
+</span><a name="line-234"></a><span class="hs-identifier">glut_HAS_DIAL_AND_BUTTON_BOX</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-235"></a><a name="glut_HAS_DIAL_AND_BUTTON_BOX"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_HAS_DIAL_AND_BUTTON_BOX"><span class="hs-identifier">glut_HAS_DIAL_AND_BUTTON_BOX</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x025B</span><span>
+</span><a name="line-236"></a><span>
+</span><a name="line-237"></a><span class="hs-identifier">glut_HAS_JOYSTICK</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-238"></a><a name="glut_HAS_JOYSTICK"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_HAS_JOYSTICK"><span class="hs-identifier">glut_HAS_JOYSTICK</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0264</span><span>
+</span><a name="line-239"></a><span>
+</span><a name="line-240"></a><span class="hs-identifier">glut_HAS_KEYBOARD</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-241"></a><a name="glut_HAS_KEYBOARD"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_HAS_KEYBOARD"><span class="hs-identifier">glut_HAS_KEYBOARD</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0258</span><span>
+</span><a name="line-242"></a><span>
+</span><a name="line-243"></a><span class="hs-identifier">glut_HAS_MOUSE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-244"></a><a name="glut_HAS_MOUSE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_HAS_MOUSE"><span class="hs-identifier">glut_HAS_MOUSE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0259</span><span>
+</span><a name="line-245"></a><span>
+</span><a name="line-246"></a><span class="hs-identifier">glut_HAS_OVERLAY</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-247"></a><a name="glut_HAS_OVERLAY"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_HAS_OVERLAY"><span class="hs-identifier">glut_HAS_OVERLAY</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0322</span><span>
+</span><a name="line-248"></a><span>
+</span><a name="line-249"></a><span class="hs-identifier">glut_HAS_SPACEBALL</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-250"></a><a name="glut_HAS_SPACEBALL"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_HAS_SPACEBALL"><span class="hs-identifier">glut_HAS_SPACEBALL</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x025A</span><span>
+</span><a name="line-251"></a><span>
+</span><a name="line-252"></a><span class="hs-identifier">glut_HAS_TABLET</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-253"></a><a name="glut_HAS_TABLET"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_HAS_TABLET"><span class="hs-identifier">glut_HAS_TABLET</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x025C</span><span>
+</span><a name="line-254"></a><span>
+</span><a name="line-255"></a><span class="hs-identifier">glut_HIDDEN</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-256"></a><a name="glut_HIDDEN"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_HIDDEN"><span class="hs-identifier">glut_HIDDEN</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0000</span><span>
+</span><a name="line-257"></a><span>
+</span><a name="line-258"></a><span class="hs-identifier">glut_INDEX</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-259"></a><a name="glut_INDEX"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_INDEX"><span class="hs-identifier">glut_INDEX</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-260"></a><span>
+</span><a name="line-261"></a><span class="hs-identifier">glut_INIT_DISPLAY_MODE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-262"></a><a name="glut_INIT_DISPLAY_MODE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_INIT_DISPLAY_MODE"><span class="hs-identifier">glut_INIT_DISPLAY_MODE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x01F8</span><span>
+</span><a name="line-263"></a><span>
+</span><a name="line-264"></a><span class="hs-identifier">glut_INIT_FLAGS</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-265"></a><a name="glut_INIT_FLAGS"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_INIT_FLAGS"><span class="hs-identifier">glut_INIT_FLAGS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0202</span><span>
+</span><a name="line-266"></a><span>
+</span><a name="line-267"></a><span class="hs-identifier">glut_INIT_MAJOR_VERSION</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-268"></a><a name="glut_INIT_MAJOR_VERSION"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_INIT_MAJOR_VERSION"><span class="hs-identifier">glut_INIT_MAJOR_VERSION</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0200</span><span>
+</span><a name="line-269"></a><span>
+</span><a name="line-270"></a><span class="hs-identifier">glut_INIT_MINOR_VERSION</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-271"></a><a name="glut_INIT_MINOR_VERSION"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_INIT_MINOR_VERSION"><span class="hs-identifier">glut_INIT_MINOR_VERSION</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0201</span><span>
+</span><a name="line-272"></a><span>
+</span><a name="line-273"></a><span class="hs-identifier">glut_INIT_PROFILE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-274"></a><a name="glut_INIT_PROFILE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_INIT_PROFILE"><span class="hs-identifier">glut_INIT_PROFILE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0203</span><span>
+</span><a name="line-275"></a><span>
+</span><a name="line-276"></a><span class="hs-identifier">glut_INIT_STATE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-277"></a><a name="glut_INIT_STATE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_INIT_STATE"><span class="hs-identifier">glut_INIT_STATE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x007C</span><span>
+</span><a name="line-278"></a><span>
+</span><a name="line-279"></a><span class="hs-identifier">glut_INIT_WINDOW_HEIGHT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-280"></a><a name="glut_INIT_WINDOW_HEIGHT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_INIT_WINDOW_HEIGHT"><span class="hs-identifier">glut_INIT_WINDOW_HEIGHT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x01F7</span><span>
+</span><a name="line-281"></a><span>
+</span><a name="line-282"></a><span class="hs-identifier">glut_INIT_WINDOW_WIDTH</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-283"></a><a name="glut_INIT_WINDOW_WIDTH"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_INIT_WINDOW_WIDTH"><span class="hs-identifier">glut_INIT_WINDOW_WIDTH</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x01F6</span><span>
+</span><a name="line-284"></a><span>
+</span><a name="line-285"></a><span class="hs-identifier">glut_INIT_WINDOW_X</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-286"></a><a name="glut_INIT_WINDOW_X"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_INIT_WINDOW_X"><span class="hs-identifier">glut_INIT_WINDOW_X</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x01F4</span><span>
+</span><a name="line-287"></a><span>
+</span><a name="line-288"></a><span class="hs-identifier">glut_INIT_WINDOW_Y</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-289"></a><a name="glut_INIT_WINDOW_Y"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_INIT_WINDOW_Y"><span class="hs-identifier">glut_INIT_WINDOW_Y</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x01F5</span><span>
+</span><a name="line-290"></a><span>
+</span><a name="line-291"></a><span class="hs-identifier">glut_JOYSTICK_AXES</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-292"></a><a name="glut_JOYSTICK_AXES"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_JOYSTICK_AXES"><span class="hs-identifier">glut_JOYSTICK_AXES</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0267</span><span>
+</span><a name="line-293"></a><span>
+</span><a name="line-294"></a><span class="hs-identifier">glut_JOYSTICK_BUTTONS</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-295"></a><a name="glut_JOYSTICK_BUTTONS"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_JOYSTICK_BUTTONS"><span class="hs-identifier">glut_JOYSTICK_BUTTONS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0266</span><span>
+</span><a name="line-296"></a><span>
+</span><a name="line-297"></a><span class="hs-identifier">glut_JOYSTICK_BUTTON_A</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-298"></a><a name="glut_JOYSTICK_BUTTON_A"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_JOYSTICK_BUTTON_A"><span class="hs-identifier">glut_JOYSTICK_BUTTON_A</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-299"></a><span>
+</span><a name="line-300"></a><span class="hs-identifier">glut_JOYSTICK_BUTTON_B</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-301"></a><a name="glut_JOYSTICK_BUTTON_B"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_JOYSTICK_BUTTON_B"><span class="hs-identifier">glut_JOYSTICK_BUTTON_B</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0002</span><span>
+</span><a name="line-302"></a><span>
+</span><a name="line-303"></a><span class="hs-identifier">glut_JOYSTICK_BUTTON_C</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-304"></a><a name="glut_JOYSTICK_BUTTON_C"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_JOYSTICK_BUTTON_C"><span class="hs-identifier">glut_JOYSTICK_BUTTON_C</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0004</span><span>
+</span><a name="line-305"></a><span>
+</span><a name="line-306"></a><span class="hs-identifier">glut_JOYSTICK_BUTTON_D</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-307"></a><a name="glut_JOYSTICK_BUTTON_D"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_JOYSTICK_BUTTON_D"><span class="hs-identifier">glut_JOYSTICK_BUTTON_D</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0008</span><span>
+</span><a name="line-308"></a><span>
+</span><a name="line-309"></a><span class="hs-identifier">glut_JOYSTICK_POLL_RATE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-310"></a><a name="glut_JOYSTICK_POLL_RATE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_JOYSTICK_POLL_RATE"><span class="hs-identifier">glut_JOYSTICK_POLL_RATE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0268</span><span>
+</span><a name="line-311"></a><span>
+</span><a name="line-312"></a><span class="hs-identifier">glut_KEY_ALT_L</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-313"></a><a name="glut_KEY_ALT_L"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_ALT_L"><span class="hs-identifier">glut_KEY_ALT_L</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0074</span><span>
+</span><a name="line-314"></a><span>
+</span><a name="line-315"></a><span class="hs-identifier">glut_KEY_ALT_R</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-316"></a><a name="glut_KEY_ALT_R"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_ALT_R"><span class="hs-identifier">glut_KEY_ALT_R</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0075</span><span>
+</span><a name="line-317"></a><span>
+</span><a name="line-318"></a><span class="hs-identifier">glut_KEY_BEGIN</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-319"></a><a name="glut_KEY_BEGIN"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_BEGIN"><span class="hs-identifier">glut_KEY_BEGIN</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x006E</span><span>
+</span><a name="line-320"></a><span>
+</span><a name="line-321"></a><span class="hs-identifier">glut_KEY_CTRL_L</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-322"></a><a name="glut_KEY_CTRL_L"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_CTRL_L"><span class="hs-identifier">glut_KEY_CTRL_L</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0072</span><span>
+</span><a name="line-323"></a><span>
+</span><a name="line-324"></a><span class="hs-identifier">glut_KEY_CTRL_R</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-325"></a><a name="glut_KEY_CTRL_R"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_CTRL_R"><span class="hs-identifier">glut_KEY_CTRL_R</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0073</span><span>
+</span><a name="line-326"></a><span>
+</span><a name="line-327"></a><span class="hs-identifier">glut_KEY_DELETE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-328"></a><a name="glut_KEY_DELETE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_DELETE"><span class="hs-identifier">glut_KEY_DELETE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x006F</span><span>
+</span><a name="line-329"></a><span>
+</span><a name="line-330"></a><span class="hs-identifier">glut_KEY_DOWN</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-331"></a><a name="glut_KEY_DOWN"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_DOWN"><span class="hs-identifier">glut_KEY_DOWN</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0067</span><span>
+</span><a name="line-332"></a><span>
+</span><a name="line-333"></a><span class="hs-identifier">glut_KEY_END</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-334"></a><a name="glut_KEY_END"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_END"><span class="hs-identifier">glut_KEY_END</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x006B</span><span>
+</span><a name="line-335"></a><span>
+</span><a name="line-336"></a><span class="hs-identifier">glut_KEY_F1</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-337"></a><a name="glut_KEY_F1"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_F1"><span class="hs-identifier">glut_KEY_F1</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-338"></a><span>
+</span><a name="line-339"></a><span class="hs-identifier">glut_KEY_F10</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-340"></a><a name="glut_KEY_F10"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_F10"><span class="hs-identifier">glut_KEY_F10</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x000A</span><span>
+</span><a name="line-341"></a><span>
+</span><a name="line-342"></a><span class="hs-identifier">glut_KEY_F11</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-343"></a><a name="glut_KEY_F11"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_F11"><span class="hs-identifier">glut_KEY_F11</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x000B</span><span>
+</span><a name="line-344"></a><span>
+</span><a name="line-345"></a><span class="hs-identifier">glut_KEY_F12</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-346"></a><a name="glut_KEY_F12"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_F12"><span class="hs-identifier">glut_KEY_F12</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x000C</span><span>
+</span><a name="line-347"></a><span>
+</span><a name="line-348"></a><span class="hs-identifier">glut_KEY_F2</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-349"></a><a name="glut_KEY_F2"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_F2"><span class="hs-identifier">glut_KEY_F2</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0002</span><span>
+</span><a name="line-350"></a><span>
+</span><a name="line-351"></a><span class="hs-identifier">glut_KEY_F3</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-352"></a><a name="glut_KEY_F3"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_F3"><span class="hs-identifier">glut_KEY_F3</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0003</span><span>
+</span><a name="line-353"></a><span>
+</span><a name="line-354"></a><span class="hs-identifier">glut_KEY_F4</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-355"></a><a name="glut_KEY_F4"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_F4"><span class="hs-identifier">glut_KEY_F4</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0004</span><span>
+</span><a name="line-356"></a><span>
+</span><a name="line-357"></a><span class="hs-identifier">glut_KEY_F5</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-358"></a><a name="glut_KEY_F5"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_F5"><span class="hs-identifier">glut_KEY_F5</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0005</span><span>
+</span><a name="line-359"></a><span>
+</span><a name="line-360"></a><span class="hs-identifier">glut_KEY_F6</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-361"></a><a name="glut_KEY_F6"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_F6"><span class="hs-identifier">glut_KEY_F6</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0006</span><span>
+</span><a name="line-362"></a><span>
+</span><a name="line-363"></a><span class="hs-identifier">glut_KEY_F7</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-364"></a><a name="glut_KEY_F7"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_F7"><span class="hs-identifier">glut_KEY_F7</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0007</span><span>
+</span><a name="line-365"></a><span>
+</span><a name="line-366"></a><span class="hs-identifier">glut_KEY_F8</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-367"></a><a name="glut_KEY_F8"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_F8"><span class="hs-identifier">glut_KEY_F8</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0008</span><span>
+</span><a name="line-368"></a><span>
+</span><a name="line-369"></a><span class="hs-identifier">glut_KEY_F9</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-370"></a><a name="glut_KEY_F9"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_F9"><span class="hs-identifier">glut_KEY_F9</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0009</span><span>
+</span><a name="line-371"></a><span>
+</span><a name="line-372"></a><span class="hs-identifier">glut_KEY_HOME</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-373"></a><a name="glut_KEY_HOME"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_HOME"><span class="hs-identifier">glut_KEY_HOME</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x006A</span><span>
+</span><a name="line-374"></a><span>
+</span><a name="line-375"></a><span class="hs-identifier">glut_KEY_INSERT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-376"></a><a name="glut_KEY_INSERT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_INSERT"><span class="hs-identifier">glut_KEY_INSERT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x006C</span><span>
+</span><a name="line-377"></a><span>
+</span><a name="line-378"></a><span class="hs-identifier">glut_KEY_LEFT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-379"></a><a name="glut_KEY_LEFT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_LEFT"><span class="hs-identifier">glut_KEY_LEFT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0064</span><span>
+</span><a name="line-380"></a><span>
+</span><a name="line-381"></a><span class="hs-identifier">glut_KEY_NUM_LOCK</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-382"></a><a name="glut_KEY_NUM_LOCK"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_NUM_LOCK"><span class="hs-identifier">glut_KEY_NUM_LOCK</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x006D</span><span>
+</span><a name="line-383"></a><span>
+</span><a name="line-384"></a><span class="hs-identifier">glut_KEY_PAGE_DOWN</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-385"></a><a name="glut_KEY_PAGE_DOWN"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_PAGE_DOWN"><span class="hs-identifier">glut_KEY_PAGE_DOWN</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0069</span><span>
+</span><a name="line-386"></a><span>
+</span><a name="line-387"></a><span class="hs-identifier">glut_KEY_PAGE_UP</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-388"></a><a name="glut_KEY_PAGE_UP"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_PAGE_UP"><span class="hs-identifier">glut_KEY_PAGE_UP</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0068</span><span>
+</span><a name="line-389"></a><span>
+</span><a name="line-390"></a><span class="hs-identifier">glut_KEY_REPEAT_DEFAULT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-391"></a><a name="glut_KEY_REPEAT_DEFAULT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_REPEAT_DEFAULT"><span class="hs-identifier">glut_KEY_REPEAT_DEFAULT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0002</span><span>
+</span><a name="line-392"></a><span>
+</span><a name="line-393"></a><span class="hs-identifier">glut_KEY_REPEAT_OFF</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-394"></a><a name="glut_KEY_REPEAT_OFF"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_REPEAT_OFF"><span class="hs-identifier">glut_KEY_REPEAT_OFF</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0000</span><span>
+</span><a name="line-395"></a><span>
+</span><a name="line-396"></a><span class="hs-identifier">glut_KEY_REPEAT_ON</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-397"></a><a name="glut_KEY_REPEAT_ON"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_REPEAT_ON"><span class="hs-identifier">glut_KEY_REPEAT_ON</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-398"></a><span>
+</span><a name="line-399"></a><span class="hs-identifier">glut_KEY_RIGHT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-400"></a><a name="glut_KEY_RIGHT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_RIGHT"><span class="hs-identifier">glut_KEY_RIGHT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0066</span><span>
+</span><a name="line-401"></a><span>
+</span><a name="line-402"></a><span class="hs-identifier">glut_KEY_SHIFT_L</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-403"></a><a name="glut_KEY_SHIFT_L"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_SHIFT_L"><span class="hs-identifier">glut_KEY_SHIFT_L</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0070</span><span>
+</span><a name="line-404"></a><span>
+</span><a name="line-405"></a><span class="hs-identifier">glut_KEY_SHIFT_R</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-406"></a><a name="glut_KEY_SHIFT_R"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_SHIFT_R"><span class="hs-identifier">glut_KEY_SHIFT_R</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0071</span><span>
+</span><a name="line-407"></a><span>
+</span><a name="line-408"></a><span class="hs-identifier">glut_KEY_UP</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-409"></a><a name="glut_KEY_UP"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_KEY_UP"><span class="hs-identifier">glut_KEY_UP</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0065</span><span>
+</span><a name="line-410"></a><span>
+</span><a name="line-411"></a><span class="hs-identifier">glut_LAYER_IN_USE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-412"></a><a name="glut_LAYER_IN_USE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_LAYER_IN_USE"><span class="hs-identifier">glut_LAYER_IN_USE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0321</span><span>
+</span><a name="line-413"></a><span>
+</span><a name="line-414"></a><span class="hs-identifier">glut_LEFT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-415"></a><a name="glut_LEFT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_LEFT"><span class="hs-identifier">glut_LEFT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0000</span><span>
+</span><a name="line-416"></a><span>
+</span><a name="line-417"></a><span class="hs-identifier">glut_LEFT_BUTTON</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-418"></a><a name="glut_LEFT_BUTTON"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_LEFT_BUTTON"><span class="hs-identifier">glut_LEFT_BUTTON</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0000</span><span>
+</span><a name="line-419"></a><span>
+</span><a name="line-420"></a><span class="hs-identifier">glut_LUMINANCE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-421"></a><a name="glut_LUMINANCE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_LUMINANCE"><span class="hs-identifier">glut_LUMINANCE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0200</span><span>
+</span><a name="line-422"></a><span>
+</span><a name="line-423"></a><span class="hs-identifier">glut_MENU_IN_USE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-424"></a><a name="glut_MENU_IN_USE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_MENU_IN_USE"><span class="hs-identifier">glut_MENU_IN_USE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-425"></a><span>
+</span><a name="line-426"></a><span class="hs-identifier">glut_MENU_NOT_IN_USE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-427"></a><a name="glut_MENU_NOT_IN_USE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_MENU_NOT_IN_USE"><span class="hs-identifier">glut_MENU_NOT_IN_USE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0000</span><span>
+</span><a name="line-428"></a><span>
+</span><a name="line-429"></a><span class="hs-identifier">glut_MENU_NUM_ITEMS</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-430"></a><a name="glut_MENU_NUM_ITEMS"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_MENU_NUM_ITEMS"><span class="hs-identifier">glut_MENU_NUM_ITEMS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x012C</span><span>
+</span><a name="line-431"></a><span>
+</span><a name="line-432"></a><span class="hs-identifier">glut_MIDDLE_BUTTON</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-433"></a><a name="glut_MIDDLE_BUTTON"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_MIDDLE_BUTTON"><span class="hs-identifier">glut_MIDDLE_BUTTON</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-434"></a><span>
+</span><a name="line-435"></a><span class="hs-identifier">glut_MULTISAMPLE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-436"></a><a name="glut_MULTISAMPLE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_MULTISAMPLE"><span class="hs-identifier">glut_MULTISAMPLE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0080</span><span>
+</span><a name="line-437"></a><span>
+</span><a name="line-438"></a><span class="hs-identifier">glut_NORMAL</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-439"></a><a name="glut_NORMAL"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_NORMAL"><span class="hs-identifier">glut_NORMAL</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0000</span><span>
+</span><a name="line-440"></a><span>
+</span><a name="line-441"></a><span class="hs-identifier">glut_NORMAL_DAMAGED</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-442"></a><a name="glut_NORMAL_DAMAGED"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_NORMAL_DAMAGED"><span class="hs-identifier">glut_NORMAL_DAMAGED</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0324</span><span>
+</span><a name="line-443"></a><span>
+</span><a name="line-444"></a><span class="hs-identifier">glut_NOT_VISIBLE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-445"></a><a name="glut_NOT_VISIBLE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_NOT_VISIBLE"><span class="hs-identifier">glut_NOT_VISIBLE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0000</span><span>
+</span><a name="line-446"></a><span>
+</span><a name="line-447"></a><span class="hs-identifier">glut_NUM_BUTTON_BOX_BUTTONS</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-448"></a><a name="glut_NUM_BUTTON_BOX_BUTTONS"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_NUM_BUTTON_BOX_BUTTONS"><span class="hs-identifier">glut_NUM_BUTTON_BOX_BUTTONS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x025F</span><span>
+</span><a name="line-449"></a><span>
+</span><a name="line-450"></a><span class="hs-identifier">glut_NUM_DIALS</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-451"></a><a name="glut_NUM_DIALS"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_NUM_DIALS"><span class="hs-identifier">glut_NUM_DIALS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0260</span><span>
+</span><a name="line-452"></a><span>
+</span><a name="line-453"></a><span class="hs-identifier">glut_NUM_MOUSE_BUTTONS</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-454"></a><a name="glut_NUM_MOUSE_BUTTONS"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_NUM_MOUSE_BUTTONS"><span class="hs-identifier">glut_NUM_MOUSE_BUTTONS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x025D</span><span>
+</span><a name="line-455"></a><span>
+</span><a name="line-456"></a><span class="hs-identifier">glut_NUM_SPACEBALL_BUTTONS</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-457"></a><a name="glut_NUM_SPACEBALL_BUTTONS"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_NUM_SPACEBALL_BUTTONS"><span class="hs-identifier">glut_NUM_SPACEBALL_BUTTONS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x025E</span><span>
+</span><a name="line-458"></a><span>
+</span><a name="line-459"></a><span class="hs-identifier">glut_NUM_TABLET_BUTTONS</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-460"></a><a name="glut_NUM_TABLET_BUTTONS"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_NUM_TABLET_BUTTONS"><span class="hs-identifier">glut_NUM_TABLET_BUTTONS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0261</span><span>
+</span><a name="line-461"></a><span>
+</span><a name="line-462"></a><span class="hs-identifier">glut_OVERLAY</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-463"></a><a name="glut_OVERLAY"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_OVERLAY"><span class="hs-identifier">glut_OVERLAY</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-464"></a><span>
+</span><a name="line-465"></a><span class="hs-identifier">glut_OVERLAY_DAMAGED</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-466"></a><a name="glut_OVERLAY_DAMAGED"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_OVERLAY_DAMAGED"><span class="hs-identifier">glut_OVERLAY_DAMAGED</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0325</span><span>
+</span><a name="line-467"></a><span>
+</span><a name="line-468"></a><span class="hs-identifier">glut_OVERLAY_POSSIBLE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-469"></a><a name="glut_OVERLAY_POSSIBLE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_OVERLAY_POSSIBLE"><span class="hs-identifier">glut_OVERLAY_POSSIBLE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0320</span><span>
+</span><a name="line-470"></a><span>
+</span><a name="line-471"></a><span class="hs-identifier">glut_OWNS_JOYSTICK</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-472"></a><a name="glut_OWNS_JOYSTICK"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_OWNS_JOYSTICK"><span class="hs-identifier">glut_OWNS_JOYSTICK</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0265</span><span>
+</span><a name="line-473"></a><span>
+</span><a name="line-474"></a><span class="hs-identifier">glut_PARTIALLY_RETAINED</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-475"></a><a name="glut_PARTIALLY_RETAINED"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_PARTIALLY_RETAINED"><span class="hs-identifier">glut_PARTIALLY_RETAINED</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0002</span><span>
+</span><a name="line-476"></a><span>
+</span><a name="line-477"></a><span class="hs-identifier">glut_RED</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-478"></a><a name="glut_RED"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_RED"><span class="hs-identifier">glut_RED</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0000</span><span>
+</span><a name="line-479"></a><span>
+</span><a name="line-480"></a><span class="hs-identifier">glut_RENDERING_CONTEXT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-481"></a><a name="glut_RENDERING_CONTEXT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_RENDERING_CONTEXT"><span class="hs-identifier">glut_RENDERING_CONTEXT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x01FD</span><span>
+</span><a name="line-482"></a><span>
+</span><a name="line-483"></a><span class="hs-identifier">glut_RGB</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-484"></a><a name="glut_RGB"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_RGB"><span class="hs-identifier">glut_RGB</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0000</span><span>
+</span><a name="line-485"></a><span>
+</span><a name="line-486"></a><span class="hs-identifier">glut_RGBA</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-487"></a><a name="glut_RGBA"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_RGBA"><span class="hs-identifier">glut_RGBA</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0000</span><span>
+</span><a name="line-488"></a><span>
+</span><a name="line-489"></a><span class="hs-identifier">glut_RIGHT_BUTTON</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-490"></a><a name="glut_RIGHT_BUTTON"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_RIGHT_BUTTON"><span class="hs-identifier">glut_RIGHT_BUTTON</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0002</span><span>
+</span><a name="line-491"></a><span>
+</span><a name="line-492"></a><span class="hs-identifier">glut_SCREEN_HEIGHT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-493"></a><a name="glut_SCREEN_HEIGHT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_SCREEN_HEIGHT"><span class="hs-identifier">glut_SCREEN_HEIGHT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x00C9</span><span>
+</span><a name="line-494"></a><span>
+</span><a name="line-495"></a><span class="hs-identifier">glut_SCREEN_HEIGHT_MM</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-496"></a><a name="glut_SCREEN_HEIGHT_MM"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_SCREEN_HEIGHT_MM"><span class="hs-identifier">glut_SCREEN_HEIGHT_MM</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x00CB</span><span>
+</span><a name="line-497"></a><span>
+</span><a name="line-498"></a><span class="hs-identifier">glut_SCREEN_WIDTH</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-499"></a><a name="glut_SCREEN_WIDTH"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_SCREEN_WIDTH"><span class="hs-identifier">glut_SCREEN_WIDTH</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x00C8</span><span>
+</span><a name="line-500"></a><span>
+</span><a name="line-501"></a><span class="hs-identifier">glut_SCREEN_WIDTH_MM</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-502"></a><a name="glut_SCREEN_WIDTH_MM"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_SCREEN_WIDTH_MM"><span class="hs-identifier">glut_SCREEN_WIDTH_MM</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x00CA</span><span>
+</span><a name="line-503"></a><span>
+</span><a name="line-504"></a><span class="hs-identifier">glut_SINGLE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-505"></a><a name="glut_SINGLE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_SINGLE"><span class="hs-identifier">glut_SINGLE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0000</span><span>
+</span><a name="line-506"></a><span>
+</span><a name="line-507"></a><span class="hs-identifier">glut_SKIP_STALE_MOTION_EVENTS</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-508"></a><a name="glut_SKIP_STALE_MOTION_EVENTS"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_SKIP_STALE_MOTION_EVENTS"><span class="hs-identifier">glut_SKIP_STALE_MOTION_EVENTS</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0204</span><span>
+</span><a name="line-509"></a><span>
+</span><a name="line-510"></a><span class="hs-identifier">glut_SRGB</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-511"></a><a name="glut_SRGB"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_SRGB"><span class="hs-identifier">glut_SRGB</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x1000</span><span>
+</span><a name="line-512"></a><span>
+</span><a name="line-513"></a><span class="hs-identifier">glut_STENCIL</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-514"></a><a name="glut_STENCIL"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_STENCIL"><span class="hs-identifier">glut_STENCIL</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0020</span><span>
+</span><a name="line-515"></a><span>
+</span><a name="line-516"></a><span class="hs-identifier">glut_STEREO</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CUInt</span><span>
+</span><a name="line-517"></a><a name="glut_STEREO"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_STEREO"><span class="hs-identifier">glut_STEREO</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0100</span><span>
+</span><a name="line-518"></a><span>
+</span><a name="line-519"></a><span class="hs-identifier">glut_TRANSPARENT_INDEX</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-520"></a><a name="glut_TRANSPARENT_INDEX"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_TRANSPARENT_INDEX"><span class="hs-identifier">glut_TRANSPARENT_INDEX</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0323</span><span>
+</span><a name="line-521"></a><span>
+</span><a name="line-522"></a><span class="hs-identifier">glut_TRY_DIRECT_CONTEXT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-523"></a><a name="glut_TRY_DIRECT_CONTEXT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_TRY_DIRECT_CONTEXT"><span class="hs-identifier">glut_TRY_DIRECT_CONTEXT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">2</span><span>
+</span><a name="line-524"></a><span>
+</span><a name="line-525"></a><span class="hs-identifier">glut_UP</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-526"></a><a name="glut_UP"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_UP"><span class="hs-identifier">glut_UP</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-527"></a><span>
+</span><a name="line-528"></a><span class="hs-identifier">glut_USE_CURRENT_CONTEXT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-529"></a><a name="glut_USE_CURRENT_CONTEXT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_USE_CURRENT_CONTEXT"><span class="hs-identifier">glut_USE_CURRENT_CONTEXT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">1</span><span>
+</span><a name="line-530"></a><span>
+</span><a name="line-531"></a><span class="hs-identifier">glut_VERSION</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-532"></a><a name="glut_VERSION"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_VERSION"><span class="hs-identifier">glut_VERSION</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x01FC</span><span>
+</span><a name="line-533"></a><span>
+</span><a name="line-534"></a><span class="hs-identifier">glut_VIDEO_RESIZE_HEIGHT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-535"></a><a name="glut_VIDEO_RESIZE_HEIGHT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_VIDEO_RESIZE_HEIGHT"><span class="hs-identifier">glut_VIDEO_RESIZE_HEIGHT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x038D</span><span>
+</span><a name="line-536"></a><span>
+</span><a name="line-537"></a><span class="hs-identifier">glut_VIDEO_RESIZE_HEIGHT_DELTA</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-538"></a><a name="glut_VIDEO_RESIZE_HEIGHT_DELTA"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_VIDEO_RESIZE_HEIGHT_DELTA"><span class="hs-identifier">glut_VIDEO_RESIZE_HEIGHT_DELTA</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0389</span><span>
+</span><a name="line-539"></a><span>
+</span><a name="line-540"></a><span class="hs-identifier">glut_VIDEO_RESIZE_IN_USE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-541"></a><a name="glut_VIDEO_RESIZE_IN_USE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_VIDEO_RESIZE_IN_USE"><span class="hs-identifier">glut_VIDEO_RESIZE_IN_USE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0385</span><span>
+</span><a name="line-542"></a><span>
+</span><a name="line-543"></a><span class="hs-identifier">glut_VIDEO_RESIZE_POSSIBLE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-544"></a><a name="glut_VIDEO_RESIZE_POSSIBLE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_VIDEO_RESIZE_POSSIBLE"><span class="hs-identifier">glut_VIDEO_RESIZE_POSSIBLE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0384</span><span>
+</span><a name="line-545"></a><span>
+</span><a name="line-546"></a><span class="hs-identifier">glut_VIDEO_RESIZE_WIDTH</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-547"></a><a name="glut_VIDEO_RESIZE_WIDTH"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_VIDEO_RESIZE_WIDTH"><span class="hs-identifier">glut_VIDEO_RESIZE_WIDTH</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x038C</span><span>
+</span><a name="line-548"></a><span>
+</span><a name="line-549"></a><span class="hs-identifier">glut_VIDEO_RESIZE_WIDTH_DELTA</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-550"></a><a name="glut_VIDEO_RESIZE_WIDTH_DELTA"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_VIDEO_RESIZE_WIDTH_DELTA"><span class="hs-identifier">glut_VIDEO_RESIZE_WIDTH_DELTA</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0388</span><span>
+</span><a name="line-551"></a><span>
+</span><a name="line-552"></a><span class="hs-identifier">glut_VIDEO_RESIZE_X</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-553"></a><a name="glut_VIDEO_RESIZE_X"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_VIDEO_RESIZE_X"><span class="hs-identifier">glut_VIDEO_RESIZE_X</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x038A</span><span>
+</span><a name="line-554"></a><span>
+</span><a name="line-555"></a><span class="hs-identifier">glut_VIDEO_RESIZE_X_DELTA</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-556"></a><a name="glut_VIDEO_RESIZE_X_DELTA"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_VIDEO_RESIZE_X_DELTA"><span class="hs-identifier">glut_VIDEO_RESIZE_X_DELTA</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0386</span><span>
+</span><a name="line-557"></a><span>
+</span><a name="line-558"></a><span class="hs-identifier">glut_VIDEO_RESIZE_Y</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-559"></a><a name="glut_VIDEO_RESIZE_Y"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_VIDEO_RESIZE_Y"><span class="hs-identifier">glut_VIDEO_RESIZE_Y</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x038B</span><span>
+</span><a name="line-560"></a><span>
+</span><a name="line-561"></a><span class="hs-identifier">glut_VIDEO_RESIZE_Y_DELTA</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-562"></a><a name="glut_VIDEO_RESIZE_Y_DELTA"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_VIDEO_RESIZE_Y_DELTA"><span class="hs-identifier">glut_VIDEO_RESIZE_Y_DELTA</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0387</span><span>
+</span><a name="line-563"></a><span>
+</span><a name="line-564"></a><span class="hs-identifier">glut_VISIBLE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">CInt</span><span>
+</span><a name="line-565"></a><a name="glut_VISIBLE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_VISIBLE"><span class="hs-identifier">glut_VISIBLE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0001</span><span>
+</span><a name="line-566"></a><span>
+</span><a name="line-567"></a><span class="hs-identifier">glut_WINDOW_ACCUM_ALPHA_SIZE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-568"></a><a name="glut_WINDOW_ACCUM_ALPHA_SIZE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_ACCUM_ALPHA_SIZE"><span class="hs-identifier">glut_WINDOW_ACCUM_ALPHA_SIZE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0072</span><span>
+</span><a name="line-569"></a><span>
+</span><a name="line-570"></a><span class="hs-identifier">glut_WINDOW_ACCUM_BLUE_SIZE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-571"></a><a name="glut_WINDOW_ACCUM_BLUE_SIZE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_ACCUM_BLUE_SIZE"><span class="hs-identifier">glut_WINDOW_ACCUM_BLUE_SIZE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0071</span><span>
+</span><a name="line-572"></a><span>
+</span><a name="line-573"></a><span class="hs-identifier">glut_WINDOW_ACCUM_GREEN_SIZE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-574"></a><a name="glut_WINDOW_ACCUM_GREEN_SIZE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_ACCUM_GREEN_SIZE"><span class="hs-identifier">glut_WINDOW_ACCUM_GREEN_SIZE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0070</span><span>
+</span><a name="line-575"></a><span>
+</span><a name="line-576"></a><span class="hs-identifier">glut_WINDOW_ACCUM_RED_SIZE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-577"></a><a name="glut_WINDOW_ACCUM_RED_SIZE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_ACCUM_RED_SIZE"><span class="hs-identifier">glut_WINDOW_ACCUM_RED_SIZE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x006F</span><span>
+</span><a name="line-578"></a><span>
+</span><a name="line-579"></a><span class="hs-identifier">glut_WINDOW_ALPHA_SIZE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-580"></a><a name="glut_WINDOW_ALPHA_SIZE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_ALPHA_SIZE"><span class="hs-identifier">glut_WINDOW_ALPHA_SIZE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x006E</span><span>
+</span><a name="line-581"></a><span>
+</span><a name="line-582"></a><span class="hs-identifier">glut_WINDOW_BLUE_SIZE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-583"></a><a name="glut_WINDOW_BLUE_SIZE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_BLUE_SIZE"><span class="hs-identifier">glut_WINDOW_BLUE_SIZE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x006D</span><span>
+</span><a name="line-584"></a><span>
+</span><a name="line-585"></a><span class="hs-identifier">glut_WINDOW_BORDER_WIDTH</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-586"></a><a name="glut_WINDOW_BORDER_WIDTH"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_BORDER_WIDTH"><span class="hs-identifier">glut_WINDOW_BORDER_WIDTH</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x01FA</span><span>
+</span><a name="line-587"></a><span>
+</span><a name="line-588"></a><span class="hs-identifier">glut_WINDOW_BUFFER_SIZE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-589"></a><a name="glut_WINDOW_BUFFER_SIZE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_BUFFER_SIZE"><span class="hs-identifier">glut_WINDOW_BUFFER_SIZE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0068</span><span>
+</span><a name="line-590"></a><span>
+</span><a name="line-591"></a><span class="hs-identifier">glut_WINDOW_COLORMAP_SIZE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-592"></a><a name="glut_WINDOW_COLORMAP_SIZE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_COLORMAP_SIZE"><span class="hs-identifier">glut_WINDOW_COLORMAP_SIZE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0077</span><span>
+</span><a name="line-593"></a><span>
+</span><a name="line-594"></a><span class="hs-identifier">glut_WINDOW_CURSOR</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-595"></a><a name="glut_WINDOW_CURSOR"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_CURSOR"><span class="hs-identifier">glut_WINDOW_CURSOR</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x007A</span><span>
+</span><a name="line-596"></a><span>
+</span><a name="line-597"></a><span class="hs-identifier">glut_WINDOW_DEPTH_SIZE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-598"></a><a name="glut_WINDOW_DEPTH_SIZE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_DEPTH_SIZE"><span class="hs-identifier">glut_WINDOW_DEPTH_SIZE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x006A</span><span>
+</span><a name="line-599"></a><span>
+</span><a name="line-600"></a><span class="hs-identifier">glut_WINDOW_DOUBLEBUFFER</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-601"></a><a name="glut_WINDOW_DOUBLEBUFFER"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_DOUBLEBUFFER"><span class="hs-identifier">glut_WINDOW_DOUBLEBUFFER</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0073</span><span>
+</span><a name="line-602"></a><span>
+</span><a name="line-603"></a><span class="hs-identifier">glut_WINDOW_FORMAT_ID</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-604"></a><a name="glut_WINDOW_FORMAT_ID"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_FORMAT_ID"><span class="hs-identifier">glut_WINDOW_FORMAT_ID</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x007B</span><span>
+</span><a name="line-605"></a><span>
+</span><a name="line-606"></a><span class="hs-identifier">glut_WINDOW_GREEN_SIZE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-607"></a><a name="glut_WINDOW_GREEN_SIZE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_GREEN_SIZE"><span class="hs-identifier">glut_WINDOW_GREEN_SIZE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x006C</span><span>
+</span><a name="line-608"></a><span>
+</span><a name="line-609"></a><span class="hs-identifier">glut_WINDOW_HEADER_HEIGHT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-610"></a><a name="glut_WINDOW_HEADER_HEIGHT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_HEADER_HEIGHT"><span class="hs-identifier">glut_WINDOW_HEADER_HEIGHT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x01FB</span><span>
+</span><a name="line-611"></a><span>
+</span><a name="line-612"></a><span class="hs-identifier">glut_WINDOW_HEIGHT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-613"></a><a name="glut_WINDOW_HEIGHT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_HEIGHT"><span class="hs-identifier">glut_WINDOW_HEIGHT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0067</span><span>
+</span><a name="line-614"></a><span>
+</span><a name="line-615"></a><span class="hs-identifier">glut_WINDOW_NUM_CHILDREN</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-616"></a><a name="glut_WINDOW_NUM_CHILDREN"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_NUM_CHILDREN"><span class="hs-identifier">glut_WINDOW_NUM_CHILDREN</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0076</span><span>
+</span><a name="line-617"></a><span>
+</span><a name="line-618"></a><span class="hs-identifier">glut_WINDOW_NUM_SAMPLES</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-619"></a><a name="glut_WINDOW_NUM_SAMPLES"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_NUM_SAMPLES"><span class="hs-identifier">glut_WINDOW_NUM_SAMPLES</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0078</span><span>
+</span><a name="line-620"></a><span>
+</span><a name="line-621"></a><span class="hs-identifier">glut_WINDOW_PARENT</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-622"></a><a name="glut_WINDOW_PARENT"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_PARENT"><span class="hs-identifier">glut_WINDOW_PARENT</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0075</span><span>
+</span><a name="line-623"></a><span>
+</span><a name="line-624"></a><span class="hs-identifier">glut_WINDOW_RED_SIZE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-625"></a><a name="glut_WINDOW_RED_SIZE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_RED_SIZE"><span class="hs-identifier">glut_WINDOW_RED_SIZE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x006B</span><span>
+</span><a name="line-626"></a><span>
+</span><a name="line-627"></a><span class="hs-identifier">glut_WINDOW_RGBA</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-628"></a><a name="glut_WINDOW_RGBA"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_RGBA"><span class="hs-identifier">glut_WINDOW_RGBA</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0074</span><span>
+</span><a name="line-629"></a><span>
+</span><a name="line-630"></a><span class="hs-identifier">glut_WINDOW_STENCIL_SIZE</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-631"></a><a name="glut_WINDOW_STENCIL_SIZE"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_STENCIL_SIZE"><span class="hs-identifier">glut_WINDOW_STENCIL_SIZE</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0069</span><span>
+</span><a name="line-632"></a><span>
+</span><a name="line-633"></a><span class="hs-identifier">glut_WINDOW_STEREO</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-634"></a><a name="glut_WINDOW_STEREO"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_STEREO"><span class="hs-identifier">glut_WINDOW_STEREO</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0079</span><span>
+</span><a name="line-635"></a><span>
+</span><a name="line-636"></a><span class="hs-identifier">glut_WINDOW_WIDTH</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-637"></a><a name="glut_WINDOW_WIDTH"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_WIDTH"><span class="hs-identifier">glut_WINDOW_WIDTH</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0066</span><span>
+</span><a name="line-638"></a><span>
+</span><a name="line-639"></a><span class="hs-identifier">glut_WINDOW_X</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-640"></a><a name="glut_WINDOW_X"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_X"><span class="hs-identifier">glut_WINDOW_X</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0064</span><span>
+</span><a name="line-641"></a><span>
+</span><a name="line-642"></a><span class="hs-identifier">glut_WINDOW_Y</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-643"></a><a name="glut_WINDOW_Y"><a href="Graphics.UI.GLUT.Raw.Tokens.html#glut_WINDOW_Y"><span class="hs-identifier">glut_WINDOW_Y</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-number">0x0065</span><span>
+</span><a name="line-644"></a></pre></body></html>

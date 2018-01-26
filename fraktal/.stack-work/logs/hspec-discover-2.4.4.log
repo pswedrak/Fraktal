@@ -1,0 +1,45 @@
+Configuring hspec-discover-2.4.4...
+Preprocessing library for hspec-discover-2.4.4..
+Building library for hspec-discover-2.4.4..
+[1 of 3] Compiling Paths_hspec_discover ( .stack-work\dist\5c8418a7\build\autogen\Paths_hspec_discover.hs, .stack-work\dist\5c8418a7\build\Paths_hspec_discover.o )
+[2 of 3] Compiling Test.Hspec.Discover.Config ( src\Test\Hspec\Discover\Config.hs, .stack-work\dist\5c8418a7\build\Test\Hspec\Discover\Config.o )
+[3 of 3] Compiling Test.Hspec.Discover.Run ( src\Test\Hspec\Discover\Run.hs, .stack-work\dist\5c8418a7\build\Test\Hspec\Discover\Run.o )
+Preprocessing executable 'hspec-discover' for hspec-discover-2.4.4..
+Building executable 'hspec-discover' for hspec-discover-2.4.4..
+[1 of 1] Compiling Main             ( driver\hspec-discover.hs, .stack-work\dist\5c8418a7\build\hspec-discover\hspec-discover-tmp\Main.o )
+Linking .stack-work\dist\5c8418a7\build\hspec-discover\hspec-discover.exe ...
+Preprocessing library for hspec-discover-2.4.4..
+Running Haddock on library for hspec-discover-2.4.4..
+Haddock coverage:
+   0% (  0 /  9) in 'Paths_hspec_discover'
+  Missing documentation for:
+    Module header
+    version (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_discover.hs:28)
+    getBinDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_discover.hs:39)
+    getLibDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_discover.hs:39)
+    getDynLibDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_discover.hs:39)
+    getDataDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_discover.hs:39)
+    getLibexecDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_discover.hs:39)
+    getDataFileName (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_discover.hs:47)
+    getSysconfDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_discover.hs:39)
+  20% (  1 /  5) in 'Test.Hspec.Discover.Config'
+  Missing documentation for:
+    Config (src\Test\Hspec\Discover\Config.hs:14)
+    defaultConfig (src\Test\Hspec\Discover\Config.hs:21)
+    parseConfig (src\Test\Hspec\Discover\Config.hs:35)
+    usage (src\Test\Hspec\Discover\Config.hs:32)
+  40% (  4 / 10) in 'Test.Hspec.Discover.Run'
+  Missing documentation for:
+    run (src\Test\Hspec\Discover\Run.hs:42)
+    Spec (src\Test\Hspec\Discover\Run.hs:37)
+    fileToSpec (src\Test\Hspec\Discover\Run.hs:124)
+    findSpecs (src\Test\Hspec\Discover\Run.hs:119)
+    getFilesRecursive (src\Test\Hspec\Discover\Run.hs:143)
+    driverWithFormatter (src\Test\Hspec\Discover\Run.hs:88)
+Documentation created:
+.stack-work\dist\5c8418a7\doc\html\hspec-discover\index.html,
+.stack-work\dist\5c8418a7\doc\html\hspec-discover\hspec-discover.txt
+Preprocessing executable 'hspec-discover' for hspec-discover-2.4.4..
+Installing library in C:\sr\snapshots\13cecb13\lib\x86_64-windows-ghc-8.2.2\hspec-discover-2.4.4-7lu7rN66esZ31cqN0Q1d1c
+Installing executable hspec-discover in C:\sr\snapshots\13cecb13\bin
+Registering library for hspec-discover-2.4.4..

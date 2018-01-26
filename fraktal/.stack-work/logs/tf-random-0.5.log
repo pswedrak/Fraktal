@@ -1,0 +1,38 @@
+Configuring tf-random-0.5...
+Preprocessing library for tf-random-0.5..
+Building library for tf-random-0.5..
+[1 of 4] Compiling System.Random.TF.Gen ( src\System\Random\TF\Gen.hs, .stack-work\dist\5c8418a7\build\System\Random\TF\Gen.o )
+[2 of 4] Compiling System.Random.TF.Init ( src\System\Random\TF\Init.hs, .stack-work\dist\5c8418a7\build\System\Random\TF\Init.o )
+
+[;1msrc\System\Random\TF\Init.hs:94:5: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wdeprecations[0m[0m[;1m][0m[0m[;1m
+    In the use of `bitSize' (imported from Data.Bits):
+    Deprecated: "Use 'bitSizeMaybe' or 'finiteBitSize' instead"[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m94 |[0m[0m   | [;1m[35mbitSize[0m[0m n > 64 = error "mkTFGen: case where size of Int > 64 not implemented"
+[;1m[34m   |[0m[0m[;1m[35m     ^^^^^^^[0m[0m
+[0m[0m[0m[3 of 4] Compiling System.Random.TF ( src\System\Random\TF.hs, .stack-work\dist\5c8418a7\build\System\Random\TF.o )
+[4 of 4] Compiling System.Random.TF.Instances ( src\System\Random\TF\Instances.hs, .stack-work\dist\5c8418a7\build\System\Random\TF\Instances.o )
+Preprocessing library for tf-random-0.5..
+Running Haddock on library for tf-random-0.5..
+
+src\System\Random\TF\Init.hs:94:5: warning: [-Wdeprecations]
+    In the use of `bitSize' (imported from Data.Bits):
+    Deprecated: "Use 'bitSizeMaybe' or 'finiteBitSize' instead"
+   |
+94 |   | bitSize n > 64 = error "mkTFGen: case where size of Int > 64 not implemented"
+   |     ^^^^^^^
+Haddock coverage:
+ 100% (  4 /  4) in 'System.Random.TF.Gen'
+  83% (  5 /  6) in 'System.Random.TF.Init'
+  Missing documentation for:
+    Module header
+ 100% (  3 /  3) in 'System.Random.TF'
+  33% (  1 /  3) in 'System.Random.TF.Instances'
+  Missing documentation for:
+    Random (src\System\Random\TF\Instances.hs:37)
+    randomEnum (src\System\Random\TF\Instances.hs:205)
+Documentation created:
+.stack-work\dist\5c8418a7\doc\html\tf-random\index.html,
+.stack-work\dist\5c8418a7\doc\html\tf-random\tf-random.txt
+Installing library in C:\sr\snapshots\13cecb13\lib\x86_64-windows-ghc-8.2.2\tf-random-0.5-ABwehMmciu8CuAFbHLp6To
+Registering library for tf-random-0.5..

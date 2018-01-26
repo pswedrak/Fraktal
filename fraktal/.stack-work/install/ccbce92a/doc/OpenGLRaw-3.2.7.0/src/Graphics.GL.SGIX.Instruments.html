@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><a name="line-2"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-3"></a><span class="hs-comment">-- |</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- Module      :  Graphics.GL.SGIX.Instruments</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- Copyright   :  (c) Sven Panne 2017</span><span>
+</span><a name="line-6"></a><span class="hs-comment">-- License     :  BSD3</span><span>
+</span><a name="line-7"></a><span class="hs-comment">--</span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- Maintainer  :  Sven Panne &lt;svenpanne@gmail.com&gt;</span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- Stability   :  stable</span><span>
+</span><a name="line-10"></a><span class="hs-comment">-- Portability :  portable</span><span>
+</span><a name="line-11"></a><span class="hs-comment">--</span><span>
+</span><a name="line-12"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-13"></a><span>
+</span><a name="line-14"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">SGIX</span><span class="hs-operator">.</span><span class="hs-identifier">Instruments</span><span> </span><span class="hs-special">(</span><span>
+</span><a name="line-15"></a><span>  </span><span class="hs-comment">-- * Extension Support</span><span>
+</span><a name="line-16"></a><span>  </span><a href="Graphics.GL.ExtensionPredicates.html#glGetSGIXInstruments"><span class="hs-identifier hs-var">glGetSGIXInstruments</span></a><span class="hs-special">,</span><span>
+</span><a name="line-17"></a><span>  </span><a href="Graphics.GL.ExtensionPredicates.html#gl_SGIX_instruments"><span class="hs-identifier hs-var">gl_SGIX_instruments</span></a><span class="hs-special">,</span><span>
+</span><a name="line-18"></a><span>  </span><span class="hs-comment">-- * Enums</span><span>
+</span><a name="line-19"></a><span>  </span><a href="Graphics.GL.Tokens.html#GL_INSTRUMENT_BUFFER_POINTER_SGIX"><span class="hs-identifier hs-var">pattern</span></a><span> </span><a href="Graphics.GL.Tokens.html#GL_INSTRUMENT_BUFFER_POINTER_SGIX"><span class="hs-identifier hs-var">GL_INSTRUMENT_BUFFER_POINTER_SGIX</span></a><span class="hs-special">,</span><span>
+</span><a name="line-20"></a><span>  </span><a href="Graphics.GL.Tokens.html#GL_INSTRUMENT_MEASUREMENTS_SGIX"><span class="hs-identifier hs-var">pattern</span></a><span> </span><a href="Graphics.GL.Tokens.html#GL_INSTRUMENT_MEASUREMENTS_SGIX"><span class="hs-identifier hs-var">GL_INSTRUMENT_MEASUREMENTS_SGIX</span></a><span class="hs-special">,</span><span>
+</span><a name="line-21"></a><span>  </span><span class="hs-comment">-- * Functions</span><span>
+</span><a name="line-22"></a><span>  </span><a href="Graphics.GL.Functions.F10.html#glGetInstrumentsSGIX"><span class="hs-identifier hs-var">glGetInstrumentsSGIX</span></a><span class="hs-special">,</span><span>
+</span><a name="line-23"></a><span>  </span><a href="Graphics.GL.Functions.F14.html#glInstrumentsBufferSGIX"><span class="hs-identifier hs-var">glInstrumentsBufferSGIX</span></a><span class="hs-special">,</span><span>
+</span><a name="line-24"></a><span>  </span><a href="Graphics.GL.Functions.F20.html#glPollInstrumentsSGIX"><span class="hs-identifier hs-var">glPollInstrumentsSGIX</span></a><span class="hs-special">,</span><span>
+</span><a name="line-25"></a><span>  </span><a href="Graphics.GL.Functions.F22.html#glReadInstrumentsSGIX"><span class="hs-identifier hs-var">glReadInstrumentsSGIX</span></a><span class="hs-special">,</span><span>
+</span><a name="line-26"></a><span>  </span><a href="Graphics.GL.Functions.F24.html#glStartInstrumentsSGIX"><span class="hs-identifier hs-var">glStartInstrumentsSGIX</span></a><span class="hs-special">,</span><span>
+</span><a name="line-27"></a><span>  </span><a href="Graphics.GL.Functions.F24.html#glStopInstrumentsSGIX"><span class="hs-identifier hs-var">glStopInstrumentsSGIX</span></a><span>
+</span><a name="line-28"></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-29"></a><span>
+</span><a name="line-30"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.GL.ExtensionPredicates.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">ExtensionPredicates</span></a><span>
+</span><a name="line-31"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.GL.Tokens.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">Tokens</span></a><span>
+</span><a name="line-32"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.GL.Functions.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">Functions</span></a><span>
+</span><a name="line-33"></a></pre></body></html>

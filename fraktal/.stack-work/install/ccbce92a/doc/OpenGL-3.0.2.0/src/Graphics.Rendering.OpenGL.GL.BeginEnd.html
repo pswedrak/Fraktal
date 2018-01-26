@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-2"></a><span class="hs-comment">-- |</span><span>
+</span><a name="line-3"></a><span class="hs-comment">-- Module      :  Graphics.Rendering.OpenGL.GL.BeginEnd</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- Copyright   :  (c) Sven Panne 2002-2016</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- License     :  BSD3</span><span>
+</span><a name="line-6"></a><span class="hs-comment">--</span><span>
+</span><a name="line-7"></a><span class="hs-comment">-- Maintainer  :  Sven Panne &lt;svenpanne@gmail.com&gt;</span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- Stability   :  stable</span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- Portability :  portable</span><span>
+</span><a name="line-10"></a><span class="hs-comment">--</span><span>
+</span><a name="line-11"></a><span class="hs-comment">-- This module corresponds to section 10.8 (Drawing Commands Using Begin and</span><span>
+</span><a name="line-12"></a><span class="hs-comment">-- End) of the OpenGL 4.4 specs.</span><span>
+</span><a name="line-13"></a><span class="hs-comment">--</span><span>
+</span><a name="line-14"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-15"></a><span>
+</span><a name="line-16"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">BeginEnd</span><span> </span><span class="hs-special">(</span><span>
+</span><a name="line-17"></a><span>   </span><span class="hs-comment">-- * Begin and End Objects</span><span>
+</span><a name="line-18"></a><span>   </span><a href="Graphics.Rendering.OpenGL.GL.BeginEnd.html#renderPrimitive"><span class="hs-identifier hs-var">renderPrimitive</span></a><span class="hs-special">,</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.BeginEnd.html#unsafeRenderPrimitive"><span class="hs-identifier hs-var">unsafeRenderPrimitive</span></a><span class="hs-special">,</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.BeginEnd.html#primitiveRestart"><span class="hs-identifier hs-var">primitiveRestart</span></a><span class="hs-special">,</span><span>
+</span><a name="line-19"></a><span>
+</span><a name="line-20"></a><span>   </span><span class="hs-comment">-- * Polygon Edges</span><span>
+</span><a name="line-21"></a><span>   </span><a href="Graphics.Rendering.OpenGL.GL.EdgeFlag.html#EdgeFlag"><span class="hs-identifier hs-type">EdgeFlag</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a name="line-22"></a><span>   </span><a href="Graphics.Rendering.OpenGL.GL.BeginEnd.html#edgeFlag"><span class="hs-identifier hs-var">edgeFlag</span></a><span>
+</span><a name="line-23"></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-24"></a><span>
+</span><a name="line-25"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">StateVar</span><span>
+</span><a name="line-26"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.EdgeFlag.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">EdgeFlag</span></a><span>
+</span><a name="line-27"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.Exception.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">Exception</span></a><span>
+</span><a name="line-28"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.PrimitiveMode.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">PrimitiveMode</span></a><span>
+</span><a name="line-29"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.PrimitiveModeInternal.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">PrimitiveModeInternal</span></a><span>
+</span><a name="line-30"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">QueryUtils</span></a><span>
+</span><a name="line-31"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span>
+</span><a name="line-32"></a><span>
+</span><a name="line-33"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-34"></a><span>
+</span><a name="line-35"></a><span class="hs-comment">-- | Delimit the vertices that define a primitive or a group of like primitives.</span><span>
+</span><a name="line-36"></a><span class="hs-comment">--</span><span>
+</span><a name="line-37"></a><span class="hs-comment">-- Only a subset of GL commands can be used in the delimited action:</span><span>
+</span><a name="line-38"></a><span class="hs-comment">-- Those for specifying vertex coordinates</span><span>
+</span><a name="line-39"></a><span class="hs-comment">-- ('Graphics.Rendering.OpenGL.GL.VertexSpec.vertex',</span><span>
+</span><a name="line-40"></a><span class="hs-comment">--  'Graphics.Rendering.OpenGL.GL.VertexSpec.vertexv'),</span><span>
+</span><a name="line-41"></a><span class="hs-comment">-- vertex colors</span><span>
+</span><a name="line-42"></a><span class="hs-comment">-- ('Graphics.Rendering.OpenGL.GL.VertexSpec.color',</span><span>
+</span><a name="line-43"></a><span class="hs-comment">--  'Graphics.Rendering.OpenGL.GL.VertexSpec.colorv',</span><span>
+</span><a name="line-44"></a><span class="hs-comment">--  'Graphics.Rendering.OpenGL.GL.VertexSpec.secondaryColor',</span><span>
+</span><a name="line-45"></a><span class="hs-comment">--  'Graphics.Rendering.OpenGL.GL.VertexSpec.secondaryColorv',</span><span>
+</span><a name="line-46"></a><span class="hs-comment">--  'Graphics.Rendering.OpenGL.GL.VertexSpec.index',</span><span>
+</span><a name="line-47"></a><span class="hs-comment">--  'Graphics.Rendering.OpenGL.GL.VertexSpec.indexv'),</span><span>
+</span><a name="line-48"></a><span class="hs-comment">-- normal</span><span>
+</span><a name="line-49"></a><span class="hs-comment">-- ('Graphics.Rendering.OpenGL.GL.VertexSpec.normal',</span><span>
+</span><a name="line-50"></a><span class="hs-comment">--  'Graphics.Rendering.OpenGL.GL.VertexSpec.normalv'),</span><span>
+</span><a name="line-51"></a><span class="hs-comment">-- texture coordinates</span><span>
+</span><a name="line-52"></a><span class="hs-comment">-- ('Graphics.Rendering.OpenGL.GL.VertexSpec.texCoord',</span><span>
+</span><a name="line-53"></a><span class="hs-comment">--  'Graphics.Rendering.OpenGL.GL.VertexSpec.texCoordv',</span><span>
+</span><a name="line-54"></a><span class="hs-comment">--  'Graphics.Rendering.OpenGL.GL.VertexSpec.multiTexCoord',</span><span>
+</span><a name="line-55"></a><span class="hs-comment">--  'Graphics.Rendering.OpenGL.GL.VertexSpec.multiTexCoordv'),</span><span>
+</span><a name="line-56"></a><span class="hs-comment">-- and fog coordinates</span><span>
+</span><a name="line-57"></a><span class="hs-comment">-- ('Graphics.Rendering.OpenGL.GL.VertexSpec.fogCoord',</span><span>
+</span><a name="line-58"></a><span class="hs-comment">--  'Graphics.Rendering.OpenGL.GL.VertexSpec.fogCoordv').</span><span>
+</span><a name="line-59"></a><span class="hs-comment">-- Additionally,</span><span>
+</span><a name="line-60"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Evaluators.evalPoint1',</span><span>
+</span><a name="line-61"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Evaluators.evalPoint2',</span><span>
+</span><a name="line-62"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Evaluators.evalCoord1',</span><span>
+</span><a name="line-63"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Evaluators.evalCoord1v',</span><span>
+</span><a name="line-64"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Evaluators.evalCoord2',</span><span>
+</span><a name="line-65"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Evaluators.evalCoord2v',</span><span>
+</span><a name="line-66"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Colors.materialAmbient',</span><span>
+</span><a name="line-67"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Colors.materialDiffuse',</span><span>
+</span><a name="line-68"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Colors.materialAmbientAndDiffuse',</span><span>
+</span><a name="line-69"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Colors.materialSpecular',</span><span>
+</span><a name="line-70"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Colors.materialEmission',</span><span>
+</span><a name="line-71"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Colors.materialShininess',</span><span>
+</span><a name="line-72"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.DisplayLists.callList',</span><span>
+</span><a name="line-73"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.DisplayLists.callLists',</span><span>
+</span><a name="line-74"></a><span class="hs-comment">-- and setting 'edgeFlag' are allowed. Writing the respective state variables</span><span>
+</span><a name="line-75"></a><span class="hs-comment">-- is allowed in the delimited action, too.</span><span>
+</span><a name="line-76"></a><span class="hs-comment">--</span><span>
+</span><a name="line-77"></a><span class="hs-comment">-- Regardless of the chosen 'PrimitiveMode', there is no limit to the number of</span><span>
+</span><a name="line-78"></a><span class="hs-comment">-- vertices that can be defined during a single 'renderPrimitive'. Lines,</span><span>
+</span><a name="line-79"></a><span class="hs-comment">-- triangles, quadrilaterals, and polygons that are incompletely specified are</span><span>
+</span><a name="line-80"></a><span class="hs-comment">-- not drawn. Incomplete specification results when either too few vertices are</span><span>
+</span><a name="line-81"></a><span class="hs-comment">-- provided to specify even a single primitive or when an incorrect multiple of</span><span>
+</span><a name="line-82"></a><span class="hs-comment">-- vertices is specified. The incomplete primitive is ignored; the rest are</span><span>
+</span><a name="line-83"></a><span class="hs-comment">-- drawn.</span><span>
+</span><a name="line-84"></a><span class="hs-comment">--</span><span>
+</span><a name="line-85"></a><span class="hs-comment">-- The minimum specification of vertices for each primitive is as follows: 1</span><span>
+</span><a name="line-86"></a><span class="hs-comment">-- for a point, 2 for a line, 3 for a triangle, 4 for a quadrilateral, and 3 for</span><span>
+</span><a name="line-87"></a><span class="hs-comment">-- a polygon. Modes that require a certain multiple of vertices are 'Lines' (2),</span><span>
+</span><a name="line-88"></a><span class="hs-comment">-- 'Triangles' (3), 'Quads' (4), and 'QuadStrip' (2).</span><span>
+</span><a name="line-89"></a><span>
+</span><a name="line-90"></a><span class="hs-identifier">renderPrimitive</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.PrimitiveMode.html#PrimitiveMode"><span class="hs-identifier hs-type">PrimitiveMode</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><a href="#local-6989586621679155055"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><a href="#local-6989586621679155055"><span class="hs-identifier hs-type">a</span></a><span>
+</span><a name="line-91"></a><a name="renderPrimitive"><a href="Graphics.Rendering.OpenGL.GL.BeginEnd.html#renderPrimitive"><span class="hs-identifier">renderPrimitive</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.BeginEnd.html#renderPrim"><span class="hs-identifier hs-var">renderPrim</span></a><span> </span><span class="hs-identifier hs-var">bracket_</span><span>
+</span><a name="line-92"></a><span>
+</span><a name="line-93"></a><span class="hs-comment">-- | A more efficient, but potentially dangerous version of 'renderPrimitive':</span><span>
+</span><a name="line-94"></a><span class="hs-comment">-- The given action is not allowed to throw an exception.</span><span>
+</span><a name="line-95"></a><span>
+</span><a name="line-96"></a><span class="hs-identifier">unsafeRenderPrimitive</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.PrimitiveMode.html#PrimitiveMode"><span class="hs-identifier hs-type">PrimitiveMode</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><a href="#local-6989586621679155054"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><a href="#local-6989586621679155054"><span class="hs-identifier hs-type">a</span></a><span>
+</span><a name="line-97"></a><a name="unsafeRenderPrimitive"><a href="Graphics.Rendering.OpenGL.GL.BeginEnd.html#unsafeRenderPrimitive"><span class="hs-identifier">unsafeRenderPrimitive</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.BeginEnd.html#renderPrim"><span class="hs-identifier hs-var">renderPrim</span></a><span> </span><a href="Graphics.Rendering.OpenGL.GL.Exception.html#unsafeBracket_"><span class="hs-identifier hs-var">unsafeBracket_</span></a><span>
+</span><a name="line-98"></a><span>
+</span><a name="line-99"></a><span class="hs-pragma">{-# INLINE renderPrim #-}</span><span>
+</span><a name="line-100"></a><span class="hs-identifier">renderPrim</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><a href="#local-6989586621679155053"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><a href="#local-6989586621679155053"><span class="hs-identifier hs-type">a</span></a><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.PrimitiveMode.html#PrimitiveMode"><span class="hs-identifier hs-type">PrimitiveMode</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><a href="#local-6989586621679155053"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><a href="#local-6989586621679155053"><span class="hs-identifier hs-type">a</span></a><span>
+</span><a name="line-101"></a><a name="renderPrim"><a href="Graphics.Rendering.OpenGL.GL.BeginEnd.html#renderPrim"><span class="hs-identifier">renderPrim</span></a></a><span> </span><a name="local-6989586621679155056"><a href="#local-6989586621679155056"><span class="hs-identifier">brack_</span></a></a><span> </span><a name="local-6989586621679155057"><a href="#local-6989586621679155057"><span class="hs-identifier">beginMode</span></a></a><span> </span><span class="hs-glyph">=</span><span>
+</span><a name="line-102"></a><span>   </span><a href="#local-6989586621679155056"><span class="hs-identifier hs-var">brack_</span></a><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-var">glBegin</span><span> </span><span class="hs-special">(</span><a href="Graphics.Rendering.OpenGL.GL.PrimitiveModeInternal.html#marshalPrimitiveMode"><span class="hs-identifier hs-var">marshalPrimitiveMode</span></a><span> </span><a href="#local-6989586621679155057"><span class="hs-identifier hs-var">beginMode</span></a><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="hs-identifier hs-var">glEnd</span><span>
+</span><a name="line-103"></a><span>
+</span><a name="line-104"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-105"></a><span>
+</span><a name="line-106"></a><span class="hs-identifier">primitiveRestart</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">IO</span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span><span>
+</span><a name="line-107"></a><a name="primitiveRestart"><a href="Graphics.Rendering.OpenGL.GL.BeginEnd.html#primitiveRestart"><span class="hs-identifier">primitiveRestart</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">glPrimitiveRestartNV</span><span>
+</span><a name="line-108"></a><span>
+</span><a name="line-109"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-110"></a><span>
+</span><a name="line-111"></a><span class="hs-comment">-- | Each vertex of a polygon, separate triangle, or separate quadrilateral</span><span>
+</span><a name="line-112"></a><span class="hs-comment">-- specified during 'renderPrimitive' is marked as the start of either a boundary</span><span>
+</span><a name="line-113"></a><span class="hs-comment">-- or nonboundary (interior) edge.</span><span>
+</span><a name="line-114"></a><span class="hs-comment">--</span><span>
+</span><a name="line-115"></a><span class="hs-comment">-- The vertices of connected triangles and connected quadrilaterals are always</span><span>
+</span><a name="line-116"></a><span class="hs-comment">-- marked as boundary, regardless of the value of the edge flag.</span><span>
+</span><a name="line-117"></a><span class="hs-comment">--</span><span>
+</span><a name="line-118"></a><span class="hs-comment">-- Boundary and nonboundary edge flags on vertices are significant only if</span><span>
+</span><a name="line-119"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Polygons.polygonMode' is set to</span><span>
+</span><a name="line-120"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Polygons.Point' or</span><span>
+</span><a name="line-121"></a><span class="hs-comment">-- 'Graphics.Rendering.OpenGL.GL.Polygons.Line'.</span><span>
+</span><a name="line-122"></a><span class="hs-comment">--</span><span>
+</span><a name="line-123"></a><span class="hs-comment">-- Note that the current edge flag can be updated at any time, in particular</span><span>
+</span><a name="line-124"></a><span class="hs-comment">-- during 'renderPrimitive'.</span><span>
+</span><a name="line-125"></a><span>
+</span><a name="line-126"></a><span class="hs-identifier">edgeFlag</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">StateVar</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.EdgeFlag.html#EdgeFlag"><span class="hs-identifier hs-type">EdgeFlag</span></a><span>
+</span><a name="line-127"></a><a name="edgeFlag"><a href="Graphics.Rendering.OpenGL.GL.BeginEnd.html#edgeFlag"><span class="hs-identifier">edgeFlag</span></a></a><span> </span><span class="hs-glyph">=</span><span>
+</span><a name="line-128"></a><span>   </span><span class="hs-identifier hs-var">makeStateVar</span><span> </span><span class="hs-special">(</span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.PName.html#getBoolean1"><span class="hs-identifier hs-var">getBoolean1</span></a><span> </span><a href="Graphics.Rendering.OpenGL.GL.EdgeFlag.html#unmarshalEdgeFlag"><span class="hs-identifier hs-var">unmarshalEdgeFlag</span></a><span> </span><a href="Graphics.Rendering.OpenGL.GL.QueryUtils.PName.html#GetEdgeFlag"><span class="hs-identifier hs-var">GetEdgeFlag</span></a><span class="hs-special">)</span><span>
+</span><a name="line-129"></a><span>                </span><span class="hs-special">(</span><span class="hs-identifier hs-var">glEdgeFlag</span><span> </span><span class="hs-operator hs-var">.</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.EdgeFlag.html#marshalEdgeFlag"><span class="hs-identifier hs-var">marshalEdgeFlag</span></a><span class="hs-special">)</span><span>
+</span><a name="line-130"></a></pre></body></html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-2"></a><span class="hs-comment">-- |</span><span>
+</span><a name="line-3"></a><span class="hs-comment">-- Module      :  Graphics.Rendering.OpenGL.GLU.Errors</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- Copyright   :  (c) Sven Panne 2002-2016</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- License     :  BSD3</span><span>
+</span><a name="line-6"></a><span class="hs-comment">-- </span><span>
+</span><a name="line-7"></a><span class="hs-comment">-- Maintainer  :  Sven Panne &lt;svenpanne@gmail.com&gt;</span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- Stability   :  stable</span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- Portability :  portable</span><span>
+</span><a name="line-10"></a><span class="hs-comment">--</span><span>
+</span><a name="line-11"></a><span class="hs-comment">-- This module corresponds to section 2.5 (GL Errors) of the OpenGL 2.1 specs</span><span>
+</span><a name="line-12"></a><span class="hs-comment">-- and chapter 8 (Errors) of the GLU specs, offering a generalized view of</span><span>
+</span><a name="line-13"></a><span class="hs-comment">-- errors in GL and GLU.</span><span>
+</span><a name="line-14"></a><span class="hs-comment">--</span><span>
+</span><a name="line-15"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-16"></a><span>
+</span><a name="line-17"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-operator">.</span><span class="hs-identifier">GLU</span><span class="hs-operator">.</span><span class="hs-identifier">Errors</span><span> </span><span class="hs-special">(</span><span>
+</span><a name="line-18"></a><span>   </span><a href="Graphics.Rendering.OpenGL.GLU.ErrorsInternal.html#Error"><span class="hs-identifier hs-type">Error</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><a href="Graphics.Rendering.OpenGL.GLU.ErrorsInternal.html#ErrorCategory"><span class="hs-identifier hs-type">ErrorCategory</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><a href="Graphics.Rendering.OpenGL.GLU.Errors.html#errors"><span class="hs-identifier hs-var">errors</span></a><span>
+</span><a name="line-19"></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-20"></a><span>
+</span><a name="line-21"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">StateVar</span><span>
+</span><a name="line-22"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Rendering.OpenGL.GLU.ErrorsInternal.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-operator">.</span><span class="hs-identifier">GLU</span><span class="hs-operator">.</span><span class="hs-identifier">ErrorsInternal</span></a><span>
+</span><a name="line-23"></a><span>
+</span><a name="line-24"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-25"></a><span>
+</span><a name="line-26"></a><span class="hs-comment">-- | When an error occurs, it is recorded in this state variable and no further</span><span>
+</span><a name="line-27"></a><span class="hs-comment">-- errors are recorded. Reading 'errors' returns the currently recorded errors</span><span>
+</span><a name="line-28"></a><span class="hs-comment">-- (there may be more than one due to a possibly distributed implementation) and</span><span>
+</span><a name="line-29"></a><span class="hs-comment">-- resets the state variable to @[]@, re-enabling the recording of future</span><span>
+</span><a name="line-30"></a><span class="hs-comment">-- errors. The value @[]@ means that there has been no detectable error since</span><span>
+</span><a name="line-31"></a><span class="hs-comment">-- the last time 'errors' was read, or since the GL was initialized.</span><span>
+</span><a name="line-32"></a><span>
+</span><a name="line-33"></a><span class="hs-identifier">errors</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">GettableStateVar</span><span> </span><span class="hs-special">[</span><a href="Graphics.Rendering.OpenGL.GLU.ErrorsInternal.html#Error"><span class="hs-identifier hs-type">Error</span></a><span class="hs-special">]</span><span>
+</span><a name="line-34"></a><a name="errors"><a href="Graphics.Rendering.OpenGL.GLU.Errors.html#errors"><span class="hs-identifier">errors</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">makeGettableStateVar</span><span> </span><a href="Graphics.Rendering.OpenGL.GLU.ErrorsInternal.html#getErrors"><span class="hs-identifier hs-var">getErrors</span></a><span>
+</span><a name="line-35"></a></pre></body></html>

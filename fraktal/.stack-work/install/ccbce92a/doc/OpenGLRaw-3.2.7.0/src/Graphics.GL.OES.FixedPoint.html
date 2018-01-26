@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><a name="line-2"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-3"></a><span class="hs-comment">-- |</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- Module      :  Graphics.GL.OES.FixedPoint</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- Copyright   :  (c) Sven Panne 2017</span><span>
+</span><a name="line-6"></a><span class="hs-comment">-- License     :  BSD3</span><span>
+</span><a name="line-7"></a><span class="hs-comment">--</span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- Maintainer  :  Sven Panne &lt;svenpanne@gmail.com&gt;</span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- Stability   :  stable</span><span>
+</span><a name="line-10"></a><span class="hs-comment">-- Portability :  portable</span><span>
+</span><a name="line-11"></a><span class="hs-comment">--</span><span>
+</span><a name="line-12"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-13"></a><span>
+</span><a name="line-14"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">OES</span><span class="hs-operator">.</span><span class="hs-identifier">FixedPoint</span><span> </span><span class="hs-special">(</span><span>
+</span><a name="line-15"></a><span>  </span><span class="hs-comment">-- * Extension Support</span><span>
+</span><a name="line-16"></a><span>  </span><a href="Graphics.GL.ExtensionPredicates.html#glGetOESFixedPoint"><span class="hs-identifier hs-var">glGetOESFixedPoint</span></a><span class="hs-special">,</span><span>
+</span><a name="line-17"></a><span>  </span><a href="Graphics.GL.ExtensionPredicates.html#gl_OES_fixed_point"><span class="hs-identifier hs-var">gl_OES_fixed_point</span></a><span class="hs-special">,</span><span>
+</span><a name="line-18"></a><span>  </span><span class="hs-comment">-- * Enums</span><span>
+</span><a name="line-19"></a><span>  </span><a href="Graphics.GL.Tokens.html#GL_FIXED_OES"><span class="hs-identifier hs-var">pattern</span></a><span> </span><a href="Graphics.GL.Tokens.html#GL_FIXED_OES"><span class="hs-identifier hs-var">GL_FIXED_OES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-20"></a><span>  </span><span class="hs-comment">-- * Functions</span><span>
+</span><a name="line-21"></a><span>  </span><a href="Graphics.GL.Functions.F01.html#glAccumxOES"><span class="hs-identifier hs-var">glAccumxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-22"></a><span>  </span><a href="Graphics.GL.Functions.F01.html#glAlphaFuncxOES"><span class="hs-identifier hs-var">glAlphaFuncxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-23"></a><span>  </span><a href="Graphics.GL.Functions.F02.html#glBitmapxOES"><span class="hs-identifier hs-var">glBitmapxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-24"></a><span>  </span><a href="Graphics.GL.Functions.F02.html#glBlendColorxOES"><span class="hs-identifier hs-var">glBlendColorxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-25"></a><span>  </span><a href="Graphics.GL.Functions.F02.html#glClearAccumxOES"><span class="hs-identifier hs-var">glClearAccumxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-26"></a><span>  </span><a href="Graphics.GL.Functions.F02.html#glClearColorxOES"><span class="hs-identifier hs-var">glClearColorxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-27"></a><span>  </span><a href="Graphics.GL.Functions.F02.html#glClearDepthxOES"><span class="hs-identifier hs-var">glClearDepthxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-28"></a><span>  </span><a href="Graphics.GL.Functions.F03.html#glClipPlanexOES"><span class="hs-identifier hs-var">glClipPlanexOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-29"></a><span>  </span><a href="Graphics.GL.Functions.F03.html#glColor3xOES"><span class="hs-identifier hs-var">glColor3xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-30"></a><span>  </span><a href="Graphics.GL.Functions.F03.html#glColor3xvOES"><span class="hs-identifier hs-var">glColor3xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-31"></a><span>  </span><a href="Graphics.GL.Functions.F03.html#glColor4xOES"><span class="hs-identifier hs-var">glColor4xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-32"></a><span>  </span><a href="Graphics.GL.Functions.F03.html#glColor4xvOES"><span class="hs-identifier hs-var">glColor4xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-33"></a><span>  </span><a href="Graphics.GL.Functions.F04.html#glConvolutionParameterxOES"><span class="hs-identifier hs-var">glConvolutionParameterxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-34"></a><span>  </span><a href="Graphics.GL.Functions.F04.html#glConvolutionParameterxvOES"><span class="hs-identifier hs-var">glConvolutionParameterxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-35"></a><span>  </span><a href="Graphics.GL.Functions.F06.html#glDepthRangexOES"><span class="hs-identifier hs-var">glDepthRangexOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-36"></a><span>  </span><a href="Graphics.GL.Functions.F07.html#glEvalCoord1xOES"><span class="hs-identifier hs-var">glEvalCoord1xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-37"></a><span>  </span><a href="Graphics.GL.Functions.F07.html#glEvalCoord1xvOES"><span class="hs-identifier hs-var">glEvalCoord1xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-38"></a><span>  </span><a href="Graphics.GL.Functions.F07.html#glEvalCoord2xOES"><span class="hs-identifier hs-var">glEvalCoord2xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-39"></a><span>  </span><a href="Graphics.GL.Functions.F07.html#glEvalCoord2xvOES"><span class="hs-identifier hs-var">glEvalCoord2xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-40"></a><span>  </span><a href="Graphics.GL.Functions.F07.html#glFeedbackBufferxOES"><span class="hs-identifier hs-var">glFeedbackBufferxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-41"></a><span>  </span><a href="Graphics.GL.Functions.F08.html#glFogxOES"><span class="hs-identifier hs-var">glFogxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-42"></a><span>  </span><a href="Graphics.GL.Functions.F08.html#glFogxvOES"><span class="hs-identifier hs-var">glFogxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-43"></a><span>  </span><a href="Graphics.GL.Functions.F08.html#glFrustumxOES"><span class="hs-identifier hs-var">glFrustumxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-44"></a><span>  </span><a href="Graphics.GL.Functions.F09.html#glGetClipPlanexOES"><span class="hs-identifier hs-var">glGetClipPlanexOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-45"></a><span>  </span><a href="Graphics.GL.Functions.F09.html#glGetConvolutionParameterxvOES"><span class="hs-identifier hs-var">glGetConvolutionParameterxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-46"></a><span>  </span><a href="Graphics.GL.Functions.F10.html#glGetFixedvOES"><span class="hs-identifier hs-var">glGetFixedvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-47"></a><span>  </span><a href="Graphics.GL.Functions.F10.html#glGetHistogramParameterxvOES"><span class="hs-identifier hs-var">glGetHistogramParameterxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-48"></a><span>  </span><a href="Graphics.GL.Functions.F10.html#glGetLightxOES"><span class="hs-identifier hs-var">glGetLightxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-49"></a><span>  </span><a href="Graphics.GL.Functions.F10.html#glGetMapxvOES"><span class="hs-identifier hs-var">glGetMapxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-50"></a><span>  </span><a href="Graphics.GL.Functions.F10.html#glGetMaterialxOES"><span class="hs-identifier hs-var">glGetMaterialxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-51"></a><span>  </span><a href="Graphics.GL.Functions.F11.html#glGetPixelMapxv"><span class="hs-identifier hs-var">glGetPixelMapxv</span></a><span class="hs-special">,</span><span>
+</span><a name="line-52"></a><span>  </span><a href="Graphics.GL.Functions.F12.html#glGetTexEnvxvOES"><span class="hs-identifier hs-var">glGetTexEnvxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-53"></a><span>  </span><a href="Graphics.GL.Functions.F12.html#glGetTexGenxvOES"><span class="hs-identifier hs-var">glGetTexGenxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-54"></a><span>  </span><a href="Graphics.GL.Functions.F12.html#glGetTexLevelParameterxvOES"><span class="hs-identifier hs-var">glGetTexLevelParameterxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-55"></a><span>  </span><a href="Graphics.GL.Functions.F12.html#glGetTexParameterxvOES"><span class="hs-identifier hs-var">glGetTexParameterxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-56"></a><span>  </span><a href="Graphics.GL.Functions.F14.html#glIndexxOES"><span class="hs-identifier hs-var">glIndexxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-57"></a><span>  </span><a href="Graphics.GL.Functions.F14.html#glIndexxvOES"><span class="hs-identifier hs-var">glIndexxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-58"></a><span>  </span><a href="Graphics.GL.Functions.F15.html#glLightModelxOES"><span class="hs-identifier hs-var">glLightModelxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-59"></a><span>  </span><a href="Graphics.GL.Functions.F15.html#glLightModelxvOES"><span class="hs-identifier hs-var">glLightModelxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-60"></a><span>  </span><a href="Graphics.GL.Functions.F15.html#glLightxOES"><span class="hs-identifier hs-var">glLightxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-61"></a><span>  </span><a href="Graphics.GL.Functions.F15.html#glLightxvOES"><span class="hs-identifier hs-var">glLightxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-62"></a><span>  </span><a href="Graphics.GL.Functions.F15.html#glLineWidthxOES"><span class="hs-identifier hs-var">glLineWidthxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-63"></a><span>  </span><a href="Graphics.GL.Functions.F15.html#glLoadMatrixxOES"><span class="hs-identifier hs-var">glLoadMatrixxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-64"></a><span>  </span><a href="Graphics.GL.Functions.F15.html#glLoadTransposeMatrixxOES"><span class="hs-identifier hs-var">glLoadTransposeMatrixxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-65"></a><span>  </span><a href="Graphics.GL.Functions.F16.html#glMap1xOES"><span class="hs-identifier hs-var">glMap1xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-66"></a><span>  </span><a href="Graphics.GL.Functions.F16.html#glMap2xOES"><span class="hs-identifier hs-var">glMap2xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-67"></a><span>  </span><a href="Graphics.GL.Functions.F16.html#glMapGrid1xOES"><span class="hs-identifier hs-var">glMapGrid1xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-68"></a><span>  </span><a href="Graphics.GL.Functions.F16.html#glMapGrid2xOES"><span class="hs-identifier hs-var">glMapGrid2xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-69"></a><span>  </span><a href="Graphics.GL.Functions.F16.html#glMaterialxOES"><span class="hs-identifier hs-var">glMaterialxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-70"></a><span>  </span><a href="Graphics.GL.Functions.F16.html#glMaterialxvOES"><span class="hs-identifier hs-var">glMaterialxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-71"></a><span>  </span><a href="Graphics.GL.Functions.F16.html#glMultMatrixxOES"><span class="hs-identifier hs-var">glMultMatrixxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-72"></a><span>  </span><a href="Graphics.GL.Functions.F16.html#glMultTransposeMatrixxOES"><span class="hs-identifier hs-var">glMultTransposeMatrixxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-73"></a><span>  </span><a href="Graphics.GL.Functions.F17.html#glMultiTexCoord1xOES"><span class="hs-identifier hs-var">glMultiTexCoord1xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-74"></a><span>  </span><a href="Graphics.GL.Functions.F17.html#glMultiTexCoord1xvOES"><span class="hs-identifier hs-var">glMultiTexCoord1xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-75"></a><span>  </span><a href="Graphics.GL.Functions.F17.html#glMultiTexCoord2xOES"><span class="hs-identifier hs-var">glMultiTexCoord2xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-76"></a><span>  </span><a href="Graphics.GL.Functions.F17.html#glMultiTexCoord2xvOES"><span class="hs-identifier hs-var">glMultiTexCoord2xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-77"></a><span>  </span><a href="Graphics.GL.Functions.F17.html#glMultiTexCoord3xOES"><span class="hs-identifier hs-var">glMultiTexCoord3xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-78"></a><span>  </span><a href="Graphics.GL.Functions.F17.html#glMultiTexCoord3xvOES"><span class="hs-identifier hs-var">glMultiTexCoord3xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-79"></a><span>  </span><a href="Graphics.GL.Functions.F18.html#glMultiTexCoord4xOES"><span class="hs-identifier hs-var">glMultiTexCoord4xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-80"></a><span>  </span><a href="Graphics.GL.Functions.F18.html#glMultiTexCoord4xvOES"><span class="hs-identifier hs-var">glMultiTexCoord4xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-81"></a><span>  </span><a href="Graphics.GL.Functions.F19.html#glNormal3xOES"><span class="hs-identifier hs-var">glNormal3xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-82"></a><span>  </span><a href="Graphics.GL.Functions.F19.html#glNormal3xvOES"><span class="hs-identifier hs-var">glNormal3xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-83"></a><span>  </span><a href="Graphics.GL.Functions.F19.html#glOrthoxOES"><span class="hs-identifier hs-var">glOrthoxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-84"></a><span>  </span><a href="Graphics.GL.Functions.F19.html#glPassThroughxOES"><span class="hs-identifier hs-var">glPassThroughxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-85"></a><span>  </span><a href="Graphics.GL.Functions.F19.html#glPixelMapx"><span class="hs-identifier hs-var">glPixelMapx</span></a><span class="hs-special">,</span><span>
+</span><a name="line-86"></a><span>  </span><a href="Graphics.GL.Functions.F19.html#glPixelStorex"><span class="hs-identifier hs-var">glPixelStorex</span></a><span class="hs-special">,</span><span>
+</span><a name="line-87"></a><span>  </span><a href="Graphics.GL.Functions.F19.html#glPixelTransferxOES"><span class="hs-identifier hs-var">glPixelTransferxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-88"></a><span>  </span><a href="Graphics.GL.Functions.F19.html#glPixelZoomxOES"><span class="hs-identifier hs-var">glPixelZoomxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-89"></a><span>  </span><a href="Graphics.GL.Functions.F20.html#glPointParameterxvOES"><span class="hs-identifier hs-var">glPointParameterxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-90"></a><span>  </span><a href="Graphics.GL.Functions.F20.html#glPointSizexOES"><span class="hs-identifier hs-var">glPointSizexOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-91"></a><span>  </span><a href="Graphics.GL.Functions.F20.html#glPolygonOffsetxOES"><span class="hs-identifier hs-var">glPolygonOffsetxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-92"></a><span>  </span><a href="Graphics.GL.Functions.F20.html#glPrioritizeTexturesxOES"><span class="hs-identifier hs-var">glPrioritizeTexturesxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-93"></a><span>  </span><a href="Graphics.GL.Functions.F22.html#glRasterPos2xOES"><span class="hs-identifier hs-var">glRasterPos2xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-94"></a><span>  </span><a href="Graphics.GL.Functions.F22.html#glRasterPos2xvOES"><span class="hs-identifier hs-var">glRasterPos2xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-95"></a><span>  </span><a href="Graphics.GL.Functions.F22.html#glRasterPos3xOES"><span class="hs-identifier hs-var">glRasterPos3xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-96"></a><span>  </span><a href="Graphics.GL.Functions.F22.html#glRasterPos3xvOES"><span class="hs-identifier hs-var">glRasterPos3xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-97"></a><span>  </span><a href="Graphics.GL.Functions.F22.html#glRasterPos4xOES"><span class="hs-identifier hs-var">glRasterPos4xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-98"></a><span>  </span><a href="Graphics.GL.Functions.F22.html#glRasterPos4xvOES"><span class="hs-identifier hs-var">glRasterPos4xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-99"></a><span>  </span><a href="Graphics.GL.Functions.F22.html#glRectxOES"><span class="hs-identifier hs-var">glRectxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-100"></a><span>  </span><a href="Graphics.GL.Functions.F22.html#glRectxvOES"><span class="hs-identifier hs-var">glRectxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-101"></a><span>  </span><a href="Graphics.GL.Functions.F23.html#glRotatexOES"><span class="hs-identifier hs-var">glRotatexOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-102"></a><span>  </span><a href="Graphics.GL.Functions.F23.html#glScalexOES"><span class="hs-identifier hs-var">glScalexOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-103"></a><span>  </span><a href="Graphics.GL.Functions.F25.html#glTexCoord1xOES"><span class="hs-identifier hs-var">glTexCoord1xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-104"></a><span>  </span><a href="Graphics.GL.Functions.F25.html#glTexCoord1xvOES"><span class="hs-identifier hs-var">glTexCoord1xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-105"></a><span>  </span><a href="Graphics.GL.Functions.F25.html#glTexCoord2xOES"><span class="hs-identifier hs-var">glTexCoord2xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-106"></a><span>  </span><a href="Graphics.GL.Functions.F25.html#glTexCoord2xvOES"><span class="hs-identifier hs-var">glTexCoord2xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-107"></a><span>  </span><a href="Graphics.GL.Functions.F25.html#glTexCoord3xOES"><span class="hs-identifier hs-var">glTexCoord3xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-108"></a><span>  </span><a href="Graphics.GL.Functions.F25.html#glTexCoord3xvOES"><span class="hs-identifier hs-var">glTexCoord3xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-109"></a><span>  </span><a href="Graphics.GL.Functions.F25.html#glTexCoord4xOES"><span class="hs-identifier hs-var">glTexCoord4xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-110"></a><span>  </span><a href="Graphics.GL.Functions.F25.html#glTexCoord4xvOES"><span class="hs-identifier hs-var">glTexCoord4xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-111"></a><span>  </span><a href="Graphics.GL.Functions.F25.html#glTexEnvxOES"><span class="hs-identifier hs-var">glTexEnvxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-112"></a><span>  </span><a href="Graphics.GL.Functions.F25.html#glTexEnvxvOES"><span class="hs-identifier hs-var">glTexEnvxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-113"></a><span>  </span><a href="Graphics.GL.Functions.F26.html#glTexGenxOES"><span class="hs-identifier hs-var">glTexGenxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-114"></a><span>  </span><a href="Graphics.GL.Functions.F26.html#glTexGenxvOES"><span class="hs-identifier hs-var">glTexGenxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-115"></a><span>  </span><a href="Graphics.GL.Functions.F26.html#glTexParameterxOES"><span class="hs-identifier hs-var">glTexParameterxOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-116"></a><span>  </span><a href="Graphics.GL.Functions.F26.html#glTexParameterxvOES"><span class="hs-identifier hs-var">glTexParameterxvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-117"></a><span>  </span><a href="Graphics.GL.Functions.F27.html#glTranslatexOES"><span class="hs-identifier hs-var">glTranslatexOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-118"></a><span>  </span><a href="Graphics.GL.Functions.F29.html#glVertex2xOES"><span class="hs-identifier hs-var">glVertex2xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-119"></a><span>  </span><a href="Graphics.GL.Functions.F29.html#glVertex2xvOES"><span class="hs-identifier hs-var">glVertex2xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-120"></a><span>  </span><a href="Graphics.GL.Functions.F29.html#glVertex3xOES"><span class="hs-identifier hs-var">glVertex3xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-121"></a><span>  </span><a href="Graphics.GL.Functions.F29.html#glVertex3xvOES"><span class="hs-identifier hs-var">glVertex3xvOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-122"></a><span>  </span><a href="Graphics.GL.Functions.F29.html#glVertex4xOES"><span class="hs-identifier hs-var">glVertex4xOES</span></a><span class="hs-special">,</span><span>
+</span><a name="line-123"></a><span>  </span><a href="Graphics.GL.Functions.F29.html#glVertex4xvOES"><span class="hs-identifier hs-var">glVertex4xvOES</span></a><span>
+</span><a name="line-124"></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-125"></a><span>
+</span><a name="line-126"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.GL.ExtensionPredicates.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">ExtensionPredicates</span></a><span>
+</span><a name="line-127"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.GL.Tokens.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">Tokens</span></a><span>
+</span><a name="line-128"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.GL.Functions.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">Functions</span></a><span>
+</span><a name="line-129"></a></pre></body></html>

@@ -1,0 +1,69 @@
+
+==================== FINAL INTERFACE ====================
+2018-01-25 22:34:40.4630394 UTC
+
+interface fraktal-0.1.0.0-GzZsFpLbx8HKLd2sKxpFEj:GenerateString 8022
+  interface hash: 2ef881d7168824393cbed3c55b88f887
+  ABI hash: ee9ff2f82d36fcfbb1b8fdfbbeab175d
+  export-list hash: 2d05fb0997c0e952525bb0941816550f
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 877941c4fc294127ba0a30b68abe33e5
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  GenerateString.generateFull
+  GenerateString.generateSingle
+module dependencies:
+package dependencies: base-4.10.1.0* ghc-prim-0.5.1.1
+                      integer-gmp-1.0.1.0
+orphans: base-4.10.1.0:GHC.Float base-4.10.1.0:GHC.Base
+family instance modules: base-4.10.1.0:Control.Applicative
+                         base-4.10.1.0:Data.Either base-4.10.1.0:Data.Functor.Const
+                         base-4.10.1.0:Data.Functor.Identity base-4.10.1.0:Data.Monoid
+                         base-4.10.1.0:Data.Type.Equality base-4.10.1.0:GHC.Generics
+                         base-4.10.1.0:GHC.IO.Exception base-4.10.1.0:GHC.TypeLits
+                         base-4.10.1.0:GHC.TypeNats
+import  -/  base-4.10.1.0:GHC.Base 8f949d675e49677c272f02ab7a85fe18
+import  -/  base-4.10.1.0:GHC.Err 2c5700463ba1489cb2579246abf3debb
+import  -/  base-4.10.1.0:GHC.Num bee60808f8127e4cda82dd422aa1c6c0
+import  -/  base-4.10.1.0:Prelude a93a9400cc0c816c2ee5f39399baa7a0
+import  -/  integer-gmp-1.0.1.0:GHC.Integer.Type b5281b57ea091e60b176ffa6bef118fd
+6ce5e309ec3bb307ad5c5e878b8d2dcf
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   GenerateString.$trModule3
+                   GenerateString.$trModule1) -}
+840bddc26c6865a5780dcfff10720ca8
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GenerateString.$trModule2) -}
+f85e21d0a4bbf616ea060a712494771a
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("GenerateString"#) -}
+39caf7dc50cb6aa0d3494029ea0f7b44
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GenerateString.$trModule4) -}
+5ab22ec355c02ff9cd91006adca3b4f0
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("fraktal-0.1.0.0-GzZsFpLbx8HKLd2sKxpFEj"#) -}
+1b1de7596ee78b7a27e43154bc012f5f
+  generateFull ::
+    GHC.Base.String
+    -> GHC.Integer.Type.Integer -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 3, Strictness: <S,1*U><S,U><L,U> -}
+a6ea22bc55361f38d3913bbbca6448c0
+  generateSingle ::
+    GHC.Base.String -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 2, Strictness: <S,1*U><L,U> -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

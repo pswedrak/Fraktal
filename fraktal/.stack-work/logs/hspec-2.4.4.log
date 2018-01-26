@@ -1,0 +1,57 @@
+Configuring hspec-2.4.4...
+Preprocessing library for hspec-2.4.4..
+Building library for hspec-2.4.4..
+[1 of 8] Compiling Paths_hspec      ( .stack-work\dist\5c8418a7\build\autogen\Paths_hspec.hs, .stack-work\dist\5c8418a7\build\Paths_hspec.o )
+[2 of 8] Compiling Test.Hspec.Core  ( src\Test\Hspec\Core.hs, .stack-work\dist\5c8418a7\build\Test\Hspec\Core.o )
+[3 of 8] Compiling Test.Hspec.Formatters ( src\Test\Hspec\Formatters.hs, .stack-work\dist\5c8418a7\build\Test\Hspec\Formatters.o )
+[4 of 8] Compiling Test.Hspec.Discover ( src\Test\Hspec\Discover.hs, .stack-work\dist\5c8418a7\build\Test\Hspec\Discover.o )
+[5 of 8] Compiling Test.Hspec.HUnit ( src\Test\Hspec\HUnit.hs, .stack-work\dist\5c8418a7\build\Test\Hspec\HUnit.o )
+[6 of 8] Compiling Test.Hspec.Runner ( src\Test\Hspec\Runner.hs, .stack-work\dist\5c8418a7\build\Test\Hspec\Runner.o )
+[7 of 8] Compiling Test.Hspec       ( src\Test\Hspec.hs, .stack-work\dist\5c8418a7\build\Test\Hspec.o )
+[8 of 8] Compiling Test.Hspec.QuickCheck ( src\Test\Hspec\QuickCheck.hs, .stack-work\dist\5c8418a7\build\Test\Hspec\QuickCheck.o )
+Preprocessing library for hspec-2.4.4..
+Running Haddock on library for hspec-2.4.4..
+Haddock coverage:
+   0% (  0 /  9) in 'Paths_hspec'
+  Missing documentation for:
+    Module header
+    version (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec.hs:28)
+    getBinDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec.hs:39)
+    getLibDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec.hs:39)
+    getDynLibDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec.hs:39)
+    getDataDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec.hs:39)
+    getLibexecDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec.hs:39)
+    getDataFileName (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec.hs:47)
+    getSysconfDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec.hs:39)
+  60% (  3 /  5) in 'Test.Hspec.Core'
+  Missing documentation for:
+    describe (src\Test\Hspec\Core.hs:13)
+    it (src\Test\Hspec\Core.hs:17)
+  50% (  1 /  2) in 'Test.Hspec.Formatters'
+  Missing documentation for:
+    Module header
+  38% (  3 /  8) in 'Test.Hspec.Discover'
+  Missing documentation for:
+    Module header
+    Spec
+    IsFormatter (src\Test\Hspec\Discover.hs:26)
+    hspecWithFormatter (src\Test\Hspec\Discover.hs:35)
+    postProcessSpec (src\Test\Hspec\Discover.hs:40)
+  67% (  2 /  3) in 'Test.Hspec.HUnit'
+  Missing documentation for:
+    Module header
+  50% (  1 /  2) in 'Test.Hspec.Runner'
+  Missing documentation for:
+    Module header
+  92% ( 37 / 40) in 'Test.Hspec'
+  Missing documentation for:
+    Spec
+    SpecWith
+    Arg
+  86% (  6 /  7) in 'Test.Hspec.QuickCheck'
+  Missing documentation for:
+    Module header
+Documentation created: .stack-work\dist\5c8418a7\doc\html\hspec\index.html,
+.stack-work\dist\5c8418a7\doc\html\hspec\hspec.txt
+Installing library in C:\sr\snapshots\13cecb13\lib\x86_64-windows-ghc-8.2.2\hspec-2.4.4-LfOA0ptUXPI1hXGCG26V1u
+Registering library for hspec-2.4.4..

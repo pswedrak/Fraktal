@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_HADDOCK hide #-}</span><span>
+</span><a name="line-2"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-3"></a><span class="hs-comment">-- |</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- Module      :  Graphics.Rendering.OpenGL.GL.PixelRectangles.Reset</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- Copyright   :  (c) Sven Panne 2002-2016</span><span>
+</span><a name="line-6"></a><span class="hs-comment">-- License     :  BSD3</span><span>
+</span><a name="line-7"></a><span class="hs-comment">-- </span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- Maintainer  :  Sven Panne &lt;svenpanne@gmail.com&gt;</span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- Stability   :  stable</span><span>
+</span><a name="line-10"></a><span class="hs-comment">-- Portability :  portable</span><span>
+</span><a name="line-11"></a><span class="hs-comment">--</span><span>
+</span><a name="line-12"></a><span class="hs-comment">-- This is a purely internal module for (un-)marshaling Reset.</span><span>
+</span><a name="line-13"></a><span class="hs-comment">--</span><span>
+</span><a name="line-14"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-15"></a><span>
+</span><a name="line-16"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">PixelRectangles</span><span class="hs-operator">.</span><span class="hs-identifier">Reset</span><span> </span><span class="hs-special">(</span><span>
+</span><a name="line-17"></a><span>   </span><a href="Graphics.Rendering.OpenGL.GL.PixelRectangles.Reset.html#Reset"><span class="hs-identifier hs-type">Reset</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.PixelRectangles.Reset.html#marshalReset"><span class="hs-identifier hs-var">marshalReset</span></a><span>
+</span><a name="line-18"></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-19"></a><span>
+</span><a name="line-20"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.GLboolean.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">GLboolean</span></a><span>
+</span><a name="line-21"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span>
+</span><a name="line-22"></a><span>
+</span><a name="line-23"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-24"></a><span>
+</span><a name="line-25"></a><span class="hs-keyword">data</span><span> </span><a name="Reset"><a href="Graphics.Rendering.OpenGL.GL.PixelRectangles.Reset.html#Reset"><span class="hs-identifier">Reset</span></a></a><span> </span><span class="hs-glyph">=</span><span>
+</span><a name="line-26"></a><span>     </span><a name="NoReset"><a href="Graphics.Rendering.OpenGL.GL.PixelRectangles.Reset.html#NoReset"><span class="hs-identifier">NoReset</span></a></a><span>
+</span><a name="line-27"></a><span>   </span><span class="hs-glyph">|</span><span> </span><a name="Reset"><a href="Graphics.Rendering.OpenGL.GL.PixelRectangles.Reset.html#Reset"><span class="hs-identifier">Reset</span></a></a><span>
+</span><a name="line-28"></a><span>   </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span> </span><span class="hs-identifier hs-type">Eq</span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Ord</span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Show</span><span> </span><span class="hs-special">)</span><span>
+</span><a name="line-29"></a><span>
+</span><a name="line-30"></a><span class="hs-identifier">marshalReset</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.PixelRectangles.Reset.html#Reset"><span class="hs-identifier hs-type">Reset</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">GLboolean</span><span>
+</span><a name="line-31"></a><a name="marshalReset"><a href="Graphics.Rendering.OpenGL.GL.PixelRectangles.Reset.html#marshalReset"><span class="hs-identifier">marshalReset</span></a></a><span> </span><a name="local-6989586621679082244"><a href="#local-6989586621679082244"><span class="hs-identifier">x</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.GLboolean.html#marshalGLboolean"><span class="hs-identifier hs-var">marshalGLboolean</span></a><span> </span><span class="hs-special">(</span><a href="#local-6989586621679082244"><span class="hs-identifier hs-var">x</span></a><span> </span><span class="hs-operator hs-var">==</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.PixelRectangles.Reset.html#Reset"><span class="hs-identifier hs-var">Reset</span></a><span class="hs-special">)</span><span>
+</span><a name="line-32"></a></pre></body></html>

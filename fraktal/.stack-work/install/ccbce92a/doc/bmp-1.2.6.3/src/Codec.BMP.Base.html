@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_HADDOCK hide #-}</span><span>
+</span><a name="line-2"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Codec</span><span class="hs-operator">.</span><span class="hs-identifier">BMP</span><span class="hs-operator">.</span><span class="hs-identifier">Base</span><span>
+</span><a name="line-3"></a><span>        </span><span class="hs-special">(</span><span> </span><a href="Codec.BMP.Base.html#BMP"><span class="hs-identifier hs-type">BMP</span></a><span>   </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a name="line-4"></a><span class="hs-keyword">where</span><span>
+</span><a name="line-5"></a><span class="hs-keyword">import</span><span> </span><a href="Codec.BMP.FileHeader.html"><span class="hs-identifier">Codec</span><span class="hs-operator">.</span><span class="hs-identifier">BMP</span><span class="hs-operator">.</span><span class="hs-identifier">FileHeader</span></a><span>
+</span><a name="line-6"></a><span class="hs-keyword">import</span><span> </span><a href="Codec.BMP.BitmapInfo.html"><span class="hs-identifier">Codec</span><span class="hs-operator">.</span><span class="hs-identifier">BMP</span><span class="hs-operator">.</span><span class="hs-identifier">BitmapInfo</span></a><span>
+</span><a name="line-7"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">ByteString</span><span>
+</span><a name="line-8"></a><span>
+</span><a name="line-9"></a><span>
+</span><a name="line-10"></a><span class="hs-comment">-- | A BMP image.</span><span>
+</span><a name="line-11"></a><span class="hs-comment">--      For an uncompressed image, the image data contains triples of BGR</span><span>
+</span><a name="line-12"></a><span class="hs-comment">--      component values. Each line may also have zero pad values on the end,</span><span>
+</span><a name="line-13"></a><span class="hs-comment">--      to bring them up to a multiple of 4 bytes in length.</span><span>
+</span><a name="line-14"></a><span class="hs-keyword">data</span><span> </span><a name="BMP"><a href="Codec.BMP.Base.html#BMP"><span class="hs-identifier">BMP</span></a></a><span>
+</span><a name="line-15"></a><span>        </span><span class="hs-glyph">=</span><span> </span><a name="BMP"><a href="Codec.BMP.Base.html#BMP"><span class="hs-identifier">BMP</span></a></a><span>
+</span><a name="line-16"></a><span>        </span><span class="hs-special">{</span><span> </span><a name="bmpFileHeader"><a href="Codec.BMP.Base.html#bmpFileHeader"><span class="hs-identifier">bmpFileHeader</span></a></a><span>         </span><span class="hs-glyph">::</span><span> </span><a href="Codec.BMP.FileHeader.html#FileHeader"><span class="hs-identifier hs-type">FileHeader</span></a><span>
+</span><a name="line-17"></a><span>        </span><span class="hs-special">,</span><span> </span><a name="bmpBitmapInfo"><a href="Codec.BMP.Base.html#bmpBitmapInfo"><span class="hs-identifier">bmpBitmapInfo</span></a></a><span>         </span><span class="hs-glyph">::</span><span> </span><a href="Codec.BMP.BitmapInfo.html#BitmapInfo"><span class="hs-identifier hs-type">BitmapInfo</span></a><span>
+</span><a name="line-18"></a><span>        </span><span class="hs-special">,</span><span> </span><a name="bmpRawImageData"><a href="Codec.BMP.Base.html#bmpRawImageData"><span class="hs-identifier">bmpRawImageData</span></a></a><span>       </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">ByteString</span><span> </span><span class="hs-special">}</span><span>
+</span><a name="line-19"></a><span>        </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-identifier hs-type">Show</span><span>
+</span><a name="line-20"></a><span>
+</span><a name="line-21"></a><span>
+</span><a name="line-22"></a></pre></body></html>

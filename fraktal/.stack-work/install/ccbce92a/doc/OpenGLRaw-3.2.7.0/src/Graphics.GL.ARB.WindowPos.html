@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-2"></a><span class="hs-comment">-- |</span><span>
+</span><a name="line-3"></a><span class="hs-comment">-- Module      :  Graphics.GL.ARB.WindowPos</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- Copyright   :  (c) Sven Panne 2017</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- License     :  BSD3</span><span>
+</span><a name="line-6"></a><span class="hs-comment">--</span><span>
+</span><a name="line-7"></a><span class="hs-comment">-- Maintainer  :  Sven Panne &lt;svenpanne@gmail.com&gt;</span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- Stability   :  stable</span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- Portability :  portable</span><span>
+</span><a name="line-10"></a><span class="hs-comment">--</span><span>
+</span><a name="line-11"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-12"></a><span>
+</span><a name="line-13"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">ARB</span><span class="hs-operator">.</span><span class="hs-identifier">WindowPos</span><span> </span><span class="hs-special">(</span><span>
+</span><a name="line-14"></a><span>  </span><span class="hs-comment">-- * Extension Support</span><span>
+</span><a name="line-15"></a><span>  </span><a href="Graphics.GL.ExtensionPredicates.html#glGetARBWindowPos"><span class="hs-identifier hs-var">glGetARBWindowPos</span></a><span class="hs-special">,</span><span>
+</span><a name="line-16"></a><span>  </span><a href="Graphics.GL.ExtensionPredicates.html#gl_ARB_window_pos"><span class="hs-identifier hs-var">gl_ARB_window_pos</span></a><span class="hs-special">,</span><span>
+</span><a name="line-17"></a><span>  </span><span class="hs-comment">-- * Functions</span><span>
+</span><a name="line-18"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2dARB"><span class="hs-identifier hs-var">glWindowPos2dARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-19"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2dvARB"><span class="hs-identifier hs-var">glWindowPos2dvARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-20"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2fARB"><span class="hs-identifier hs-var">glWindowPos2fARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-21"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2fvARB"><span class="hs-identifier hs-var">glWindowPos2fvARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-22"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2iARB"><span class="hs-identifier hs-var">glWindowPos2iARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-23"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2ivARB"><span class="hs-identifier hs-var">glWindowPos2ivARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-24"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2sARB"><span class="hs-identifier hs-var">glWindowPos2sARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-25"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2svARB"><span class="hs-identifier hs-var">glWindowPos2svARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-26"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3dARB"><span class="hs-identifier hs-var">glWindowPos3dARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-27"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3dvARB"><span class="hs-identifier hs-var">glWindowPos3dvARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-28"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3fARB"><span class="hs-identifier hs-var">glWindowPos3fARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-29"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3fvARB"><span class="hs-identifier hs-var">glWindowPos3fvARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-30"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3iARB"><span class="hs-identifier hs-var">glWindowPos3iARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-31"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3ivARB"><span class="hs-identifier hs-var">glWindowPos3ivARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-32"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3sARB"><span class="hs-identifier hs-var">glWindowPos3sARB</span></a><span class="hs-special">,</span><span>
+</span><a name="line-33"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3svARB"><span class="hs-identifier hs-var">glWindowPos3svARB</span></a><span>
+</span><a name="line-34"></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-35"></a><span>
+</span><a name="line-36"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.GL.ExtensionPredicates.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">ExtensionPredicates</span></a><span>
+</span><a name="line-37"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.GL.Functions.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">Functions</span></a><span>
+</span><a name="line-38"></a></pre></body></html>

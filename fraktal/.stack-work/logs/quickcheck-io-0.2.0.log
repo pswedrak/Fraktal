@@ -1,0 +1,29 @@
+Configuring quickcheck-io-0.2.0...
+Preprocessing library for quickcheck-io-0.2.0..
+Building library for quickcheck-io-0.2.0..
+[1 of 2] Compiling Paths_quickcheck_io ( .stack-work\dist\5c8418a7\build\autogen\Paths_quickcheck_io.hs, .stack-work\dist\5c8418a7\build\Paths_quickcheck_io.o )
+[2 of 2] Compiling Test.QuickCheck.IO ( src\Test\QuickCheck\IO.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\IO.o )
+Preprocessing library for quickcheck-io-0.2.0..
+Running Haddock on library for quickcheck-io-0.2.0..
+Haddock coverage:
+   0% (  0 /  9) in 'Paths_quickcheck_io'
+  Missing documentation for:
+    Module header
+    version (.stack-work\dist\5c8418a7\build\autogen\Paths_quickcheck_io.hs:28)
+    getBinDir (.stack-work\dist\5c8418a7\build\autogen\Paths_quickcheck_io.hs:39)
+    getLibDir (.stack-work\dist\5c8418a7\build\autogen\Paths_quickcheck_io.hs:39)
+    getDynLibDir (.stack-work\dist\5c8418a7\build\autogen\Paths_quickcheck_io.hs:39)
+    getDataDir (.stack-work\dist\5c8418a7\build\autogen\Paths_quickcheck_io.hs:39)
+    getLibexecDir (.stack-work\dist\5c8418a7\build\autogen\Paths_quickcheck_io.hs:39)
+    getDataFileName (.stack-work\dist\5c8418a7\build\autogen\Paths_quickcheck_io.hs:47)
+    getSysconfDir (.stack-work\dist\5c8418a7\build\autogen\Paths_quickcheck_io.hs:39)
+   0% (  0 /  3) in 'Test.QuickCheck.IO'
+  Missing documentation for:
+    Module header
+     (src\Test\QuickCheck\IO.hs:11)
+    propertyIO (src\Test\QuickCheck\IO.hs:17)
+Documentation created:
+.stack-work\dist\5c8418a7\doc\html\quickcheck-io\index.html,
+.stack-work\dist\5c8418a7\doc\html\quickcheck-io\quickcheck-io.txt
+Installing library in C:\sr\snapshots\13cecb13\lib\x86_64-windows-ghc-8.2.2\quickcheck-io-0.2.0-B3aAFDOIhuA9lBTIBdtUwt
+Registering library for quickcheck-io-0.2.0..

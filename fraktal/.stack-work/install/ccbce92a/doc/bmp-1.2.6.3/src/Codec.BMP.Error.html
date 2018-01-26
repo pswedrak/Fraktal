@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_HADDOCK hide #-}</span><span>
+</span><a name="line-2"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Codec</span><span class="hs-operator">.</span><span class="hs-identifier">BMP</span><span class="hs-operator">.</span><span class="hs-identifier">Error</span><span>
+</span><a name="line-3"></a><span>        </span><span class="hs-special">(</span><a href="Codec.BMP.Error.html#Error"><span class="hs-identifier hs-type">Error</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a name="line-4"></a><span class="hs-keyword">where</span><span>
+</span><a name="line-5"></a><span class="hs-keyword">import</span><span> </span><a href="Codec.BMP.Compression.html"><span class="hs-identifier">Codec</span><span class="hs-operator">.</span><span class="hs-identifier">BMP</span><span class="hs-operator">.</span><span class="hs-identifier">Compression</span></a><span>
+</span><a name="line-6"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Word</span><span>
+</span><a name="line-7"></a><span>
+</span><a name="line-8"></a><span>
+</span><a name="line-9"></a><span class="hs-comment">-- | Things that can go wrong when loading a BMP file.</span><span>
+</span><a name="line-10"></a><span class="hs-keyword">data</span><span> </span><a name="Error"><a href="Codec.BMP.Error.html#Error"><span class="hs-identifier">Error</span></a></a><span>
+</span><a name="line-11"></a><span>        </span><span class="hs-comment">-- | Magic number was not at the start of the file, </span><span>
+</span><a name="line-12"></a><span>        </span><span class="hs-comment">--   so this probably isn't a BMP file.</span><span>
+</span><a name="line-13"></a><span>        </span><span class="hs-glyph">=</span><span> </span><a name="ErrorBadMagic"><a href="Codec.BMP.Error.html#ErrorBadMagic"><span class="hs-identifier">ErrorBadMagic</span></a></a><span>
+</span><a name="line-14"></a><span>        </span><span class="hs-special">{</span><span> </span><a name="errorMagic"><a href="Codec.BMP.Error.html#errorMagic"><span class="hs-identifier">errorMagic</span></a></a><span>            </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">Word16</span><span> </span><span class="hs-special">}</span><span>
+</span><a name="line-15"></a><span>
+</span><a name="line-16"></a><span>        </span><span class="hs-comment">-- | File is too short to contain a file header.</span><span>
+</span><a name="line-17"></a><span>        </span><span class="hs-glyph">|</span><span> </span><a name="ErrorFileHeaderTruncated"><a href="Codec.BMP.Error.html#ErrorFileHeaderTruncated"><span class="hs-identifier">ErrorFileHeaderTruncated</span></a></a><span>
+</span><a name="line-18"></a><span>
+</span><a name="line-19"></a><span>        </span><span class="hs-comment">-- | File is too short to contain an image header.</span><span>
+</span><a name="line-20"></a><span>        </span><span class="hs-glyph">|</span><span> </span><a name="ErrorImageHeaderTruncated"><a href="Codec.BMP.Error.html#ErrorImageHeaderTruncated"><span class="hs-identifier">ErrorImageHeaderTruncated</span></a></a><span>
+</span><a name="line-21"></a><span>
+</span><a name="line-22"></a><span>        </span><span class="hs-comment">-- | File is too short to contain the image data.</span><span>
+</span><a name="line-23"></a><span>        </span><span class="hs-glyph">|</span><span> </span><a name="ErrorImageDataTruncated"><a href="Codec.BMP.Error.html#ErrorImageDataTruncated"><span class="hs-identifier">ErrorImageDataTruncated</span></a></a><span>
+</span><a name="line-24"></a><span>        </span><span class="hs-special">{</span><span> </span><a name="errorBytesNeeded"><a href="Codec.BMP.Error.html#errorBytesNeeded"><span class="hs-identifier">errorBytesNeeded</span></a></a><span>      </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">Int</span><span>
+</span><a name="line-25"></a><span>        </span><span class="hs-special">,</span><span> </span><a name="errorBytesAvailable"><a href="Codec.BMP.Error.html#errorBytesAvailable"><span class="hs-identifier">errorBytesAvailable</span></a></a><span>   </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">Int</span><span> </span><span class="hs-special">}</span><span>
+</span><a name="line-26"></a><span>
+</span><a name="line-27"></a><span>        </span><span class="hs-comment">-- | Reserved fields should be zero.</span><span>
+</span><a name="line-28"></a><span>        </span><span class="hs-glyph">|</span><span> </span><a name="ErrorReservedFieldNotZero"><a href="Codec.BMP.Error.html#ErrorReservedFieldNotZero"><span class="hs-identifier">ErrorReservedFieldNotZero</span></a></a><span>
+</span><a name="line-29"></a><span>
+</span><a name="line-30"></a><span>        </span><span class="hs-comment">-- | The offset to the image data from the file header doesn't</span><span>
+</span><a name="line-31"></a><span>        </span><span class="hs-comment">--   point anywhere sensible.</span><span>
+</span><a name="line-32"></a><span>        </span><span class="hs-glyph">|</span><span> </span><a name="ErrorDodgyFileHeaderFieldOffset"><a href="Codec.BMP.Error.html#ErrorDodgyFileHeaderFieldOffset"><span class="hs-identifier">ErrorDodgyFileHeaderFieldOffset</span></a></a><span>
+</span><a name="line-33"></a><span>        </span><span class="hs-special">{</span><span> </span><a name="errorFileHeaderOffset"><a href="Codec.BMP.Error.html#errorFileHeaderOffset"><span class="hs-identifier">errorFileHeaderOffset</span></a></a><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">Word32</span><span> </span><span class="hs-special">}</span><span>
+</span><a name="line-34"></a><span>
+</span><a name="line-35"></a><span>        </span><span class="hs-comment">-- | We handle V3 V4 and V5 image headers, but the size of </span><span>
+</span><a name="line-36"></a><span>        </span><span class="hs-comment">--   the header indicates it has some other format.</span><span>
+</span><a name="line-37"></a><span>        </span><span class="hs-glyph">|</span><span> </span><a name="ErrorUnhandledBitmapHeaderSize"><a href="Codec.BMP.Error.html#ErrorUnhandledBitmapHeaderSize"><span class="hs-identifier">ErrorUnhandledBitmapHeaderSize</span></a></a><span>
+</span><a name="line-38"></a><span>        </span><span class="hs-special">{</span><span> </span><a name="errorBitmapHeaderSize"><a href="Codec.BMP.Error.html#errorBitmapHeaderSize"><span class="hs-identifier">errorBitmapHeaderSize</span></a></a><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">Word32</span><span> </span><span class="hs-special">}</span><span>
+</span><a name="line-39"></a><span>
+</span><a name="line-40"></a><span>        </span><span class="hs-comment">-- | We only handle single color planes.</span><span>
+</span><a name="line-41"></a><span>        </span><span class="hs-glyph">|</span><span> </span><a name="ErrorUnhandledPlanesCount"><a href="Codec.BMP.Error.html#ErrorUnhandledPlanesCount"><span class="hs-identifier">ErrorUnhandledPlanesCount</span></a></a><span>
+</span><a name="line-42"></a><span>        </span><span class="hs-special">{</span><span> </span><a name="errorPlanesCount"><a href="Codec.BMP.Error.html#errorPlanesCount"><span class="hs-identifier">errorPlanesCount</span></a></a><span>      </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">Word16</span><span> </span><span class="hs-special">}</span><span>
+</span><a name="line-43"></a><span>
+</span><a name="line-44"></a><span>        </span><span class="hs-comment">-- | We only handle 24 and 32 bit images.</span><span>
+</span><a name="line-45"></a><span>        </span><span class="hs-glyph">|</span><span> </span><a name="ErrorUnhandledColorDepth"><a href="Codec.BMP.Error.html#ErrorUnhandledColorDepth"><span class="hs-identifier">ErrorUnhandledColorDepth</span></a></a><span>
+</span><a name="line-46"></a><span>        </span><span class="hs-special">{</span><span> </span><a name="errorColorDepth"><a href="Codec.BMP.Error.html#errorColorDepth"><span class="hs-identifier">errorColorDepth</span></a></a><span>       </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">Word16</span><span> </span><span class="hs-special">}</span><span>
+</span><a name="line-47"></a><span>
+</span><a name="line-48"></a><span>        </span><span class="hs-comment">-- | We only handle uncompressed images.</span><span>
+</span><a name="line-49"></a><span>        </span><span class="hs-glyph">|</span><span> </span><a name="ErrorUnhandledCompressionMode"><a href="Codec.BMP.Error.html#ErrorUnhandledCompressionMode"><span class="hs-identifier">ErrorUnhandledCompressionMode</span></a></a><span>
+</span><a name="line-50"></a><span>        </span><span class="hs-special">{</span><span> </span><a name="errorCompression"><a href="Codec.BMP.Error.html#errorCompression"><span class="hs-identifier">errorCompression</span></a></a><span>      </span><span class="hs-glyph">::</span><span> </span><a href="Codec.BMP.Compression.html#Compression"><span class="hs-identifier hs-type">Compression</span></a><span class="hs-special">}</span><span>
+</span><a name="line-51"></a><span>
+</span><a name="line-52"></a><span>        </span><span class="hs-comment">-- | Mismatch between the image size stated in the header</span><span>
+</span><a name="line-53"></a><span>        </span><span class="hs-comment">--   and that which is calculuated from the other fields.</span><span>
+</span><a name="line-54"></a><span>        </span><span class="hs-glyph">|</span><span> </span><a name="ErrorImagePhysicalSizeMismatch"><a href="Codec.BMP.Error.html#ErrorImagePhysicalSizeMismatch"><span class="hs-identifier">ErrorImagePhysicalSizeMismatch</span></a></a><span> </span><span>
+</span><a name="line-55"></a><span>        </span><span class="hs-special">{</span><span> </span><a name="errorImageSizeFromHeader"><a href="Codec.BMP.Error.html#errorImageSizeFromHeader"><span class="hs-identifier">errorImageSizeFromHeader</span></a></a><span>  </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">Word32</span><span>
+</span><a name="line-56"></a><span>        </span><span class="hs-special">,</span><span> </span><a name="errorImageSizeOfBuffer"><a href="Codec.BMP.Error.html#errorImageSizeOfBuffer"><span class="hs-identifier">errorImageSizeOfBuffer</span></a></a><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">Word32</span><span> </span><span class="hs-special">}</span><span>
+</span><a name="line-57"></a><span>
+</span><a name="line-58"></a><span>        </span><span class="hs-comment">-- | Something went wrong in the library.</span><span>
+</span><a name="line-59"></a><span>        </span><span class="hs-glyph">|</span><span> </span><a name="ErrorInternalErrorPleaseReport"><a href="Codec.BMP.Error.html#ErrorInternalErrorPleaseReport"><span class="hs-identifier">ErrorInternalErrorPleaseReport</span></a></a><span>
+</span><a name="line-60"></a><span>        </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Eq</span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Show</span><span class="hs-special">)</span><span>
+</span><a name="line-61"></a><span>
+</span><a name="line-62"></a></pre></body></html>

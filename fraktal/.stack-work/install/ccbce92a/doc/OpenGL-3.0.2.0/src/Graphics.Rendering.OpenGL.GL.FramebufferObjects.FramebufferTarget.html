@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_HADDOCK hide #-}</span><span>
+</span><a name="line-2"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-3"></a><span class="hs-comment">-- |</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- Module      :  Graphics.Rendering.OpenGL.GL.FramebufferObjects.FramebufferTarget</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- Copyright   :  (c) Sven Panne 2013-2016</span><span>
+</span><a name="line-6"></a><span class="hs-comment">-- License     :  BSD3</span><span>
+</span><a name="line-7"></a><span class="hs-comment">--</span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- Maintainer  :  Sven Panne &lt;svenpanne@gmail.com&gt;</span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- Stability   :  stable</span><span>
+</span><a name="line-10"></a><span class="hs-comment">-- Portability :  portable</span><span>
+</span><a name="line-11"></a><span class="hs-comment">--</span><span>
+</span><a name="line-12"></a><span class="hs-comment">-- This is a purely internal module for marshaling FramebufferTargets.</span><span>
+</span><a name="line-13"></a><span class="hs-comment">--</span><span>
+</span><a name="line-14"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-15"></a><span>
+</span><a name="line-16"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">Rendering</span><span class="hs-operator">.</span><span class="hs-identifier">OpenGL</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">FramebufferObjects</span><span class="hs-operator">.</span><span class="hs-identifier">FramebufferTarget</span><span> </span><span class="hs-special">(</span><span>
+</span><a name="line-17"></a><span>   </span><a href="Graphics.Rendering.OpenGL.GL.FramebufferObjects.FramebufferTarget.html#FramebufferTarget"><span class="hs-identifier hs-type">FramebufferTarget</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.FramebufferObjects.FramebufferTarget.html#marshalFramebufferTarget"><span class="hs-identifier hs-var">marshalFramebufferTarget</span></a><span>
+</span><a name="line-18"></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-19"></a><span>
+</span><a name="line-20"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span>
+</span><a name="line-21"></a><span>
+</span><a name="line-22"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-23"></a><span>
+</span><a name="line-24"></a><span class="hs-keyword">data</span><span> </span><a name="FramebufferTarget"><a href="Graphics.Rendering.OpenGL.GL.FramebufferObjects.FramebufferTarget.html#FramebufferTarget"><span class="hs-identifier">FramebufferTarget</span></a></a><span> </span><span class="hs-glyph">=</span><span>
+</span><a name="line-25"></a><span>     </span><a name="DrawFramebuffer"><a href="Graphics.Rendering.OpenGL.GL.FramebufferObjects.FramebufferTarget.html#DrawFramebuffer"><span class="hs-identifier">DrawFramebuffer</span></a></a><span>
+</span><a name="line-26"></a><span>   </span><span class="hs-glyph">|</span><span> </span><a name="ReadFramebuffer"><a href="Graphics.Rendering.OpenGL.GL.FramebufferObjects.FramebufferTarget.html#ReadFramebuffer"><span class="hs-identifier">ReadFramebuffer</span></a></a><span>
+</span><a name="line-27"></a><span>   </span><span class="hs-glyph">|</span><span> </span><a name="Framebuffer"><a href="Graphics.Rendering.OpenGL.GL.FramebufferObjects.FramebufferTarget.html#Framebuffer"><span class="hs-identifier">Framebuffer</span></a></a><span>
+</span><a name="line-28"></a><span>   </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span> </span><span class="hs-identifier hs-type">Eq</span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Ord</span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Show</span><span> </span><span class="hs-special">)</span><span>
+</span><a name="line-29"></a><span>
+</span><a name="line-30"></a><span class="hs-identifier">marshalFramebufferTarget</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Graphics.Rendering.OpenGL.GL.FramebufferObjects.FramebufferTarget.html#FramebufferTarget"><span class="hs-identifier hs-type">FramebufferTarget</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">GLenum</span><span>
+</span><a name="line-31"></a><a name="marshalFramebufferTarget"><a href="Graphics.Rendering.OpenGL.GL.FramebufferObjects.FramebufferTarget.html#marshalFramebufferTarget"><span class="hs-identifier">marshalFramebufferTarget</span></a></a><span> </span><a name="local-6989586621679076150"><a href="#local-6989586621679076150"><span class="hs-identifier">xs</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">case</span><span> </span><a href="#local-6989586621679076150"><span class="hs-identifier hs-var">xs</span></a><span> </span><span class="hs-keyword">of</span><span>
+</span><a name="line-32"></a><span>   </span><a href="Graphics.Rendering.OpenGL.GL.FramebufferObjects.FramebufferTarget.html#DrawFramebuffer"><span class="hs-identifier hs-var">DrawFramebuffer</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-var">GL_DRAW_FRAMEBUFFER</span><span>
+</span><a name="line-33"></a><span>   </span><a href="Graphics.Rendering.OpenGL.GL.FramebufferObjects.FramebufferTarget.html#ReadFramebuffer"><span class="hs-identifier hs-var">ReadFramebuffer</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-var">GL_READ_FRAMEBUFFER</span><span>
+</span><a name="line-34"></a><span>   </span><a href="Graphics.Rendering.OpenGL.GL.FramebufferObjects.FramebufferTarget.html#Framebuffer"><span class="hs-identifier hs-var">Framebuffer</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-var">GL_FRAMEBUFFER</span><span>
+</span><a name="line-35"></a></pre></body></html>

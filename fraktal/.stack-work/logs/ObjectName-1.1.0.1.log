@@ -1,0 +1,13 @@
+Configuring ObjectName-1.1.0.1...
+Preprocessing library for ObjectName-1.1.0.1..
+Building library for ObjectName-1.1.0.1..
+[1 of 1] Compiling Data.ObjectName  ( src\Data\ObjectName.hs, .stack-work\dist\5c8418a7\build\Data\ObjectName.o )
+Preprocessing library for ObjectName-1.1.0.1..
+Running Haddock on library for ObjectName-1.1.0.1..
+Haddock coverage:
+ 100% (  3 /  3) in 'Data.ObjectName'
+Documentation created:
+.stack-work\dist\5c8418a7\doc\html\ObjectName\index.html,
+.stack-work\dist\5c8418a7\doc\html\ObjectName\ObjectName.txt
+Installing library in C:\sr\snapshots\13cecb13\lib\x86_64-windows-ghc-8.2.2\ObjectName-1.1.0.1-58ew0cFh5VM5GjxQzU6x3P
+Registering library for ObjectName-1.1.0.1..

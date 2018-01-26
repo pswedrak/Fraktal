@@ -1,0 +1,171 @@
+Configuring QuickCheck-2.10.1...
+Preprocessing library for QuickCheck-2.10.1..
+Building library for QuickCheck-2.10.1..
+[ 1 of 15] Compiling Test.QuickCheck.Exception ( Test\QuickCheck\Exception.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\Exception.o )
+[ 2 of 15] Compiling Test.QuickCheck.Random ( Test\QuickCheck\Random.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\Random.o )
+[ 3 of 15] Compiling Test.QuickCheck.Gen ( Test\QuickCheck\Gen.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\Gen.o )
+[ 4 of 15] Compiling Test.QuickCheck.Gen.Unsafe ( Test\QuickCheck\Gen\Unsafe.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\Gen\Unsafe.o )
+[ 5 of 15] Compiling Test.QuickCheck.Arbitrary ( Test\QuickCheck\Arbitrary.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\Arbitrary.o )
+[ 6 of 15] Compiling Test.QuickCheck.Poly ( Test\QuickCheck\Poly.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\Poly.o )
+[ 7 of 15] Compiling Test.QuickCheck.Modifiers ( Test\QuickCheck\Modifiers.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\Modifiers.o )
+[ 8 of 15] Compiling Test.QuickCheck.Function ( Test\QuickCheck\Function.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\Function.o )
+[ 9 of 15] Compiling Test.QuickCheck.Text ( Test\QuickCheck\Text.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\Text.o )
+[10 of 15] Compiling Test.QuickCheck.State ( Test\QuickCheck\State.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\State.o )
+[11 of 15] Compiling Test.QuickCheck.Property ( Test\QuickCheck\Property.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\Property.o )
+[12 of 15] Compiling Test.QuickCheck.Test ( Test\QuickCheck\Test.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\Test.o )
+[13 of 15] Compiling Test.QuickCheck.Monadic ( Test\QuickCheck\Monadic.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\Monadic.o )
+[14 of 15] Compiling Test.QuickCheck.All ( Test\QuickCheck\All.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck\All.o )
+[15 of 15] Compiling Test.QuickCheck  ( Test\QuickCheck.hs, .stack-work\dist\5c8418a7\build\Test\QuickCheck.o )
+Preprocessing library for QuickCheck-2.10.1..
+Running Haddock on library for QuickCheck-2.10.1..
+Haddock coverage:
+  33% (  3 /  9) in 'Test.QuickCheck.Exception'
+  Missing documentation for:
+    AnException (Test\QuickCheck\Exception.hs:23)
+    tryEvaluate (Test\QuickCheck\Exception.hs:55)
+    tryEvaluateIO (Test\QuickCheck\Exception.hs:58)
+    evaluate (Test\QuickCheck\Exception.hs:74)
+    isDiscard (Test\QuickCheck\Exception.hs:93)
+    finally (Test\QuickCheck\Exception.hs:108)
+  10% (  2 / 20) in 'Test.QuickCheck.Random'
+  Missing documentation for:
+    newTheGen (Test\QuickCheck\Random.hs:17)
+    bits (Test\QuickCheck\Random.hs:20)
+    mask (Test\QuickCheck\Random.hs:20)
+    doneBit (Test\QuickCheck\Random.hs:20)
+    chip (Test\QuickCheck\Random.hs:25)
+    chop (Test\QuickCheck\Random.hs:30)
+    stop (Test\QuickCheck\Random.hs:33)
+    mkTheGen (Test\QuickCheck\Random.hs:36)
+     (Test\QuickCheck\Random.hs:65)
+     (Test\QuickCheck\Random.hs:67)
+     (Test\QuickCheck\Random.hs:70)
+    newQCGen (Test\QuickCheck\Random.hs:79)
+    mkQCGen (Test\QuickCheck\Random.hs:82)
+    bigNatVariant (Test\QuickCheck\Random.hs:85)
+    natVariant (Test\QuickCheck\Random.hs:91)
+    variantTheGen (Test\QuickCheck\Random.hs:97)
+    boolVariant (Test\QuickCheck\Random.hs:103)
+    variantQCGen (Test\QuickCheck\Random.hs:107)
+  90% ( 28 / 31) in 'Test.QuickCheck.Gen'
+  Missing documentation for:
+     (Test\QuickCheck\Gen.hs:45)
+     (Test\QuickCheck\Gen.hs:49)
+     (Test\QuickCheck\Gen.hs:53)
+  80% (  4 /  5) in 'Test.QuickCheck.Gen.Unsafe'
+  Missing documentation for:
+    Capture (Test\QuickCheck\Gen\Unsafe.hs:53)
+  91% ( 40 / 44) in 'Test.QuickCheck.Arbitrary'
+  Missing documentation for:
+    arbitrary1 (Test\QuickCheck\Arbitrary.hs:269)
+    shrink1 (Test\QuickCheck\Arbitrary.hs:272)
+    arbitrary2 (Test\QuickCheck\Arbitrary.hs:281)
+    shrink2 (Test\QuickCheck\Arbitrary.hs:284)
+  14% (  1 /  7) in 'Test.QuickCheck.Poly'
+  Missing documentation for:
+    A (Test\QuickCheck\Poly.hs:29)
+    B (Test\QuickCheck\Poly.hs:44)
+    C (Test\QuickCheck\Poly.hs:59)
+    OrdA (Test\QuickCheck\Poly.hs:77)
+    OrdB (Test\QuickCheck\Poly.hs:112)
+    OrdC (Test\QuickCheck\Poly.hs:146)
+  94% ( 17 / 18) in 'Test.QuickCheck.Modifiers'
+  Missing documentation for:
+    ShrinkState (Test\QuickCheck\Modifiers.hs:327)
+ 100% ( 16 / 16) in 'Test.QuickCheck.Function'
+   6% (  1 / 18) in 'Test.QuickCheck.Text'
+  Missing documentation for:
+    Str (Test\QuickCheck\Text.hs:46)
+    ranges (Test\QuickCheck\Text.hs:51)
+    number (Test\QuickCheck\Text.hs:59)
+    short (Test\QuickCheck\Text.hs:62)
+    showErr (Test\QuickCheck\Text.hs:70)
+    oneLine (Test\QuickCheck\Text.hs:73)
+    isOneLine (Test\QuickCheck\Text.hs:76)
+    bold (Test\QuickCheck\Text.hs:79)
+    newTerminal (Test\QuickCheck\Text.hs:90)
+    withStdioTerminal (Test\QuickCheck\Text.hs:104)
+    withNullTerminal (Test\QuickCheck\Text.hs:110)
+    terminalOutput (Test\QuickCheck\Text.hs:114)
+    handle (Test\QuickCheck\Text.hs:117)
+    Terminal (Test\QuickCheck\Text.hs:87)
+    putTemp (Test\QuickCheck\Text.hs:128)
+    putPart (Test\QuickCheck\Text.hs:128)
+    putLine (Test\QuickCheck\Text.hs:128)
+ 100% (  2 /  2) in 'Test.QuickCheck.State'
+  62% ( 47 / 76) in 'Test.QuickCheck.Property'
+  Missing documentation for:
+     (Test\QuickCheck\Property.hs:90)
+     (Test\QuickCheck\Property.hs:94)
+     (Test\QuickCheck\Property.hs:101)
+     (Test\QuickCheck\Property.hs:104)
+     (Test\QuickCheck\Property.hs:107)
+     (Test\QuickCheck\Property.hs:110)
+     (Test\QuickCheck\Property.hs:113)
+     (Test\QuickCheck\Property.hs:131)
+    protect (Test\QuickCheck\Property.hs:135)
+    Prop (Test\QuickCheck\Property.hs:141)
+    Rose (Test\QuickCheck\Property.hs:145)
+    ioRose (Test\QuickCheck\Property.hs:148)
+    joinRose (Test\QuickCheck\Property.hs:151)
+     (Test\QuickCheck\Property.hs:160)
+     (Test\QuickCheck\Property.hs:165)
+     (Test\QuickCheck\Property.hs:170)
+    CallbackKind (Test\QuickCheck\Property.hs:204)
+    exception (Test\QuickCheck\Property.hs:222)
+    formatException (Test\QuickCheck\Property.hs:228)
+    protectResult (Test\QuickCheck\Property.hs:233)
+    succeeded (Test\QuickCheck\Property.hs:236)
+    failed (Test\QuickCheck\Property.hs:236)
+    rejected (Test\QuickCheck\Property.hs:236)
+    liftBool (Test\QuickCheck\Property.hs:259)
+    mapResult (Test\QuickCheck\Property.hs:263)
+    mapTotalResult (Test\QuickCheck\Property.hs:266)
+    mapRoseResult (Test\QuickCheck\Property.hs:270)
+    mapProp (Test\QuickCheck\Property.hs:273)
+    showCounterexample (Test\QuickCheck\Property.hs:311)
+  47% ( 14 / 30) in 'Test.QuickCheck.Test'
+  Missing documentation for:
+    test (Test\QuickCheck\Test.hs:208)
+    doneTesting (Test\QuickCheck\Test.hs:217)
+    giveUp (Test\QuickCheck\Test.hs:247)
+    runATest (Test\QuickCheck\Test.hs:263)
+    summary (Test\QuickCheck\Test.hs:333)
+    success (Test\QuickCheck\Test.hs:346)
+    formatLabel (Test\QuickCheck\Test.hs:365)
+    labelCount (Test\QuickCheck\Test.hs:380)
+    percentage (Test\QuickCheck\Test.hs:386)
+    insufficientlyCovered (Test\QuickCheck\Test.hs:390)
+    foundFailure (Test\QuickCheck\Test.hs:400)
+    localMin (Test\QuickCheck\Test.hs:404)
+    localMin' (Test\QuickCheck\Test.hs:436)
+    localMinFound (Test\QuickCheck\Test.hs:448)
+    callbackPostTest (Test\QuickCheck\Test.hs:473)
+    callbackPostFinalFailure (Test\QuickCheck\Test.hs:478)
+  78% ( 14 / 18) in 'Test.QuickCheck.Monadic'
+  Missing documentation for:
+    stop (Test\QuickCheck\Monadic.hs:141)
+    monadic (Test\QuickCheck\Monadic.hs:227)
+    monadic' (Test\QuickCheck\Monadic.hs:230)
+    runSTGen (Test\QuickCheck\Monadic.hs:269)
+ 100% (  9 /  9) in 'Test.QuickCheck.All'
+  97% (152 /157) in 'Test.QuickCheck'
+  Missing documentation for:
+    arbitrary1 (Test\QuickCheck\Arbitrary.hs:269)
+    shrink1 (Test\QuickCheck\Arbitrary.hs:272)
+    arbitrary2 (Test\QuickCheck\Arbitrary.hs:281)
+    shrink2 (Test\QuickCheck\Arbitrary.hs:284)
+    ShrinkState (Test\QuickCheck\Modifiers.hs:327)
+Warning: Test.QuickCheck.Arbitrary: could not find link destinations for:
+    GCoArbitrary RecursivelyShrink GSubterms gSubterms gSubtermsIncl
+Warning: Test.QuickCheck.Modifiers: could not find link destinations for:
+    unsafeIndex unsafeRangeSize
+Warning: Test.QuickCheck.Function: could not find link destinations for:
+    Shrunk GFunction
+Warning: Test.QuickCheck: could not find link destinations for:
+    GCoArbitrary RecursivelyShrink GSubterms unsafeIndex unsafeRangeSize GFunction
+Documentation created:
+.stack-work\dist\5c8418a7\doc\html\QuickCheck\index.html,
+.stack-work\dist\5c8418a7\doc\html\QuickCheck\QuickCheck.txt
+Installing library in C:\sr\snapshots\13cecb13\lib\x86_64-windows-ghc-8.2.2\QuickCheck-2.10.1-Ewacc04OJICEFWthkI3IgS
+Registering library for QuickCheck-2.10.1..

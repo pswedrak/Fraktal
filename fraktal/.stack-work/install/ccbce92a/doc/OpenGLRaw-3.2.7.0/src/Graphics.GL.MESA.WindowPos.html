@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-2"></a><span class="hs-comment">-- |</span><span>
+</span><a name="line-3"></a><span class="hs-comment">-- Module      :  Graphics.GL.MESA.WindowPos</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- Copyright   :  (c) Sven Panne 2017</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- License     :  BSD3</span><span>
+</span><a name="line-6"></a><span class="hs-comment">--</span><span>
+</span><a name="line-7"></a><span class="hs-comment">-- Maintainer  :  Sven Panne &lt;svenpanne@gmail.com&gt;</span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- Stability   :  stable</span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- Portability :  portable</span><span>
+</span><a name="line-10"></a><span class="hs-comment">--</span><span>
+</span><a name="line-11"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-12"></a><span>
+</span><a name="line-13"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">MESA</span><span class="hs-operator">.</span><span class="hs-identifier">WindowPos</span><span> </span><span class="hs-special">(</span><span>
+</span><a name="line-14"></a><span>  </span><span class="hs-comment">-- * Extension Support</span><span>
+</span><a name="line-15"></a><span>  </span><a href="Graphics.GL.ExtensionPredicates.html#glGetMESAWindowPos"><span class="hs-identifier hs-var">glGetMESAWindowPos</span></a><span class="hs-special">,</span><span>
+</span><a name="line-16"></a><span>  </span><a href="Graphics.GL.ExtensionPredicates.html#gl_MESA_window_pos"><span class="hs-identifier hs-var">gl_MESA_window_pos</span></a><span class="hs-special">,</span><span>
+</span><a name="line-17"></a><span>  </span><span class="hs-comment">-- * Functions</span><span>
+</span><a name="line-18"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2dMESA"><span class="hs-identifier hs-var">glWindowPos2dMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-19"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2dvMESA"><span class="hs-identifier hs-var">glWindowPos2dvMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-20"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2fMESA"><span class="hs-identifier hs-var">glWindowPos2fMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-21"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2fvMESA"><span class="hs-identifier hs-var">glWindowPos2fvMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-22"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2iMESA"><span class="hs-identifier hs-var">glWindowPos2iMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-23"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2ivMESA"><span class="hs-identifier hs-var">glWindowPos2ivMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-24"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2sMESA"><span class="hs-identifier hs-var">glWindowPos2sMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-25"></a><span>  </span><a href="Graphics.GL.Functions.F32.html#glWindowPos2svMESA"><span class="hs-identifier hs-var">glWindowPos2svMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-26"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3dMESA"><span class="hs-identifier hs-var">glWindowPos3dMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-27"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3dvMESA"><span class="hs-identifier hs-var">glWindowPos3dvMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-28"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3fMESA"><span class="hs-identifier hs-var">glWindowPos3fMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-29"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3fvMESA"><span class="hs-identifier hs-var">glWindowPos3fvMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-30"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3iMESA"><span class="hs-identifier hs-var">glWindowPos3iMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-31"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3ivMESA"><span class="hs-identifier hs-var">glWindowPos3ivMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-32"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3sMESA"><span class="hs-identifier hs-var">glWindowPos3sMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-33"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos3svMESA"><span class="hs-identifier hs-var">glWindowPos3svMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-34"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos4dMESA"><span class="hs-identifier hs-var">glWindowPos4dMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-35"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos4dvMESA"><span class="hs-identifier hs-var">glWindowPos4dvMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-36"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos4fMESA"><span class="hs-identifier hs-var">glWindowPos4fMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-37"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos4fvMESA"><span class="hs-identifier hs-var">glWindowPos4fvMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-38"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos4iMESA"><span class="hs-identifier hs-var">glWindowPos4iMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-39"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos4ivMESA"><span class="hs-identifier hs-var">glWindowPos4ivMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-40"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos4sMESA"><span class="hs-identifier hs-var">glWindowPos4sMESA</span></a><span class="hs-special">,</span><span>
+</span><a name="line-41"></a><span>  </span><a href="Graphics.GL.Functions.F33.html#glWindowPos4svMESA"><span class="hs-identifier hs-var">glWindowPos4svMESA</span></a><span>
+</span><a name="line-42"></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-43"></a><span>
+</span><a name="line-44"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.GL.ExtensionPredicates.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">ExtensionPredicates</span></a><span>
+</span><a name="line-45"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.GL.Functions.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">Functions</span></a><span>
+</span><a name="line-46"></a></pre></body></html>

@@ -1,0 +1,40 @@
+Configuring hspec-expectations-0.8.2...
+Preprocessing library for hspec-expectations-0.8.2..
+Building library for hspec-expectations-0.8.2..
+[1 of 4] Compiling Paths_hspec_expectations ( .stack-work\dist\5c8418a7\build\autogen\Paths_hspec_expectations.hs, .stack-work\dist\5c8418a7\build\Paths_hspec_expectations.o )
+[2 of 4] Compiling Test.Hspec.Expectations.Contrib ( src\Test\Hspec\Expectations\Contrib.hs, .stack-work\dist\5c8418a7\build\Test\Hspec\Expectations\Contrib.o )
+[3 of 4] Compiling Test.Hspec.Expectations.Matcher ( src\Test\Hspec\Expectations\Matcher.hs, .stack-work\dist\5c8418a7\build\Test\Hspec\Expectations\Matcher.o )
+[4 of 4] Compiling Test.Hspec.Expectations ( src\Test\Hspec\Expectations.hs, .stack-work\dist\5c8418a7\build\Test\Hspec\Expectations.o )
+Preprocessing library for hspec-expectations-0.8.2..
+Running Haddock on library for hspec-expectations-0.8.2..
+Haddock coverage:
+   0% (  0 /  9) in 'Paths_hspec_expectations'
+  Missing documentation for:
+    Module header
+    version (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_expectations.hs:28)
+    getBinDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_expectations.hs:39)
+    getLibDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_expectations.hs:39)
+    getDynLibDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_expectations.hs:39)
+    getDataDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_expectations.hs:39)
+    getLibexecDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_expectations.hs:39)
+    getDataFileName (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_expectations.hs:47)
+    getSysconfDir (.stack-work\dist\5c8418a7\build\autogen\Paths_hspec_expectations.hs:39)
+ 100% (  5 /  5) in 'Test.Hspec.Expectations.Contrib'
+   0% (  0 /  2) in 'Test.Hspec.Expectations.Matcher'
+  Missing documentation for:
+    Module header
+    matchList (src\Test\Hspec\Expectations\Matcher.hs:6)
+  77% ( 23 / 30) in 'Test.Hspec.Expectations'
+  Missing documentation for:
+    Expectation (src\Test\Hspec\Expectations.hs:76)
+    expectationFailure (src\Test\Hspec\Expectations.hs:78)
+    anyException (src\Test\Hspec\Expectations.hs:182)
+    anyErrorCall (src\Test\Hspec\Expectations.hs:185)
+    anyIOException (src\Test\Hspec\Expectations.hs:195)
+    anyArithException (src\Test\Hspec\Expectations.hs:198)
+    errorCall (src\Test\Hspec\Expectations.hs:188)
+Documentation created:
+.stack-work\dist\5c8418a7\doc\html\hspec-expectations\index.html,
+.stack-work\dist\5c8418a7\doc\html\hspec-expectations\hspec-expectations.txt
+Installing library in C:\sr\snapshots\13cecb13\lib\x86_64-windows-ghc-8.2.2\hspec-expectations-0.8.2-u0Nf5sZGE0ADGpjIcTPpI
+Registering library for hspec-expectations-0.8.2..

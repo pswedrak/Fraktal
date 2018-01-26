@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><a name="line-2"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-3"></a><span class="hs-comment">-- |</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- Module      :  Graphics.GL.ARB.SamplerObjects</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- Copyright   :  (c) Sven Panne 2017</span><span>
+</span><a name="line-6"></a><span class="hs-comment">-- License     :  BSD3</span><span>
+</span><a name="line-7"></a><span class="hs-comment">--</span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- Maintainer  :  Sven Panne &lt;svenpanne@gmail.com&gt;</span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- Stability   :  stable</span><span>
+</span><a name="line-10"></a><span class="hs-comment">-- Portability :  portable</span><span>
+</span><a name="line-11"></a><span class="hs-comment">--</span><span>
+</span><a name="line-12"></a><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><a name="line-13"></a><span>
+</span><a name="line-14"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">ARB</span><span class="hs-operator">.</span><span class="hs-identifier">SamplerObjects</span><span> </span><span class="hs-special">(</span><span>
+</span><a name="line-15"></a><span>  </span><span class="hs-comment">-- * Extension Support</span><span>
+</span><a name="line-16"></a><span>  </span><a href="Graphics.GL.ExtensionPredicates.html#glGetARBSamplerObjects"><span class="hs-identifier hs-var">glGetARBSamplerObjects</span></a><span class="hs-special">,</span><span>
+</span><a name="line-17"></a><span>  </span><a href="Graphics.GL.ExtensionPredicates.html#gl_ARB_sampler_objects"><span class="hs-identifier hs-var">gl_ARB_sampler_objects</span></a><span class="hs-special">,</span><span>
+</span><a name="line-18"></a><span>  </span><span class="hs-comment">-- * Enums</span><span>
+</span><a name="line-19"></a><span>  </span><a href="Graphics.GL.Tokens.html#GL_SAMPLER_BINDING"><span class="hs-identifier hs-var">pattern</span></a><span> </span><a href="Graphics.GL.Tokens.html#GL_SAMPLER_BINDING"><span class="hs-identifier hs-var">GL_SAMPLER_BINDING</span></a><span class="hs-special">,</span><span>
+</span><a name="line-20"></a><span>  </span><span class="hs-comment">-- * Functions</span><span>
+</span><a name="line-21"></a><span>  </span><a href="Graphics.GL.Functions.F01.html#glBindSampler"><span class="hs-identifier hs-var">glBindSampler</span></a><span class="hs-special">,</span><span>
+</span><a name="line-22"></a><span>  </span><a href="Graphics.GL.Functions.F05.html#glDeleteSamplers"><span class="hs-identifier hs-var">glDeleteSamplers</span></a><span class="hs-special">,</span><span>
+</span><a name="line-23"></a><span>  </span><a href="Graphics.GL.Functions.F09.html#glGenSamplers"><span class="hs-identifier hs-var">glGenSamplers</span></a><span class="hs-special">,</span><span>
+</span><a name="line-24"></a><span>  </span><a href="Graphics.GL.Functions.F12.html#glGetSamplerParameterIiv"><span class="hs-identifier hs-var">glGetSamplerParameterIiv</span></a><span class="hs-special">,</span><span>
+</span><a name="line-25"></a><span>  </span><a href="Graphics.GL.Functions.F12.html#glGetSamplerParameterIuiv"><span class="hs-identifier hs-var">glGetSamplerParameterIuiv</span></a><span class="hs-special">,</span><span>
+</span><a name="line-26"></a><span>  </span><a href="Graphics.GL.Functions.F12.html#glGetSamplerParameterfv"><span class="hs-identifier hs-var">glGetSamplerParameterfv</span></a><span class="hs-special">,</span><span>
+</span><a name="line-27"></a><span>  </span><a href="Graphics.GL.Functions.F12.html#glGetSamplerParameteriv"><span class="hs-identifier hs-var">glGetSamplerParameteriv</span></a><span class="hs-special">,</span><span>
+</span><a name="line-28"></a><span>  </span><a href="Graphics.GL.Functions.F15.html#glIsSampler"><span class="hs-identifier hs-var">glIsSampler</span></a><span class="hs-special">,</span><span>
+</span><a name="line-29"></a><span>  </span><a href="Graphics.GL.Functions.F23.html#glSamplerParameterIiv"><span class="hs-identifier hs-var">glSamplerParameterIiv</span></a><span class="hs-special">,</span><span>
+</span><a name="line-30"></a><span>  </span><a href="Graphics.GL.Functions.F23.html#glSamplerParameterIuiv"><span class="hs-identifier hs-var">glSamplerParameterIuiv</span></a><span class="hs-special">,</span><span>
+</span><a name="line-31"></a><span>  </span><a href="Graphics.GL.Functions.F23.html#glSamplerParameterf"><span class="hs-identifier hs-var">glSamplerParameterf</span></a><span class="hs-special">,</span><span>
+</span><a name="line-32"></a><span>  </span><a href="Graphics.GL.Functions.F23.html#glSamplerParameterfv"><span class="hs-identifier hs-var">glSamplerParameterfv</span></a><span class="hs-special">,</span><span>
+</span><a name="line-33"></a><span>  </span><a href="Graphics.GL.Functions.F23.html#glSamplerParameteri"><span class="hs-identifier hs-var">glSamplerParameteri</span></a><span class="hs-special">,</span><span>
+</span><a name="line-34"></a><span>  </span><a href="Graphics.GL.Functions.F23.html#glSamplerParameteriv"><span class="hs-identifier hs-var">glSamplerParameteriv</span></a><span>
+</span><a name="line-35"></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-36"></a><span>
+</span><a name="line-37"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.GL.ExtensionPredicates.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">ExtensionPredicates</span></a><span>
+</span><a name="line-38"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.GL.Tokens.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">Tokens</span></a><span>
+</span><a name="line-39"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.GL.Functions.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">GL</span><span class="hs-operator">.</span><span class="hs-identifier">Functions</span></a><span>
+</span><a name="line-40"></a></pre></body></html>
